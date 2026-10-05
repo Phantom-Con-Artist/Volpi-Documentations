@@ -1,0 +1,18 @@
+/** The Volpi app icon: a fox face cut into the red seal (promotion/out/brand/fox-seal.svg). */
+export function FoxSeal({ className = '' }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 1024 1024" aria-hidden="true">
+      <rect x="72" y="72" width="880" height="880" rx="190" fill="#c0383e" />
+      <rect x="128" y="128" width="768" height="768" rx="148" fill="none" stroke="#f4efe4" strokeWidth="18" strokeOpacity=".9" />
+      <g transform="translate(512 512) scale(.8) translate(-512 -505)">
+        <polygon points="226,150 402,334 622,334 798,150 818,420 868,548 694,604 512,860 330,604 156,548 206,420" fill="#f4efe4" stroke="#f4efe4" strokeWidth="12" strokeLinejoin="round" />
+        <polygon points="252,222 370,346 262,410" fill="#c0383e" />
+        <polygon points="772,222 654,346 762,410" fill="#c0383e" />
+        <polygon points="156,548 400,600 512,860" fill="#c0383e" fillOpacity=".18" />
+        <polygon points="868,548 624,600 512,860" fill="#c0383e" fillOpacity=".18" />
+        <path d="M396 486 l52 -16 M628 486 l-52 -16" stroke="#c0383e" strokeWidth="30" strokeLinecap="round" />
+        <path d="M482 800 L542 800 L512 842 Z" fill="#c0383e" stroke="#c0383e" strokeWidth="10" strokeLinejoin="round" />
+      </g>
+    </svg>
+  );
+}

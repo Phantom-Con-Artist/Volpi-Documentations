@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Volpi · Specimen 2</title>
+<meta name="description" content="Read slowly. Link what you find. A desk for your papers, notes, data and drafts, kept in plain files on your own computer." />
+<link rel="icon" type="image/svg+xml" href="/assets/brand/fox-seal.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500&family=Zen+Old+Mincho:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+  /* A printed book: one paper, one ink, red for rubrics and the seal, indigo for links. */
+  :root {
+    --paper: #f3ecdc;
+    --slip: #faf6ec;
+    --ink: #1d1c21;
+    --ink-2: #4a463f;
+    --ink-3: #7a7366;
+    --rule: rgb(29 28 33 / .22);
+    --rule-soft: rgb(29 28 33 / .1);
+    --rubric: #b5363c;
+    --link: #2e4a8b;
+
+    --serif: "Zen Old Mincho", "Iowan Old Style", Georgia, serif;
+    --sans: "Zen Maru Gothic", system-ui, sans-serif;
+
+    --text: 620px;
+    --wide: 1240px;
+    --gx: clamp(16px, 4vw, 44px);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 18px/1.75 var(--serif);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img, video { display: block; }
+  a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  ::selection { background: #f6d873; }
+  h1, h2, h3 { font-weight: 600; margin: 0; letter-spacing: -.01em; }
+  p { margin: 0; }
+
+  .wide { max-width: var(--wide); margin: 0 auto; padding: 0 var(--gx); }
+  .smallcaps {
+    font: 500 12px/1.4 var(--sans);
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+
+  /* Buttons: square, printed, no shadow */
+  .btn {
+    display: inline-block;
+    padding: 14px 26px;
+    border: 1px solid var(--ink);
+    background: var(--ink);
+    color: var(--paper);
+    font: 500 15px/1 var(--sans);
+    letter-spacing: .04em;
+    text-decoration: none;
+    transition: background .2s ease, color .2s ease;
+  }
+  .btn:hover { background: transparent; color: var(--ink); }
+  .btn:focus-visible, a:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; }
+  .textlink { font: 400 16px/1 var(--serif); color: var(--ink); }
+  .textlink:hover { color: var(--link); }
+
+  /* Running head */
+  .running {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .brand { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; }
+  .brand svg { width: 26px; height: 26px; }
+  .brand span { font: 600 20px/1 var(--serif); }
+  .running nav { display: flex; gap: 30px; }
+  .running nav a { font: 400 15px/1 var(--serif); color: var(--ink-2); text-decoration: none; }
+  .running nav a:hover { color: var(--ink); text-decoration: underline; }
+
+  /* Title page */
+  .title { text-align: center; padding: clamp(72px, 12vw, 150px) 0 clamp(56px, 8vw, 96px); }
+  .title h1 { font-size: clamp(2.7rem, 7vw, 5.4rem); line-height: 1.06; margin: 26px 0 30px; }
+  .title p.sub { font-size: clamp(1.05rem, 1.7vw, 1.2rem); color: var(--ink-2); max-width: 28em; margin: 0 auto 40px; }
+  .title .actions { display: flex; justify-content: center; align-items: center; gap: 28px; flex-wrap: wrap; }
+  .title .fine { margin-top: 28px; font: 400 13px/1.5 var(--sans); color: var(--ink-3); letter-spacing: .02em; }
+
+  /* Figures: zoomed in on the part that matters */
+  figure { margin: 0; }
+  .frame {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    border: 1px solid var(--ink);
+    background: #fffcf5;
+  }
+  .frame > video, .frame > img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transform: scale(var(--s, 1));
+    transform-origin: var(--o, 50% 50%);
+  }
+  .frame.raw { aspect-ratio: 16 / 10; }
+  figcaption {
+    display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+    padding-top: 12px;
+    font: 400 14px/1.5 var(--serif);
+    color: var(--ink-2);
+  }
+  figcaption b { font-weight: 600; color: var(--ink); }
+  figcaption .aside { color: var(--ink-3); }
+
+  /* Contents */
+  .contents { padding: clamp(80px, 11vw, 130px) 0; }
+  .contents .inner { max-width: var(--text); margin: 0 auto; }
+  .contents h2 { font-size: 15px; text-align: center; font-family: var(--sans); font-weight: 500; letter-spacing: .3em; text-transform: uppercase; margin-bottom: 40px; color: var(--ink-2); }
+  .toc { list-style: none; margin: 0; padding: 0; }
+  .toc a {
+    display: flex; align-items: baseline; gap: 10px;
+    padding: 9px 0;
+    color: var(--ink); text-decoration: none;
+    font-size: 19px;
+  }
+  .toc .n { width: 2.2em; color: var(--rubric); }
+  .toc .dots { flex: 1; border-bottom: 1px dotted var(--ink-3); transform: translateY(-5px); }
+  .toc .pg { color: var(--ink-3); font-variant-numeric: oldstyle-nums; }
+  .toc a:hover .t { color: var(--link); }
+
+  /* Preface */
+  .preface { max-width: var(--text); margin: 0 auto; padding-bottom: clamp(80px, 11vw, 130px); }
+  .preface p { font-size: clamp(1.15rem, 2vw, 1.35rem); line-height: 1.7; }
+  .preface p::first-letter {
+    float: left;
+    font-size: 4.1em; line-height: .82;
+    padding: .08em .09em 0 0;
+    color: var(--rubric);
+    font-weight: 600;
+  }
+
+  /* Chapters */
+  .chapter { padding: clamp(72px, 10vw, 120px) 0; border-top: 1px solid var(--rule); }
+  .chapter-text {
+    display: grid;
+    grid-template-columns: minmax(0, var(--text)) 240px;
+    justify-content: space-between;
+    gap: 48px;
+    margin-bottom: clamp(36px, 5vw, 56px);
+  }
+  .chapter .rubric { font: 600 22px/1 var(--serif); color: var(--rubric); }
+  .chapter h2 { font-size: clamp(2.2rem, 4.4vw, 3.3rem); line-height: 1.1; margin: 16px 0 18px; }
+  .chapter .lead { font-size: 1.15rem; color: var(--ink-2); max-width: 30em; }
+  .note {
+    align-self: end;
+    border-top: 1px solid var(--rule);
+    padding-top: 10px;
+    font: 400 14px/1.6 var(--serif);
+    color: var(--ink-2);
+  }
+  .note sup, .chapter sup { color: var(--rubric); font-size: .7em; }
+
+  /* Appendix table */
+  .appendix .inner { max-width: 820px; margin: 0 auto; }
+  .appendix h2 { font-size: clamp(1.9rem, 3.4vw, 2.5rem); margin: 16px 0 34px; }
+  table { width: 100%; border-collapse: collapse; font-size: 17px; }
+  th, td { text-align: left; padding: 13px 0; border-bottom: 1px solid var(--rule-soft); vertical-align: baseline; }
+  thead th { font: 500 12px/1 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--ink-3); border-bottom: 1px solid var(--ink); }
+  td:first-child { width: 34%; color: var(--ink-2); }
+  .appendix .after { margin-top: 26px; color: var(--ink-2); font-size: 16px; }
+
+  /* Errata slip */
+  .errata-wrap { display: flex; justify-content: center; }
+  .errata {
+    position: relative;
+    width: min(100%, 560px);
+    background: var(--slip);
+    border: 1px solid var(--rule);
+    padding: 40px 44px 44px;
+    transform: rotate(.8deg);
+    box-shadow: 0 18px 36px -24px rgb(29 28 33 / .45);
+  }
+  .errata h2 { font-size: 28px; text-align: center; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; }
+  .errata .sub { text-align: center; font-size: 15px; color: var(--ink-3); margin: 6px 0 26px; }
+  .errata ol { margin: 0; padding: 0; list-style: none; counter-reset: e; }
+  .errata li {
+    counter-increment: e;
+    display: grid; grid-template-columns: 2.4em 1fr;
+    padding: 9px 0;
+    border-top: 1px solid var(--rule-soft);
+    font-size: 16.5px;
+  }
+  .errata li::before { content: "p. " counter(e); font: 400 12px/2.2 var(--sans); color: var(--ink-3); }
+  .errata li span { display: block; font-size: 14px; color: var(--ink-3); }
+  .errata .stamp {
+    position: absolute; right: -22px; bottom: -26px;
+    width: 76px; height: 76px;
+    transform: rotate(-14deg);
+    opacity: .86;
+    mix-blend-mode: multiply;
+  }
+
+  /* Close */
+  .close { text-align: center; padding: clamp(100px, 14vw, 170px) 0; }
+  .close h2 { font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1.1; margin-bottom: 20px; }
+  .close p { color: var(--ink-2); margin-bottom: 40px; }
+
+  /* Colophon */
+  .colophon { border-top: 1px solid var(--ink); padding: 56px 0 64px; text-align: center; }
+  .colophon svg { width: 38px; height: 38px; margin: 0 auto 18px; }
+  .colophon p { font-size: 15px; color: var(--ink-2); line-height: 1.8; }
+  .colophon nav { margin-top: 18px; display: flex; gap: 26px; justify-content: center; }
+  .colophon nav a { font-size: 15px; color: var(--ink); }
+
+  /* Motion */
+  .fade { opacity: 0; transition: opacity .9s ease; }
+  .fade.in { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .fade { opacity: 1; transition: none; }
+  }
+
+  @media (max-width: 860px) {
+    .running nav a:not(:last-child) { display: none; }
+    .chapter-text { grid-template-columns: 1fr; gap: 24px; }
+    .note { max-width: 30em; }
+    .frame { aspect-ratio: 4 / 3; }
+    figcaption .aside { display: none; }
+    .errata { padding: 32px 24px 36px; transform: none; }
+    .errata .stamp { right: 8px; bottom: -22px; }
+    td:first-child { width: 42%; }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="seal" viewBox="0 0 1024 1024">
+    <rect x="72" y="72" width="880" height="880" rx="190" fill="#c0383e"/>
+    <rect x="128" y="128" width="768" height="768" rx="148" fill="none" stroke="#f4efe4" stroke-width="18" stroke-opacity=".9"/>
+    <g transform="translate(512 512) scale(.8) translate(-512 -505)">
+      <polygon points="226,150 402,334 622,334 798,150 818,420 868,548 694,604 512,860 330,604 156,548 206,420" fill="#f4efe4" stroke="#f4efe4" stroke-width="12" stroke-linejoin="round"/>
+      <polygon points="252,222 370,346 262,410" fill="#c0383e"/><polygon points="772,222 654,346 762,410" fill="#c0383e"/>
+      <polygon points="156,548 400,600 512,860" fill="#c0383e" fill-opacity=".18"/><polygon points="868,548 624,600 512,860" fill="#c0383e" fill-opacity=".18"/>
+      <path d="M396 486 l52 -16 M628 486 l-52 -16" stroke="#c0383e" stroke-width="30" stroke-linecap="round"/>
+      <path d="M482 800 L542 800 L512 842 Z" fill="#c0383e" stroke="#c0383e" stroke-width="10" stroke-linejoin="round"/>
+    </g>
+  </symbol>
+</svg>
+
+<header class="wide">
+  <div class="running">
+    <a class="brand" href="#"><svg><use href="#seal"/></svg><span>Volpi</span></a>
+    <nav>
+      <a href="#contents">Contents</a>
+      <a href="#errata">Errata</a>
+      <a href="#download">Download</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="title wide">
+    <span class="smallcaps">Edition 0.1 · Open beta</span>
+    <h1>Read slowly.<br />Link what you find.</h1>
+    <p class="sub">A desk for your papers, notes, data and drafts. Everything stays in plain files on your own computer.</p>
+    <div class="actions">
+      <a class="btn" id="download" href="#">Download for Linux</a>
+      <a class="textlink" href="#contents">Contents</a>
+    </div>
+    <p class="fine">No account. No cloud. Your files open without Volpi.</p>
+  </section>
+
+  <figure class="wide fade">
+    <div class="frame">
+      <img src="/assets/img/feature-day-pdf-1600w.webp" alt="A journal article open in Volpi, with coloured highlights and margin notes beside it." style="--s:1.02" />
+    </div>
+    <figcaption>
+      <span><b>Fig. 1.</b> A paper on the desk, with its highlights and margin notes.</span>
+      <span class="aside">From a demo project, Sleep &amp; Memory Consolidation.</span>
+    </figcaption>
+  </figure>
+
+  <section class="contents wide" id="contents">
+    <div class="inner">
+      <h2>Contents</h2>
+      <ol class="toc">
+        <li><a href="#reading"><span class="n">I</span><span class="t">Reading</span><span class="dots"></span><span class="pg">3</span></a></li>
+        <li><a href="#linking"><span class="n">II</span><span class="t">Linking</span><span class="dots"></span><span class="pg">7</span></a></li>
+        <li><a href="#analysing"><span class="n">III</span><span class="t">Analysing</span><span class="dots"></span><span class="pg">12</span></a></li>
+        <li><a href="#writing"><span class="n">IV</span><span class="t">Writing</span><span class="dots"></span><span class="pg">18</span></a></li>
+        <li><a href="#files"><span class="n"></span><span class="t">Appendix: your files</span><span class="dots"></span><span class="pg">24</span></a></li>
+        <li><a href="#errata"><span class="n"></span><span class="t">Errata</span><span class="dots"></span><span class="pg">25</span></a></li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="preface wide fade">
+    <p>Most research lives in five places at once. Volpi keeps it in one folder, with papers, notes, data and drafts side by side, linked to each other.</p>
+  </div>
+
+  <section class="chapter wide" id="reading">
+    <div class="chapter-text fade">
+      <div>
+        <span class="rubric">I.</span>
+        <h2>Reading</h2>
+        <p class="lead">Highlight a PDF in four colours and write in its margin. The original file is never changed.<sup>1</sup></p>
+      </div>
+      <p class="note"><sup>1</sup> Highlights and notes are kept in a small file beside the PDF.</p>
+    </div>
+    <figure class="fade">
+      <div class="frame">
+        <video muted loop playsinline preload="none" poster="/assets/video/pdf-highlight-day-poster.webp" style="--s:1.5;--o:76% 62%" aria-label="Highlighting a sentence in a PDF and writing a margin note.">
+          <source src="/assets/video/pdf-highlight-day.webm" type="video/webm" />
+        </video>
+      </div>
+      <figcaption><span><b>Fig. 2.</b> A sentence marked in green, then a note in the margin.</span></figcaption>
+    </figure>
+  </section>
+
+  <section class="chapter wide" id="linking">
+    <div class="chapter-text fade">
+      <div>
+        <span class="rubric">II.</span>
+        <h2>Linking</h2>
+        <p class="lead">Link a note to a paper, a page or a figure. Rename any of them and the links follow.<sup>2</sup></p>
+      </div>
+      <p class="note"><sup>2</sup> Undo puts every renamed link back in one step.</p>
+    </div>
+    <figure class="fade">
+      <div class="frame">
+        <video muted loop playsinline preload="none" poster="/assets/video/graph-day-poster.webp" style="--s:1.32;--o:72% 56%" aria-label="The research graph, with one note selected and its links drawn.">
+          <source src="/assets/video/graph-day.webm" type="video/webm" />
+        </video>
+      </div>
+      <figcaption><span><b>Fig. 3.</b> The research graph. One note, and everything it touches.</span></figcaption>
+    </figure>
+  </section>
+
+  <section class="chapter wide" id="analysing">
+    <div class="chapter-text fade">
+      <div>
+        <span class="rubric">III.</span>
+        <h2>Analysing</h2>
+        <p class="lead">Open a CSV and see its gaps and outliers first. Then chart it and keep the figure.<sup>3</sup></p>
+      </div>
+      <p class="note"><sup>3</sup> Charts are saved as SVG, ready for a paper.</p>
+    </div>
+    <figure class="fade">
+      <div class="frame">
+        <video muted loop playsinline preload="none" poster="/assets/video/chart-day-poster.webp" style="--s:1.32;--o:74% 66%" aria-label="Building a scatter chart from a dataset.">
+          <source src="/assets/video/chart-day.webm" type="video/webm" />
+        </video>
+      </div>
+      <figcaption><span><b>Fig. 4.</b> From a table of 96 participants to a scatter plot.</span></figcaption>
+    </figure>
+  </section>
+
+  <section class="chapter wide" id="writing">
+    <div class="chapter-text fade">
+      <div>
+        <span class="rubric">IV.</span>
+        <h2>Writing</h2>
+        <p class="lead">Write with numbered sections, figures and citations from your own library. Export to Word or PDF.<sup>4</sup></p>
+      </div>
+      <p class="note"><sup>4</sup> APA, IEEE, MLA, Chicago, Harvard and Vancouver.</p>
+    </div>
+    <figure class="fade">
+      <div class="frame">
+        <video muted loop playsinline preload="none" poster="/assets/video/paper-write-day-poster.webp" style="--s:1.8;--o:55% 30%" aria-label="Typing into a paper, shown as a tracked change.">
+          <source src="/assets/video/paper-write-day.webm" type="video/webm" />
+        </video>
+      </div>
+      <figcaption><span><b>Fig. 5.</b> A new sentence, kept as a tracked change for review.</span></figcaption>
+    </figure>
+  </section>
+
+  <section class="chapter appendix wide" id="files">
+    <div class="inner fade">
+      <span class="smallcaps">Appendix</span>
+      <h2>What your files are.</h2>
+      <table>
+        <thead><tr><th>You keep</th><th>As</th></tr></thead>
+        <tbody>
+          <tr><td>Notes</td><td>Markdown</td></tr>
+          <tr><td>Papers</td><td>Plain HTML, in a .vdoc file</td></tr>
+          <tr><td>Highlights</td><td>A small file beside each PDF</td></tr>
+          <tr><td>References</td><td>BibTeX</td></tr>
+          <tr><td>Data</td><td>CSV, TSV or JSON</td></tr>
+          <tr><td>Figures</td><td>SVG</td></tr>
+        </tbody>
+      </table>
+      <p class="after">References are checked in Crossref, OpenAlex, arXiv and PubMed. Nothing else leaves your computer.</p>
+    </div>
+  </section>
+
+  <section class="chapter wide" id="errata">
+    <div class="errata-wrap fade">
+      <div class="errata">
+        <h2>Errata</h2>
+        <p class="sub">Not yet in this edition.</p>
+        <ol>
+          <li><div>Search inside scanned PDFs<span>There is no OCR yet.</span></div></li>
+          <li><div>Sync between computers<span>Use your own folder sync for now.</span></div></li>
+          <li><div>Checking older books<span>They often come back as not found.</span></div></li>
+          <li><div>Mac and Windows<span>Linux comes first.</span></div></li>
+        </ol>
+        <svg class="stamp" aria-hidden="true"><use href="#seal"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <section class="close wide fade">
+    <h2>Your research,<br />on your own disk.</h2>
+    <p>Download it, open a folder, start reading.</p>
+    <a class="btn" href="#">Download for Linux</a>
+  </section>
+</main>
+
+<footer class="colophon">
+  <div class="wide">
+    <svg aria-hidden="true"><use href="#seal"/></svg>
+    <p>Volpi, edition 0.1, open beta.<br />Set in Zen Old Mincho. Volpi is Italian for foxes.</p>
+    <nav><a href="#">Changelog</a><a href="#">Contact</a></nav>
+  </div>
+</footer>
+
+<script>
+  // Fade in once; play each loop only while it is on screen.
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const fade = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) { e.target.classList.add('in'); fade.unobserve(e.target); }
+    }
+  }, { rootMargin: '0px 0px -6% 0px' });
+  document.querySelectorAll('.fade').forEach((el) => fade.observe(el));
+
+  if (!reduce) {
+    const play = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) e.target.play().catch(() => {});
+        else e.target.pause();
+      }
+    }, { threshold: 0.3 });
+    document.querySelectorAll('video').forEach((v) => play.observe(v));
+  }
+</script>
+</body>
+</html>

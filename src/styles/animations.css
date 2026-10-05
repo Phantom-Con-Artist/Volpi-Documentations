@@ -1,0 +1,8 @@
+/* Short fades and rises (see useInView). Transforms and opacity only. */
+.rise { opacity: 0; transform: translate3d(0, 14px, 0); transition: opacity .5s ease, transform .5s ease; }
+.rise.is-in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  .rise { opacity: 1; transform: none; transition: none; }
+}

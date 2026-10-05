@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Volpi · A focused tool for your research</title>
+    <meta name="description" content="Volpi is a desktop app for researchers. Read and highlight PDFs, write linked notes, check data and write papers with citations. Your files stay on your computer." />
+    <meta property="og:title" content="Volpi · A focused tool for your research" />
+    <meta property="og:description" content="Volpi is a desktop app for researchers. Read and highlight PDFs, write linked notes, check data and write papers with citations. Your files stay on your computer." />
+    <meta property="og:image" content="/assets/social/og-day.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/svg+xml" href="/assets/brand/fox-seal.svg" />
+    <link rel="icon" sizes="32x32" href="/assets/brand/favicon.ico" />
+    <link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png" />
+    <script>
+      // Apply the saved theme before first paint (see src/hooks/useTheme.ts).
+      try {
+        var t = JSON.parse(localStorage.getItem('volpi.site.theme') || '{}');
+        var mode = t.mode || (matchMedia('(prefers-color-scheme: dark)').matches ? 'night' : 'day');
+        document.documentElement.dataset.mode = mode;
+        document.documentElement.dataset.accent = t.accent || 'ai';
+      } catch (e) { document.documentElement.dataset.mode = 'day'; }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/entries/home.tsx"></script>
+  </body>
+</html>

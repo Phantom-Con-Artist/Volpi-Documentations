@@ -1,0 +1,12 @@
+# Cloudflare Pages headers. See DEPLOYMENT.md.
+# The script hash allows only the small inline script in each HTML page that applies the saved theme
+# before first paint. If that script changes, update the hash (sha256 of its exact contents).
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-JnDvr+4FgH53407mmVB2XcMP7Ozwg1gqGiMG2EpP//o='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'
+
+/assets/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800

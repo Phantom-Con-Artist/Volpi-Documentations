@@ -1,0 +1,71 @@
+/* Mochi's dialogue boxes: a different shape for each feeling.
+   Tails are two stacked triangles (ink outline, panel fill) on the side given by data-tail,
+   positioned along that side by --at. */
+.mb {
+  position: relative;
+  width: max-content;
+  max-width: min(270px, calc(100vw - 24px));
+  padding: 12px 16px;
+  background: var(--panel);
+  color: var(--ink);
+  font: 500 15px/1.45 "Zen Maru Gothic", system-ui, sans-serif;
+  text-wrap: pretty;
+  filter: drop-shadow(4px 4px 0 var(--tone));
+  animation: mb-pop .22s cubic-bezier(.3, 1.6, .5, 1);
+}
+@keyframes mb-pop { from { transform: scale(.7); opacity: 0; } }
+
+.mb-speech, .mb-song { border: var(--line) solid var(--ink); border-radius: 20px; }
+.mb-whisper { border: 2px dashed var(--ink); border-radius: 12px; font-size: 13.5px; color: var(--ink-2); padding: 9px 13px; }
+
+/* Tails for speech, song and whisper. */
+.mb-speech::before, .mb-speech::after, .mb-song::before, .mb-song::after, .mb-whisper::before, .mb-whisper::after {
+  content: ""; position: absolute; width: 0; height: 0; border: solid transparent;
+}
+.mb::before { border-width: 12px; }
+.mb::after { border-width: 8.5px; }
+.mb[data-tail="bottom"]::before { top: 100%; left: calc(var(--at) - 12px); border-top-color: var(--ink); }
+.mb[data-tail="bottom"]::after { top: 100%; left: calc(var(--at) - 8.5px); border-top-color: var(--panel); margin-top: -3px; }
+.mb[data-tail="top"]::before { bottom: 100%; left: calc(var(--at) - 12px); border-bottom-color: var(--ink); }
+.mb[data-tail="top"]::after { bottom: 100%; left: calc(var(--at) - 8.5px); border-bottom-color: var(--panel); margin-bottom: -3px; }
+.mb[data-tail="left"]::before { right: 100%; top: calc(var(--at) - 12px); border-right-color: var(--ink); }
+.mb[data-tail="left"]::after { right: 100%; top: calc(var(--at) - 8.5px); border-right-color: var(--panel); margin-right: -3px; }
+.mb[data-tail="right"]::before { left: 100%; top: calc(var(--at) - 12px); border-left-color: var(--ink); }
+.mb[data-tail="right"]::after { left: 100%; top: calc(var(--at) - 8.5px); border-left-color: var(--panel); margin-left: -3px; }
+.mb-whisper::after { border-width: 9.5px; }
+
+/* Yell: a jagged red burst. Short lines only (see MochiBubble). */
+.mb-shout {
+  padding: 24px 30px;
+  max-width: 240px;
+  background: var(--seal); color: var(--on-seal);
+  font: 700 17px/1.2 "Zen Maru Gothic", system-ui, sans-serif;
+  text-align: center;
+  clip-path: polygon(0 18%, 14% 14%, 10% 0, 30% 10%, 46% 0, 56% 12%, 76% 2%, 78% 16%, 100% 12%, 90% 34%, 100% 52%, 88% 62%, 98% 84%, 76% 80%, 70% 100%, 52% 86%, 36% 100%, 30% 84%, 8% 92%, 14% 70%, 0 58%, 10% 40%);
+  filter: none;
+}
+
+/* Ponder: a cloud, with trailing puffs pointing at her. */
+.mb-thought { border: var(--line) solid var(--ink); border-radius: 999px; padding: 14px 22px; font-style: italic; }
+.mb-thought::before, .mb-thought::after { content: ""; position: absolute; background: var(--panel); border: var(--line) solid var(--ink); border-radius: 50%; }
+.mb-thought::before { width: 15px; height: 15px; }
+.mb-thought::after { width: 9px; height: 9px; }
+.mb-thought[data-tail="bottom"]::before { top: calc(100% + 4px); left: calc(var(--at) - 7px); }
+.mb-thought[data-tail="bottom"]::after { top: calc(100% + 20px); left: calc(var(--at) - 2px); }
+.mb-thought[data-tail="top"]::before { bottom: calc(100% + 4px); left: calc(var(--at) - 7px); }
+.mb-thought[data-tail="top"]::after { bottom: calc(100% + 20px); left: calc(var(--at) - 2px); }
+.mb-thought[data-tail="left"]::before { right: calc(100% + 4px); top: calc(var(--at) - 7px); }
+.mb-thought[data-tail="left"]::after { right: calc(100% + 20px); top: calc(var(--at) - 2px); }
+.mb-thought[data-tail="right"]::before { left: calc(100% + 4px); top: calc(var(--at) - 7px); }
+.mb-thought[data-tail="right"]::after { left: calc(100% + 20px); top: calc(var(--at) - 2px); }
+
+/* Hum: floating notes above the bubble. */
+.mb-song { font-family: DotGothic16, monospace; letter-spacing: .04em; }
+.mb-notes { position: absolute; top: -20px; left: 6px; right: 6px; display: flex; justify-content: space-between; pointer-events: none; }
+.mb-notes span { font: 700 18px/1 serif; color: var(--seal); animation: mb-note 1.6s ease-in-out infinite; }
+.mb-notes span + span { animation-delay: .8s; }
+@keyframes mb-note { 50% { transform: translateY(-6px) rotate(10deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .mb, .mb-notes span { animation: none; }
+}

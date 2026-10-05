@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Volpi · Specimen 1</title>
+<meta name="description" content="A quiet desk for your research. Read, link, analyse and write in one place, on your own computer." />
+<link rel="icon" type="image/svg+xml" href="/assets/brand/fox-seal.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Zen+Maru+Gothic:wght@400;500;700&family=Zen+Old+Mincho:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+  /* Tokens taken from the app (../Volpi/src/styles/mochi/tokens.css) */
+  :root {
+    --paper: #f4efe4;
+    --gutter: #ebe4d5;
+    --panel: #fffcf5;
+    --ink: #1d1c21;
+    --ink-2: #4f4b45;
+    --ink-3: #6b655b;
+    --tone: rgb(29 28 33 / .26);
+    --tone-soft: rgb(29 28 33 / .1);
+    --accent: #2e4a8b;
+    --seal: #c0383e;
+    --night: #17161b;
+    --night-ink: #efe8da;
+    --night-ink-2: #a39d90;
+
+    --mincho: "Zen Old Mincho", Georgia, serif;
+    --maru: "Zen Maru Gothic", system-ui, sans-serif;
+    --dot: "DotGothic16", ui-monospace, monospace;
+
+    --line: 2.5px;
+    --r: 14px;
+    --wrap: 1120px;
+    --gutter-x: clamp(16px, 4vw, 40px);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font: 400 17px/1.7 var(--maru);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img, video { display: block; max-width: 100%; }
+  a { color: inherit; }
+  ::selection { background: #f6d873; color: var(--ink); }
+
+  .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gutter-x); }
+
+  .kicker {
+    font: 400 12px/1 var(--dot);
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+
+  h1, h2, h3 { font-family: var(--mincho); font-weight: 600; margin: 0; letter-spacing: -.005em; }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex; align-items: center; gap: .55em;
+    padding: .72em 1.35em;
+    border: var(--line) solid var(--ink);
+    border-radius: 999px;
+    font: 500 15px/1 var(--maru);
+    text-decoration: none;
+    color: var(--ink);
+    background: var(--panel);
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+  .btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+  .btn--seal { background: var(--seal); color: var(--panel); }
+  .btn--plain { border-color: transparent; background: none; box-shadow: none; padding-inline: .4em; }
+  .btn--plain:hover { transform: none; box-shadow: none; text-decoration: underline; text-underline-offset: 4px; }
+  .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  /* Header */
+  header.top { border-bottom: 1px solid var(--tone-soft); }
+  header.top .wrap { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brand svg { width: 34px; height: 34px; }
+  .brand span { font: 600 24px/1 var(--mincho); }
+  nav.links { display: flex; align-items: center; gap: 28px; font-size: 15px; color: var(--ink-2); }
+  nav.links a { text-decoration: none; }
+  nav.links a:not(.btn):hover { color: var(--ink); }
+  nav.links .btn { padding: .6em 1.1em; font-size: 14px; box-shadow: 2px 2px 0 var(--ink); }
+
+  /* Hero */
+  .hero { padding: clamp(56px, 10vw, 112px) 0 0; }
+  .hero-grid { display: grid; grid-template-columns: 1fr 220px; gap: 48px; align-items: end; }
+  .hero h1 { font-size: clamp(2.6rem, 6.4vw, 4.75rem); line-height: 1.08; margin: 22px 0 26px; }
+  .hero p.lede { font-size: clamp(1.05rem, 1.6vw, 1.2rem); color: var(--ink-2); max-width: 30em; margin: 0 0 36px; }
+  .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px; }
+  .trust { margin: 26px 0 0; font-size: 14px; color: var(--ink-3); }
+
+  .entry {
+    border-top: 1px solid var(--ink);
+    padding-top: 14px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--ink-2);
+  }
+  .entry b { font: 600 22px/1.2 var(--mincho); color: var(--ink); display: block; margin-bottom: 2px; }
+  .entry i { font-family: var(--mincho); }
+
+  .hero-media { margin-top: clamp(48px, 7vw, 80px); }
+  .hero-media img { width: 100%; height: auto; }
+
+  /* Formats band */
+  .band { border-top: var(--line) solid var(--ink); border-bottom: 1px solid var(--ink); background: var(--panel); }
+  .band .wrap { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .band div.cell { padding: 26px 0; }
+  .band div.cell + div.cell { padding-left: 32px; border-left: 1px solid var(--tone-soft); }
+  .band p { margin: 10px 0 0; font: 400 16px/1.5 var(--mincho); }
+
+  /* Sections */
+  section.chapter { padding: clamp(80px, 12vw, 140px) 0; }
+  .chapter-head { display: flex; align-items: baseline; gap: 18px; margin-bottom: 56px; }
+  .chapter-head h2 { font-size: clamp(1.9rem, 3.6vw, 2.6rem); line-height: 1.15; }
+
+  /* Principles */
+  .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--ink); }
+  .principle { padding: 28px 28px 8px 0; }
+  .principle + .principle { padding-left: 28px; border-left: 1px solid var(--tone-soft); }
+  .principle .num { font: 400 italic 15px/1 var(--mincho); color: var(--seal); }
+  .principle h3 { font-size: 1.45rem; margin: 14px 0 10px; }
+  .principle p { margin: 0; color: var(--ink-2); font-size: 15.5px; }
+
+  /* Research loop */
+  .loop { display: grid; grid-template-columns: 4fr 8fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
+  .loop + .loop { margin-top: clamp(72px, 10vw, 120px); }
+  .loop:nth-of-type(even) { grid-template-columns: 8fr 4fr; }
+  .loop:nth-of-type(even) .loop-text { order: 2; }
+  .loop-text h3 { font-size: clamp(1.8rem, 3vw, 2.3rem); margin: 14px 0 14px; }
+  .loop-text p { margin: 0; color: var(--ink-2); max-width: 22em; }
+
+  .panel {
+    position: relative;
+    border: var(--line) solid var(--ink);
+    border-radius: var(--r);
+    background: var(--panel);
+  }
+  .panel::after {
+    content: "";
+    position: absolute; inset: 0;
+    transform: translate(10px, 10px);
+    border-radius: var(--r);
+    background-image: radial-gradient(var(--tone) 1.1px, transparent 1.3px);
+    background-size: 6px 6px;
+    z-index: -1;
+  }
+  .panel video, .panel img { width: 100%; height: auto; border-radius: calc(var(--r) - 3px); }
+  .media { position: relative; isolation: isolate; }
+
+  /* Not yet card */
+  .notyet { display: grid; grid-template-columns: 5fr 7fr; gap: clamp(32px, 6vw, 80px); align-items: start; }
+  .notyet .intro p { color: var(--ink-2); margin: 18px 0 0; max-width: 20em; }
+  .card {
+    position: relative;
+    background:
+      repeating-linear-gradient(to bottom, transparent 0 39px, rgb(46 74 139 / .16) 39px 40px),
+      var(--panel);
+    border: 1px solid var(--tone);
+    border-top: 3px solid var(--seal);
+    padding: 22px 32px 30px 64px;
+    box-shadow: 0 1px 0 var(--tone-soft), 0 14px 30px -18px rgb(29 28 33 / .35);
+    transform: rotate(-.6deg);
+  }
+  .card::before {
+    content: ""; position: absolute; top: 0; bottom: 0; left: 44px;
+    width: 1px; background: rgb(192 56 62 / .35);
+  }
+  .card .kicker { display: block; height: 40px; line-height: 40px; }
+  .card ul { list-style: none; margin: 0; padding: 0; }
+  .card li { line-height: 40px; font: 400 17px/40px var(--mincho); }
+  .card li span { color: var(--ink-3); font-family: var(--maru); font-size: 14px; }
+
+  /* Coda */
+  .coda { text-align: center; padding: clamp(96px, 14vw, 160px) 0; border-top: 1px solid var(--tone-soft); }
+  .coda .stamp { width: 84px; height: 84px; margin: 0 auto 34px; transform: rotate(-8deg); opacity: .92; }
+  .coda h2 { font-size: clamp(2.1rem, 4.6vw, 3.3rem); line-height: 1.12; }
+  .coda p { color: var(--ink-2); margin: 18px auto 38px; }
+  .coda .actions { justify-content: center; }
+
+  /* Footer */
+  footer { background: var(--night); color: var(--night-ink); }
+  footer .wrap { display: grid; grid-template-columns: 1fr auto; gap: 40px; padding-top: 64px; padding-bottom: 56px; }
+  footer .brand span { color: var(--night-ink); }
+  footer .tag { margin: 18px 0 0; color: var(--night-ink-2); font: 400 15px/1.6 var(--mincho); }
+  footer ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 28px; font-size: 15px; }
+  footer ul a { text-decoration: none; color: var(--night-ink-2); }
+  footer ul a:hover { color: var(--night-ink); }
+  .colophon {
+    grid-column: 1 / -1;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    border-top: 1px solid rgb(239 232 218 / .12);
+    padding-top: 22px;
+    color: var(--night-ink-2);
+  }
+  .colophon .kicker { color: var(--night-ink-2); }
+
+  /* Motion */
+  .rise { opacity: 0; transform: translate3d(0, 14px, 0); transition: opacity .6s ease, transform .6s ease; }
+  .rise.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .rise { opacity: 1; transform: none; transition: none; }
+  }
+
+  /* Small screens */
+  @media (max-width: 860px) {
+    nav.links a:not(.btn) { display: none; }
+    .chapter-head { flex-direction: column; gap: 14px; margin-bottom: 40px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+    .entry { max-width: 280px; }
+    .band .wrap { grid-template-columns: 1fr; }
+    .band div.cell + div.cell { padding-left: 0; border-left: 0; border-top: 1px solid var(--tone-soft); }
+    .principles { grid-template-columns: 1fr; }
+    .principle, .principle + .principle { padding: 26px 0; border-left: 0; }
+    .principle + .principle { border-top: 1px solid var(--tone-soft); }
+    .loop, .loop:nth-of-type(even) { grid-template-columns: 1fr; }
+    .loop:nth-of-type(even) .loop-text { order: 0; }
+    .notyet { grid-template-columns: 1fr; }
+    .card { padding-left: 52px; transform: none; }
+    .card::before { left: 34px; }
+    footer .wrap { grid-template-columns: 1fr; }
+    footer ul { flex-wrap: wrap; gap: 14px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="seal" viewBox="0 0 1024 1024">
+    <rect x="72" y="72" width="880" height="880" rx="190" fill="#c0383e"/>
+    <rect x="128" y="128" width="768" height="768" rx="148" fill="none" stroke="#f4efe4" stroke-width="18" stroke-opacity=".9"/>
+    <g transform="translate(512 512) scale(.8) translate(-512 -505)">
+      <polygon points="226,150 402,334 622,334 798,150 818,420 868,548 694,604 512,860 330,604 156,548 206,420" fill="#f4efe4" stroke="#f4efe4" stroke-width="12" stroke-linejoin="round"/>
+      <polygon points="252,222 370,346 262,410" fill="#c0383e"/><polygon points="772,222 654,346 762,410" fill="#c0383e"/>
+      <polygon points="156,548 400,600 512,860" fill="#c0383e" fill-opacity=".18"/><polygon points="868,548 624,600 512,860" fill="#c0383e" fill-opacity=".18"/>
+      <path d="M396 486 l52 -16 M628 486 l-52 -16" stroke="#c0383e" stroke-width="30" stroke-linecap="round"/>
+      <path d="M482 800 L542 800 L512 842 Z" fill="#c0383e" stroke="#c0383e" stroke-width="10" stroke-linejoin="round"/>
+    </g>
+  </symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#">
+      <svg><use href="#seal"/></svg>
+      <span>Volpi</span>
+    </a>
+    <nav class="links">
+      <a href="#desk">The desk</a>
+      <a href="#loop">How it works</a>
+      <a href="#notyet">Not yet</a>
+      <a class="btn" href="#download">Download for Linux</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="rise">
+          <span class="kicker">Open beta · v0.1.0</span>
+          <h1>A quiet desk<br />for your research.</h1>
+          <p class="lede">Read, link, analyse and write in one place. Every project is a plain folder on your computer.</p>
+          <div class="actions">
+            <a class="btn btn--seal" id="download" href="#">Download for Linux</a>
+            <a class="btn btn--plain" href="#loop">See how it works ↓</a>
+          </div>
+          <p class="trust">No account. No cloud. Your files open without Volpi.</p>
+        </div>
+        <aside class="entry rise" aria-label="About the name">
+          <b>volpi</b>
+          <i>n. pl., Italian.</i> Foxes. Quiet animals that keep what they find.
+        </aside>
+      </div>
+      <figure class="hero-media rise" style="margin-left:0;margin-right:0;margin-bottom:0">
+        <img
+          src="/assets/img/bleed-day-dashboard-1600w.webp"
+          srcset="/assets/img/bleed-day-dashboard-1600w.webp 1600w, /assets/img/bleed-day-dashboard.webp 2880w"
+          sizes="(max-width: 1120px) 100vw, 1120px"
+          width="1600" height="833"
+          alt="The Volpi dashboard for a research project, with recent files, papers in progress and reading progress." />
+      </figure>
+    </div>
+  </section>
+
+  <div class="band">
+    <div class="wrap">
+      <div class="cell">
+        <span class="kicker">Your files</span>
+        <p>Markdown · PDF · BibTeX · CSV · SVG</p>
+      </div>
+      <div class="cell">
+        <span class="kicker">References checked in</span>
+        <p>Crossref · OpenAlex · arXiv · PubMed</p>
+      </div>
+      <div class="cell">
+        <span class="kicker">Cite in</span>
+        <p>APA · IEEE · MLA · Chicago · Harvard</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="chapter" id="desk">
+    <div class="wrap">
+      <div class="chapter-head rise">
+        <span class="kicker">No. 01</span>
+        <h2>Three small promises.</h2>
+      </div>
+      <div class="principles">
+        <div class="principle rise">
+          <span class="num">i.</span>
+          <h3>Files you own.</h3>
+          <p>Each project is an ordinary folder. Notes are Markdown. Highlights sit beside the PDF.</p>
+        </div>
+        <div class="principle rise">
+          <span class="num">ii.</span>
+          <h3>Links that hold.</h3>
+          <p>Rename a paper and every note that points to it follows. Undo puts it back.</p>
+        </div>
+        <div class="principle rise">
+          <span class="num">iii.</span>
+          <h3>A calm desk.</h3>
+          <p>Day and Night themes, Zen mode and a focus timer. Nothing pings you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter" id="loop" style="padding-top:0">
+    <div class="wrap">
+      <div class="chapter-head rise">
+        <span class="kicker">No. 02</span>
+        <h2>How a day goes.</h2>
+      </div>
+
+      <article class="loop">
+        <div class="loop-text rise">
+          <span class="kicker">Read</span>
+          <h3>Mark the page.</h3>
+          <p>Highlight a PDF and write in its margin. The original file is never changed.</p>
+        </div>
+        <div class="media rise">
+          <div class="panel">
+            <video muted loop playsinline preload="none" poster="/assets/video/pdf-highlight-day-poster.webp" aria-label="Highlighting a sentence in a PDF and adding a margin comment.">
+              <source src="/assets/video/pdf-highlight-day.webm" type="video/webm" />
+            </video>
+          </div>
+        </div>
+      </article>
+
+      <article class="loop">
+        <div class="loop-text rise">
+          <span class="kicker">Link</span>
+          <h3>Follow the thread.</h3>
+          <p>Link a note to a paper, a page or a figure. The graph shows where they meet.</p>
+        </div>
+        <div class="media rise">
+          <div class="panel">
+            <video muted loop playsinline preload="none" poster="/assets/video/graph-day-poster.webp" aria-label="The research graph, with one note selected and its links shown.">
+              <source src="/assets/video/graph-day.webm" type="video/webm" />
+            </video>
+          </div>
+        </div>
+      </article>
+
+      <article class="loop">
+        <div class="loop-text rise">
+          <span class="kicker">Analyse</span>
+          <h3>Look at the numbers.</h3>
+          <p>Open a CSV and see its gaps and outliers. Chart it and keep the figure as SVG.</p>
+        </div>
+        <div class="media rise">
+          <div class="panel">
+            <video muted loop playsinline preload="none" poster="/assets/video/chart-day-poster.webp" aria-label="Building a scatter chart from a dataset.">
+              <source src="/assets/video/chart-day.webm" type="video/webm" />
+            </video>
+          </div>
+        </div>
+      </article>
+
+      <article class="loop">
+        <div class="loop-text rise">
+          <span class="kicker">Write</span>
+          <h3>Put it into words.</h3>
+          <p>Cite from your own library as you write. Export to Word or PDF.</p>
+        </div>
+        <div class="media rise">
+          <div class="panel">
+            <video muted loop playsinline preload="none" poster="/assets/video/paper-write-day-poster.webp" aria-label="Typing into a paper, shown as a tracked change.">
+              <source src="/assets/video/paper-write-day.webm" type="video/webm" />
+            </video>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="chapter" id="notyet" style="padding-top:0">
+    <div class="wrap notyet">
+      <div class="intro rise">
+        <span class="kicker">No. 03</span>
+        <h2 style="font-size:clamp(1.9rem,3.6vw,2.6rem);margin-top:18px">Not yet.</h2>
+        <p>Volpi is young. Here is what it cannot do today.</p>
+      </div>
+      <div class="card rise">
+        <span class="kicker">Beta · v0.1.0</span>
+        <ul>
+          <li>Search inside scanned PDFs <span>· no OCR yet</span></li>
+          <li>Sync between computers <span>· use your own folder sync</span></li>
+          <li>Verify older books <span>· often “not found”</span></li>
+          <li>Mac and Windows <span>· Linux first</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="coda">
+    <div class="wrap rise">
+      <svg class="stamp" aria-hidden="true"><use href="#seal"/></svg>
+      <h2>Your research,<br />on your own disk.</h2>
+      <p>Download it, open a folder, start reading.</p>
+      <div class="actions">
+        <a class="btn btn--seal" href="#">Download for Linux</a>
+        <a class="btn btn--plain" href="#">Read the changelog</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a class="brand" href="#">
+        <svg><use href="#seal"/></svg>
+        <span>Volpi</span>
+      </a>
+      <p class="tag">Read slowly. Link what you find.</p>
+    </div>
+    <ul>
+      <li><a href="#">Changelog</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <div class="colophon">
+      <span class="kicker">v0.1.0 · Open beta</span>
+      <span class="kicker">Set in Zen Old Mincho &amp; Zen Maru Gothic</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Fade sections in once, and play loops only while they are on screen.
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const rise = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) { e.target.classList.add('in'); rise.unobserve(e.target); }
+    }
+  }, { rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.rise').forEach((el) => rise.observe(el));
+
+  if (!reduce) {
+    const play = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        const v = e.target;
+        if (e.isIntersecting) { v.play().catch(() => {}); } else { v.pause(); }
+      }
+    }, { threshold: 0.35 });
+    document.querySelectorAll('video').forEach((v) => play.observe(v));
+  }
+</script>
+</body>
+</html>

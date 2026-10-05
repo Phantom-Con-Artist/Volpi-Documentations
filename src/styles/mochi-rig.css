@@ -1,0 +1,77 @@
+/* Full-body Mochi (components/mochi/rig). Limbs are drawn hanging from local (0, 0), so with the
+   default SVG transform box they rotate around the shoulder or hip. Angles: 0 = hanging down,
+   negative swings the hand towards screen right, positive towards screen left. */
+.mf .mf-arm, .mf .mf-leg { transform-box: view-box; transform-origin: 0 0; transition: transform .25s ease; }
+.mf .mf-upper, .mf .mf-head, .mf .mf-skirt, .mf .mf-page, .mf .mf-carry, .mf .mf-snack { transform-box: fill-box; }
+.mf .mf-upper { transform-origin: 50% 100%; animation: mf-breathe 2.6s ease-in-out infinite; }
+.mf .mf-head { transform-origin: 50% 90%; animation: mf-tilt 6s ease-in-out infinite; }
+.mf .mf-skirt { transform-origin: 50% 0; transition: transform .25s ease; }
+.mf .mf-page { transform-origin: 0 50%; animation: mf-page 9s ease-in-out infinite; }
+.mf .mf-carry { transform-origin: 50% 50%; transform: rotate(140deg); }
+.is-flipped .mf .mf-carry { transform: rotate(140deg) scaleX(-1); }
+.mf .mf-snack, .mf .mf-bite { opacity: 0; }
+.mf .pupil { transform: translate(calc(var(--gx, 0) * 1px), calc(var(--gy, 0) * 1px)); transition: transform .12s linear; }
+
+/* Rest: right arm a little out, left arm holding the book at her side. */
+.mf .mf-arm-r { transform: rotate(-12deg); }
+.mf .mf-arm-l { transform: rotate(6deg); }
+
+@keyframes mf-breathe { 50% { transform: translateY(-1.6px) scaleY(1.012); } }
+@keyframes mf-tilt { 0%, 70%, 100% { transform: rotate(0); } 78% { transform: rotate(-4deg); } 90% { transform: rotate(2deg); } }
+@keyframes mf-page { 0%, 84%, 100% { transform: scaleX(1); } 90%, 96% { transform: scaleX(-1); } }
+
+/* Wave. Also on hover over the hero Mochi. */
+.mf[data-pose="wave"] .mf-arm-r,
+.mf-hover:hover .mf[data-pose="idle"]:not([data-moving="true"]) .mf-arm-r { animation: mf-wave .36s ease-in-out infinite alternate; }
+@keyframes mf-wave { from { transform: rotate(-140deg); } to { transform: rotate(-108deg); } }
+
+/* Point straight out, with a little jab. */
+.mf[data-pose="point"] .mf-arm-r { animation: mf-point 1.1s ease-in-out infinite; }
+@keyframes mf-point { 0%, 100% { transform: rotate(-90deg); } 50% { transform: rotate(-84deg) translateY(3px); } }
+
+/* Carry: right arm high, holding a stolen letter. */
+.mf[data-pose="carry"] .mf-arm-r { transform: rotate(-140deg); }
+
+/* Eat: both hands hold the snack at her chin and push it up as she chomps; bites appear. */
+.mf[data-pose="eat"] .mf-book { opacity: 0; }
+.mf[data-pose="eat"] .mf-snack { opacity: 1; animation: mf-snack .24s ease-in-out infinite alternate; }
+.mf[data-pose="eat"] .mf-arm-l { animation: mf-eat-l .24s ease-in-out infinite alternate; }
+.mf[data-pose="eat"] .mf-arm-r { animation: mf-eat-r .24s ease-in-out infinite alternate; }
+.mf[data-pose="eat"] .mf-head { animation: mf-chomp .24s ease-in-out infinite alternate; }
+.mf[data-pose="eat"] .mf-bite-1 { animation: mf-bite 2.6s steps(1) forwards; }
+.mf[data-pose="eat"] .mf-bite-2 { animation: mf-bite 2.6s steps(1) .9s forwards; }
+@keyframes mf-eat-l { from { transform: rotate(-20deg); } to { transform: rotate(-28deg); } }
+@keyframes mf-eat-r { from { transform: rotate(20deg); } to { transform: rotate(28deg); } }
+@keyframes mf-snack { to { transform: translateY(-7px); } }
+@keyframes mf-chomp { to { transform: translateY(3px) scaleY(.96); } }
+@keyframes mf-bite { 0% { opacity: 0; } 30%, 100% { opacity: 1; } }
+
+/* Sit on a ledge: skirt spreads, body settles, both hands hold the book in front, legs swing from the hem. */
+.mf[data-pose="sit"] .mf-skirt { transform: scaleX(1.14); }
+.mf[data-pose="sit"] .mf-upper { animation: mf-sit 1.8s ease-in-out infinite; }
+.mf[data-pose="sit"] .mf-arm-l { transform: rotate(-26deg); }
+.mf[data-pose="sit"] .mf-arm-r { transform: rotate(24deg); }
+.mf[data-pose="sit"] .mf-head { animation: mf-sway 1.8s ease-in-out infinite; }
+.mf[data-pose="sit"] .mf-leg-l { animation: mf-kick-l .9s ease-in-out infinite alternate; }
+.mf[data-pose="sit"] .mf-leg-r { animation: mf-kick-r .9s ease-in-out infinite alternate-reverse; }
+@keyframes mf-sit { 0%, 100% { transform: translateY(8px); } 50% { transform: translateY(6px) scaleY(1.01); } }
+@keyframes mf-sway { 0%, 100% { transform: rotate(-6deg); } 50% { transform: rotate(6deg); } }
+/* Seen from the front, a kick foreshortens the leg rather than swinging it sideways. */
+@keyframes mf-kick-l { from { transform: rotate(9deg) scaleY(1); } to { transform: rotate(3deg) scaleY(.7); } }
+@keyframes mf-kick-r { from { transform: rotate(-9deg) scaleY(1); } to { transform: rotate(-3deg) scaleY(.7); } }
+
+/* Running: legs scissor and the body bobs, whatever the arms are doing. */
+.mf[data-moving="true"] .mf-leg-l { animation: mf-run .26s linear infinite alternate; }
+.mf[data-moving="true"] .mf-leg-r { animation: mf-run .26s linear infinite alternate-reverse; }
+.mf[data-moving="true"] .mf-upper { animation: mf-bob .13s ease-in-out infinite alternate; }
+.mf[data-moving="true"][data-pose="idle"] .mf-arm-r { animation: mf-arm-run-r .26s linear infinite alternate; }
+.mf[data-moving="true"][data-pose="idle"] .mf-arm-l { animation: mf-arm-run-l .26s linear infinite alternate-reverse; }
+@keyframes mf-run { from { transform: rotate(-30deg); } to { transform: rotate(30deg); } }
+@keyframes mf-bob { to { transform: translateY(-4px); } }
+@keyframes mf-arm-run-r { from { transform: rotate(-40deg); } to { transform: rotate(14deg); } }
+@keyframes mf-arm-run-l { from { transform: rotate(-8deg); } to { transform: rotate(22deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .mf *, .mf .mf-upper { animation: none !important; transition: none !important; }
+  .mf[data-pose="eat"] .mf-bite { opacity: 1; }
+}

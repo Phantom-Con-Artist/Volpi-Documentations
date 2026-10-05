@@ -1,0 +1,35 @@
+Copyright (c) 2026 The Volpi authors. All rights reserved.
+
+This repository contains the website and documentation for Volpi, including its
+source code, text, the Volpi name, the fox seal logo, the Mochi character, and the
+screenshots and videos of the Volpi app.
+
+You may read this repository and run it on your own computer to review it or to
+propose changes. You may not copy, modify, publish, distribute, sublicense or sell
+any part of it, or use the Volpi name, logo, Mochi character or screenshots,
+without written permission from the copyright holders.
+
+This licence may be replaced by a different licence in a future version. Any such
+change applies only to versions published after the change.
+
+THE SOFTWARE AND CONTENT ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES
+OR OTHER LIABILITY ARISING FROM THE USE OF THE SOFTWARE OR CONTENT.
+
+--------------------------------------------------------------------------------
+Third-party components
+
+The built website includes the following third-party components. Each remains under
+its own licence, and those licences apply to those components only.
+
+- React and React DOM (MIT License), https://github.com/facebook/react
+- lucide-react icons (ISC License), https://github.com/lucide-icons/lucide
+- clsx (MIT License), https://github.com/lukeed/clsx
+- tailwind-merge (MIT License), https://github.com/dcastil/tailwind-merge
+- Tailwind CSS (MIT License), https://github.com/tailwindlabs/tailwindcss
+- Zen Old Mincho font (SIL Open Font License 1.1), via Fontsource
+- Zen Maru Gothic font (SIL Open Font License 1.1), via Fontsource
+- DotGothic16 font (SIL Open Font License 1.1), via Fontsource
+
+The full licence texts are included with each package in node_modules after
+running npm install.

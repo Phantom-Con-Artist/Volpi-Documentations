@@ -1,0 +1,41 @@
+/* Mochi, the guide from the app (../Volpi/src/styles/mochi/guide.css), adapted for the site. */
+.mm-mochi { display: block; width: 100%; height: auto; overflow: visible; }
+.mm-mochi .mood { display: none; }
+[data-mood="smile"] .mm-mochi .m-eo,
+.mm-mochi[data-mood="smile"] .m-eo,
+[data-mood="smile"] .mm-mochi .m-mc,
+.mm-mochi[data-mood="smile"] .m-mc,
+[data-mood="happy"] .mm-mochi .m-eh,
+.mm-mochi[data-mood="happy"] .m-eh,
+[data-mood="happy"] .mm-mochi .m-ms,
+.mm-mochi[data-mood="happy"] .m-ms,
+[data-mood="wow"] .mm-mochi .m-ew,
+.mm-mochi[data-mood="wow"] .m-ew,
+[data-mood="wow"] .mm-mochi .m-mo,
+.mm-mochi[data-mood="wow"] .m-mo,
+[data-mood="sleep"] .mm-mochi .m-es,
+.mm-mochi[data-mood="sleep"] .m-es,
+[data-mood="sleep"] .mm-mochi .m-mc,
+.mm-mochi[data-mood="sleep"] .m-mc,
+[data-mood="sleep"] .mm-mochi .m-z,
+.mm-mochi[data-mood="sleep"] .m-z { display: inline; }
+.mm-mochi .eye { transform-box: fill-box; transform-origin: center; animation: mm-blink 5s infinite; }
+.mm-mochi .ear-r { transform-box: fill-box; transform-origin: 30% 100%; animation: mm-twitch 7s infinite; }
+.mm-mochi .tail { transform-box: fill-box; transform-origin: 10% 100%; animation: mm-sway 3.2s ease-in-out infinite; }
+.mm-mochi .m-z text { animation: mm-float 2.4s ease-in-out infinite; }
+@keyframes mm-blink { 0%, 93%, 100% { transform: scaleY(1); } 96% { transform: scaleY(.08); } }
+@keyframes mm-twitch { 0%, 86%, 100% { transform: rotate(0); } 89% { transform: rotate(-12deg); } 92% { transform: rotate(4deg); } }
+@keyframes mm-sway { 50% { transform: rotate(9deg); } }
+@keyframes mm-float { 50% { transform: translateY(-5px); } }
+[data-mode="night"] .mm-glow, [data-mode="night"] .mf-stage { background: radial-gradient(closest-side at 50% 58%, rgb(239 232 218 / .45), rgb(239 232 218 / .14) 70%, transparent); border-radius: 50% 50% 0 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  .mm-mochi * { animation: none !important; }
+}
+
+/* Mischief targets. */
+[data-mochi-target="logo"] { display: inline-flex; transition: transform .25s cubic-bezier(.5, 0, .75, 0), opacity .25s; }
+[data-mochi-target="logo"].is-taken { transform: translateY(40px) scale(.2) rotate(25deg); opacity: 0; }
+[data-mochi-target="logo"].is-restored { animation: mochi-restored .5s cubic-bezier(.3, 1.6, .5, 1); }
+@keyframes mochi-restored { from { transform: scale(0) rotate(-30deg); } }
+.is-robbed::first-letter { color: transparent; }
