@@ -14,7 +14,8 @@ export function ThemedImg({ image, className, sizes, srcSet, eager = false }: Pr
   const { mode } = useTheme();
   const night = mode === 'night';
   const src = night && image.night ? image.night : image.day;
-  const set = srcSet ? (night && srcSet.night ? srcSet.night : srcSet.day) : undefined;
+  const sources = srcSet ?? image.srcSet;
+  const set = sources ? (night && sources.night ? sources.night : sources.day) : undefined;
   return (
     <img
       src={src}

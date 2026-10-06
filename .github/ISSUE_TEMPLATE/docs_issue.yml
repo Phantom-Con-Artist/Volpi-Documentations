@@ -1,0 +1,37 @@
+name: Documentation or website problem
+description: The documentation is wrong, unclear or missing something, or the website is broken.
+title: "[Docs] "
+labels: ["documentation"]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      description: The address of the page, or the section name.
+      placeholder: /docs/#reading
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind of problem
+      options:
+        - Wrong or out of date
+        - Unclear
+        - Missing information
+        - Website looks or works wrong
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What is wrong
+      description: Quote the text if you can, and say what it should say.
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and device
+      description: Only for website problems.
+      placeholder: Firefox 140 on Linux, Safari on iPhone, …

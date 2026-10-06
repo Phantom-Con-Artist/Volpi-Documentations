@@ -1,6 +1,7 @@
 import { FoxSeal } from '@/components/brand/FoxSeal';
 import { FOOTER_LINKS, SITE } from '@/content/site.content';
 import { MochiToggle } from '@/components/mochi/MochiToggle';
+import { navLinkProps } from '@/components/navigation/navLinkProps';
 
 /** Always on the Night canvas: data-mode="night" re-scopes the tokens for this element only. */
 export function SiteFooter() {
@@ -17,7 +18,7 @@ export function SiteFooter() {
         <div className="flex flex-col items-start gap-6 md:items-end">
         <ul className="m-0 flex list-none flex-wrap gap-x-7 gap-y-3 p-0 text-[15px]">
           {FOOTER_LINKS.map((l) => (
-            <li key={l.label}><a href={l.href} {...(l.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})} className="text-ink-3 no-underline hover:text-ink">{l.label}</a></li>
+            <li key={l.label}><a href={l.href} {...navLinkProps(l.href)} className="text-ink-3 no-underline hover:text-ink">{l.label}</a></li>
           ))}
         </ul>
         <MochiToggle />

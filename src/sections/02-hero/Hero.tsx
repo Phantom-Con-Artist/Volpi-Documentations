@@ -1,7 +1,7 @@
 import { ArrowDown } from 'lucide-react';
 import { HERO } from '@/content/hero.content';
 import { HERO_IMAGE } from '@/content/media.content';
-import { GithubButton } from '@/components/buttons/GithubButton';
+import { DiscordButton } from '@/components/buttons/DiscordButton';
 import { ThemedImg } from '@/components/media/ThemedImg';
 import { HeroMochi } from './HeroMochi';
 
@@ -18,7 +18,7 @@ export function Hero() {
             </h1>
             <p className="mb-11 max-w-[34em] text-[clamp(1.15rem,1.7vw,1.45rem)] text-ink-2">{HERO.lede}</p>
             <div className="flex flex-wrap items-center gap-x-8 gap-y-5">
-              <GithubButton size="lg" />
+              <DiscordButton size="lg" />
               <a className="textlink" href="#loop">{HERO.secondary} <ArrowDown size={16} aria-hidden="true" /></a>
             </div>
             <p className="mt-8 text-[15px] text-ink-2">{HERO.trust}</p>

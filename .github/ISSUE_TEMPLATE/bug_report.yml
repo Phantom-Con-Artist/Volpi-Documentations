@@ -1,0 +1,84 @@
+name: Bug in Volpi
+description: Something in the Volpi app does not work as it should.
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting a bug. Volpi is not open source, so this report is the main way we hear about problems.
+
+        Please search the existing issues first. Do not attach files that contain your own research or personal data. If a file is needed to show the bug, make a small example instead.
+  - type: input
+    id: version
+    attributes:
+      label: Volpi version
+      description: Shown in the update log on the Home screen.
+      placeholder: v0.1.0
+    validations:
+      required: true
+  - type: input
+    id: system
+    attributes:
+      label: Operating system
+      description: Name and version.
+      placeholder: Fedora 44, Ubuntu 24.04, …
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Part of Volpi
+      options:
+        - Research branches and files
+        - Reading PDFs
+        - Notes and links
+        - Research graph
+        - Data and charts
+        - Writing papers
+        - References and citations
+        - Library and search
+        - Saving, history and focus
+        - Themes and appearance
+        - Installing or starting Volpi
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you saw. Include any error message, word for word.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to make it happen again
+      placeholder: |
+        1. Open a branch
+        2. Open a PDF
+        3. …
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What you expected
+    validations:
+      required: true
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: How often does it happen?
+      options:
+        - Every time
+        - Sometimes
+        - Once so far
+    validations:
+      required: true
+  - type: textarea
+    id: extra
+    attributes:
+      label: Screenshots or other details
+      description: Optional. Check that screenshots show no private research or personal data.

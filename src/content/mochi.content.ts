@@ -2,16 +2,20 @@ import type { MochiLine } from '@/types/mochi';
 
 /** What Mochi says as each part of a page comes into view. Keys are section ids. */
 export const MOCHI_LINES: Record<string, MochiLine> = {
+  who: { text: 'I have seen your Downloads folder. We need to talk.', mood: 'wow' },
   formats: { text: 'Plain files. You could open them without me. Rude, but true.', mood: 'smile' },
   desk: { text: 'Rename a paper and every link follows. I checked. Twice.', mood: 'smile' },
   loop: { text: 'Pick a step. Each one is a real recording. I was in the room.', mood: 'happy' },
   theme: { text: 'Try the switch. I look nice at night too.', mood: 'happy' },
   hood: { text: 'The internet only hears from us when you check a reference.', mood: 'smile' },
+  local: { text: 'What you write here stays here. I keep secrets very well.', mood: 'smile' },
   notyet: { text: 'Being honest here. Scanned PDFs still stump me.', mood: 'wow' },
+  pricing: { text: 'Pay once and keep me. No monthly fee for cats.', mood: 'happy' },
   coda: { text: 'See you at the open beta! I will be the one eating your logo.', mood: 'happy' },
   'docs-top': { text: 'Everything I can do, in one list. Well. Everything Volpi can do.', mood: 'happy' },
   'docs-limits': { text: 'These are on my list too.', mood: 'wow' },
   'docs-next': { text: 'No dates yet. We would rather be right.', mood: 'smile' },
+  'privacy-why': { text: 'We do not want your data. I checked. There is no server to keep it on.', mood: 'happy' },
   'privacy-top': { text: 'Short version: your research never leaves your computer.', mood: 'smile' },
   'privacy-network': { text: 'Only a DOI or a title goes out. Never a file. I would know.', mood: 'smile' },
 };
@@ -40,7 +44,7 @@ export const POINT_TARGETS: { selector: string; lines: string[] }[] = [
   { selector: 'h2 .slash', lines: ['I drew that red line. You are welcome.', 'Look at this heading. So big.'] },
   { selector: '.p5-tag', lines: ['This little tag is crooked. I like it crooked.'] },
   { selector: '[data-mochi-target="theme"]', lines: ['This button turns the lights off. Go on.'] },
-  { selector: 'a[href^="https://github.com"]', lines: ['That button opens our GitHub page.', 'GitHub is over there. Go on.'] },
+  { selector: 'a[href^="https://discord.gg"]', lines: ['That button opens our Discord. I am there too.', 'Come say hi on Discord. Go on.'] },
   { selector: '.panel', lines: ['This box has a dotted shadow. Fancy.', 'A screenshot. I am in the app too, you know.'] },
   { selector: '.sfx', lines: ['シーン. That is you, reading.', 'Big letters. Very loud for a quiet word.'] },
   { selector: 'footer .kicker', lines: ['Someone wrote down the fonts. Nerds.'] },

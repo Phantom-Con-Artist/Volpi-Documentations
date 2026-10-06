@@ -6,8 +6,14 @@ import { SITE } from '@/content/site.content';
 import { PrivacySummary } from './PrivacySummary';
 import { NetworkDetails } from './NetworkDetails';
 import { PolicyBlock } from './PolicyBlock';
+import { PrivacyWhy } from './PrivacyWhy';
+import { WHY_LOCAL_PRIVACY } from '@/content/why-local.content';
 
-const LINKS = PRIVACY_SECTIONS.map((s) => ({ label: s.title, href: `#${s.id}` }));
+const LINKS = [
+  { label: WHY_LOCAL_PRIVACY.title, href: '#why' },
+  { label: 'The short version', href: '#summary' },
+  ...PRIVACY_SECTIONS.map((s) => ({ label: s.title, href: `#${s.id}` })),
+];
 
 export function PrivacyPage() {
   return (
@@ -21,6 +27,7 @@ export function PrivacyPage() {
         <div className="grid gap-12 pb-24 lg:grid-cols-[220px_1fr]">
           <SideNav title="On this page" links={LINKS} />
           <div className="min-w-0">
+            <PrivacyWhy />
             <PrivacySummary />
             <div className="mt-14">
               {PRIVACY_SECTIONS.map((s) => (

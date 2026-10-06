@@ -1,5 +1,5 @@
 import type { Principle } from '@/types/content';
-import { feature, windowShot } from './media.content';
+import { feature, windowCrop } from './media.content';
 
 export const PRINCIPLES_HEAD = { kicker: 'No. 01', title: 'Three principles.', chapter: '第一話' };
 
@@ -17,6 +17,6 @@ export const PRINCIPLES: Principle[] = [
   {
     title: 'No distractions.',
     text: 'Zen mode hides everything but the page. A focus timer runs 25 minute sessions. No notifications.',
-    image: windowShot('zen', 'Zen mode: only the paper and the focus timer are visible.'),
+    image: windowCrop('zen', 'Zen mode: only the paper and the focus timer are visible.', true, 1500),
   },
 ];

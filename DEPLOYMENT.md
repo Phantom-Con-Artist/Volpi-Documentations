@@ -8,7 +8,7 @@ Connect the GitHub repository in the Cloudflare dashboard (Workers & Pages, Crea
 
 | Setting | Value |
 |---|---|
-| Production branch | `master` (or the branch you deploy from) |
+| Production branch | `main` (or the branch you deploy from) |
 | Framework preset | None |
 | Build command | `npm run build` |
 | Build output directory | `dist` |

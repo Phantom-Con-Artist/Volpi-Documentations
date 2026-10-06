@@ -53,3 +53,24 @@ export interface PolicySection {
   paragraphs: string[];
   list?: string[];
 }
+
+export interface PricePlan {
+  tag: string;
+  name: string;
+  price: string;
+  points: string[];
+  current?: boolean;
+}
+
+export interface Pain {
+  text: string;
+  /** Shown as a file name, in the monospace face. */
+  file?: boolean;
+}
+
+export interface FeatureTile {
+  kicker: string;
+  title: string;
+  text: string;
+  image: ThemedImage;
+}

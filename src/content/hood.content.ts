@@ -1,5 +1,5 @@
 import type { Fact } from '@/types/content';
-import { feature } from './media.content';
+import { windowShot } from './media.content';
 
 export const HOOD_HEAD = { kicker: 'No. 04', title: 'How it is built.', chapter: '第四話' };
 
@@ -10,4 +10,4 @@ export const HOOD_FACTS: Fact[] = [
   { title: 'Profile passwords.', text: 'A password locks a profile in Volpi. It does not encrypt your files.' },
 ];
 
-export const HOOD_IMAGE = feature('references', 'The reference library, with Verified, Likely, Mismatch and Not found badges.');
+export const HOOD_IMAGE = windowShot('home', 'The Volpi Home screen with the profile card, recent projects and the update log.');

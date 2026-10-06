@@ -141,5 +141,5 @@ export const NEXT: Fact[] = [
 
 export const PRICING = {
   title: 'Price and licence',
-  text: 'Volpi is free during the open beta. The licence and any pricing will be announced before version 1.0.',
+  text: 'The open beta is free for everyone to download. Version 1.0 will be a one-time purchase, not a subscription. The price will be announced on this website before version 1.0. Volpi is not open source: its GitHub repository holds this documentation and bug reports, not the app.',
 };

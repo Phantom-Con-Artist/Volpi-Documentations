@@ -57,7 +57,8 @@
     background-size: 6px 6px;
   }
   .panel::after { inset: 0; background: var(--panel); }
-  .panel > img, .panel > video { display: block; width: 100%; height: auto; }
+  /* :where() keeps this at class specificity, so utilities such as h-full can override the default. */
+  .panel > :where(img, video) { display: block; width: 100%; height: auto; }
 
   .rule-top { border-top: var(--hairline) solid var(--tone-soft); }
   .prose-volpi p + p { margin-top: 1em; }

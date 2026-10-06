@@ -4,7 +4,7 @@ import type { PolicySection } from '@/types/content';
 export const PRIVACY_HEAD = {
   kicker: 'Privacy',
   title: 'Your files stay on your computer.',
-  text: 'Volpi is a desktop app. It has no account, no server and no analytics.',
+  text: 'Volpi is a desktop app. It has no account, no server and no analytics. We value your privacy and respect it.',
 };
 
 export const PRIVACY_SUMMARY: string[] = [

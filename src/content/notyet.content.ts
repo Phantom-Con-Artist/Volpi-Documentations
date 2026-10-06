@@ -1,8 +1,8 @@
 import type { Fact } from '@/types/content';
 
 export const NOT_YET = {
-  kicker: 'No. 05',
-  chapter: '第五話',
+  kicker: 'No. 06',
+  chapter: '第六話',
   title: 'Not yet.',
   text: 'This is the first beta. These things are not supported yet.',
   card: 'Beta · v0.1.0',
