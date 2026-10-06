@@ -18,15 +18,20 @@ export const SITE = {
 };
 
 export const NAV: NavLink[] = [
-  { label: 'Features', href: '/#loop' },
+  { label: 'Features', href: '/features/' },
   { label: 'Docs', href: '/docs/' },
   { label: 'Pricing', href: '/#pricing' },
+  { label: 'Roadmap', href: '/roadmap/' },
+  { label: 'About', href: '/about/' },
   { label: 'Privacy', href: '/privacy/' },
   { label: 'Report a bug', href: BUG_REPORT_URL },
 ];
 
 export const FOOTER_LINKS: NavLink[] = [
+  { label: 'Features', href: '/features/' },
   { label: 'Documentation', href: '/docs/' },
+  { label: 'Roadmap', href: '/roadmap/' },
+  { label: 'About', href: '/about/' },
   { label: 'Privacy', href: '/privacy/' },
   { label: 'Discord', href: DISCORD_URL },
   { label: 'Bug reports on GitHub', href: BUG_REPORT_URL },

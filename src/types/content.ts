@@ -68,9 +68,28 @@ export interface Pain {
   file?: boolean;
 }
 
-export interface FeatureTile {
+/** One chapter of the features page. Its facts come from the docs section with the same `docId`. */
+export interface FeatureChapter {
+  id: string;
+  docId: string;
   kicker: string;
   title: string;
+  joke: string;
+  /** An honest caveat, said with a straight face. */
+  note?: string;
+  images: ThemedImage[];
+}
+
+/** One phase of the roadmap. */
+export interface RoadmapPhase {
+  id: string;
+  /** Shown in the phase marker, e.g. "1" or "1.5". */
+  number: string;
+  status: string;
+  title: string;
   text: string;
-  image: ThemedImage;
+  items: Fact[];
+  mochi: string;
+  /** The phase Volpi is in today. */
+  current?: boolean;
 }

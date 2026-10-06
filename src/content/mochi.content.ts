@@ -12,6 +12,8 @@ export const MOCHI_LINES: Record<string, MochiLine> = {
   notyet: { text: 'Being honest here. Scanned PDFs still stump me.', mood: 'wow' },
   pricing: { text: 'Pay once and keep me. No monthly fee for cats.', mood: 'happy' },
   coda: { text: 'See you at the open beta! I will be the one eating your logo.', mood: 'happy' },
+  'features-top': { text: 'The full tour. Please keep your hands inside the panels.', mood: 'happy' },
+  'roadmap-top': { text: 'The plan. I added the snack breaks.', mood: 'happy' },
   'docs-top': { text: 'Everything I can do, in one list. Well. Everything Volpi can do.', mood: 'happy' },
   'docs-limits': { text: 'These are on my list too.', mood: 'wow' },
   'docs-next': { text: 'No dates yet. We would rather be right.', mood: 'smile' },

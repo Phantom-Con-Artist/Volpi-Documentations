@@ -15,8 +15,8 @@ export function MochiArm({ side, x, y, children }: { side: 'l' | 'r'; x: number;
         <path d="M-10 -4 Q-14 20 -9.5 39 L9.5 39 Q14 20 10 -4 Q0 -10 -10 -4 Z" style={ACCENT} {...OUTLINE} />
         <path d="M-10 38 H10 V44 H-10 Z" fill={CREAM} stroke={INK} strokeWidth={2.4} strokeLinejoin="round" />
         {side === 'l' && children}
-        <path d="M-7.5 46 Q-9 56 0 58 Q9 56 7.5 46 Q0 42 -7.5 46 Z" fill={SKIN} {...OUTLINE} />
-        <path d="M-3 52 v3 M2 52 v3" stroke={INK} strokeWidth={1.6} strokeLinecap="round" opacity={0.7} />
+        <path className="mf-hand" d="M-7.5 46 Q-9 56 0 58 Q9 56 7.5 46 Q0 42 -7.5 46 Z" fill={SKIN} {...OUTLINE} />
+        <path className="mf-hand" d="M-3 52 v3 M2 52 v3" stroke={INK} strokeWidth={1.6} strokeLinecap="round" opacity={0.7} />
         {side === 'r' && children}
       </g>
     </g>

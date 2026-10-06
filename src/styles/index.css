@@ -10,6 +10,7 @@
 @import './manga.css';
 @import './mochi-rig.css';
 @import './bubbles.css';
+@import './film.css';
 
 @tailwind base;
 @tailwind components;

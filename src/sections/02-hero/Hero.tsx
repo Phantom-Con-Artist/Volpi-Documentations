@@ -9,7 +9,7 @@ export function Hero() {
   return (
     <section className="speedlines overflow-hidden pt-[clamp(48px,7vw,112px)]" style={{ ['--sl-x' as string]: '88%', ['--sl-y' as string]: '18%' }}>
       <div className="wrap">
-        <div className="grid items-end gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(280px,360px)]">
+        <div className="grid items-end gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(300px,430px)]">
           <div className="rise">
             <span className="p5-tag p5-tag-seal">{HERO.kicker}</span>
             <h1 className="mb-8 mt-8">

@@ -4,8 +4,8 @@ import { MochiActor } from './MochiActor';
 import { useMochiDirector } from './director/useMochiDirector';
 
 /** Owns Mochi for a page. The roaming actor re-renders on its own; the context only changes with the hero. */
-export function MochiProvider({ children }: { children: ReactNode }) {
-  const { actor, hero, hidden, setHidden, registerHero, poke, pokeHero } = useMochiDirector();
+export function MochiProvider({ children, roaming = true }: { children: ReactNode; roaming?: boolean }) {
+  const { actor, hero, hidden, setHidden, registerHero, poke, pokeHero } = useMochiDirector(roaming);
   const api = useMemo(() => ({ hero, hidden, setHidden, registerHero, pokeHero }), [hero, hidden, setHidden, registerHero, pokeHero]);
   return (
     <MochiContext.Provider value={api}>

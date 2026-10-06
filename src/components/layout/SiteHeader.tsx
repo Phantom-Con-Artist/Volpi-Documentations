@@ -13,7 +13,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-30 border-b-[3px] border-ink backdrop-blur-sm" style={{ background: 'color-mix(in srgb, var(--paper) 94%, transparent)' }}>
       <div className="wrap flex h-[76px] items-center justify-between gap-4">
         <Wordmark />
-        <nav className="hidden items-center gap-9 text-[16px] font-medium text-ink lg:flex" aria-label="Main">
+        <nav className="hidden items-center gap-6 text-[16px] xl:gap-9 font-medium text-ink lg:flex" aria-label="Main">
           {NAV.map((l) => (
             <a key={l.href} href={l.href} {...navLinkProps(l.href)} className="whitespace-nowrap no-underline decoration-seal decoration-2 underline-offset-8 hover:underline">{l.label}</a>
           ))}

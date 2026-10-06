@@ -14,6 +14,7 @@ export function DocsLater() {
         <h2 className="text-[clamp(1.6rem,3vw,2.1rem)] leading-tight">{NEXT_HEAD.title}</h2>
         <p className="mb-8 mt-2 text-ink-2">{NEXT_HEAD.intro}</p>
         <FactList facts={NEXT} marker="→" />
+        <a href={NEXT_HEAD.roadmap.href} className="textlink mt-8">{NEXT_HEAD.roadmap.label}</a>
       </section>
       <section id="pricing" className="rise border-t border-tone-soft py-14">
         <h2 className="text-[clamp(1.6rem,3vw,2.1rem)] leading-tight">{PRICING.title}</h2>

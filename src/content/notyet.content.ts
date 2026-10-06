@@ -5,6 +5,7 @@ export const NOT_YET = {
   chapter: '第六話',
   title: 'Not yet.',
   text: 'This is the first beta. These things are not supported yet.',
+  roadmap: { label: 'See the roadmap', href: '/roadmap/' },
   card: 'Beta · v0.1.0',
   items: [
     { title: 'Search inside scanned PDFs', text: 'no OCR yet' },

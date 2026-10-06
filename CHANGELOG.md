@@ -6,6 +6,7 @@ Changes to the Volpi website. Dates are in YYYY-MM-DD format.
 
 ### Changed
 
+- The home hero now shows the Volpi fox seal, with Mochi peeking over its top corner, chin on the edge and both hands gripping it. She still talks, waves, follows the pointer and runs off for her antics. The About page has no roaming Mochi, and its film is sized to fit the screen.
 - New Pricing section on the home page (No. 07): the open beta is free for everyone, and version 1.0 will be a one-time purchase, not a subscription. The price will be announced before 1.0. "Pricing" is in the header menu, and the documentation's "Price and licence" section says the same.
 - The header shows the menu button below 1024 px wide, so the links do not wrap.
 - The main button is now "Join the Discord" (header, hero and closing section). It replaces "View on GitHub", which suggested Volpi is open source.
@@ -15,8 +16,10 @@ Changes to the Volpi website. Dates are in YYYY-MM-DD format.
 
 ### Added
 
-- "What you can do" now has eight recorded steps, adding Open (opening a project) and Focus (Zen mode and the focus timer). The recording plays at full width.
-- "More you can do": eight large screenshots below the recordings: dashboard, reference checks, data health, split-view notes, reading list, Night reading mode, comments and tracked changes, and page view.
+- A Roadmap page (`/roadmap/`): phase 1, the MVP (now); 1.5, polish and reliability; 2, extensions; 3, your own local ML tools; and 4, to be decided with the community. "Roadmap" is in the header and footer, and the documentation's "What comes next" links to it.
+- An About page (`/about/`): how Volpi began, as an animated film in nine scenes starring Mochi, with play and pause, a progress bar for each scene, a text transcript and `?scene=N` links. Below it, the developer's story in their own words and a "Who is Mochi?" card. "About" is in the header and footer.
+- "What you can do" now has eight recorded steps, adding Open (opening a project) and Focus (Zen mode and the focus timer). The recording is sized to the window, with its caption beside it, so the tabs, recording and caption fit on one screen. "Not yet" links to the roadmap.
+- A Features page (`/features/`): a full tour in eight chapters (projects, reading, notes and links, references, data and charts, writing papers, library and search, focus). Each has a joke, an honest note where one is needed, the facts from the documentation, and large screenshots. "Features" in the header and footer now opens it, and "What you can do" on the home page links to it.
 - "Who it is for" on the home page, as a prologue after the formats band: Volpi is for research scholars buried in papers, PDFs and deadlines, with a "Sound familiar?" list of the everyday chaos it replaces.
 - "Why it stays local" on the home page (No. 05) and "Why privacy matters" at the top of the privacy policy: four reasons research stays on your computer, why the policy exists, and our privacy promise. "Not yet" and "Pricing" move to No. 06 and No. 07.
 - Issue templates for bugs in Volpi and for documentation or website problems. Questions go to Discord.

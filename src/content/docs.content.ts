@@ -129,6 +129,7 @@ export const LIMITS: Fact[] = [
 export const NEXT_HEAD = {
   title: 'What comes next',
   intro: 'Planned after the open beta. No dates, and the order may change.',
+  roadmap: { label: 'See the full roadmap', href: '/roadmap/' },
 };
 
 export const NEXT: Fact[] = [

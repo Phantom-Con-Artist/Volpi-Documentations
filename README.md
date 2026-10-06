@@ -24,11 +24,14 @@ Please search the [existing issues](https://github.com/Phantom-Con-Artist/Volpi-
 
 ## The website
 
-The site has three pages:
+The site has six pages:
 
 | Page | Path | Source |
 |---|---|---|
 | Home | `/` | `src/pages/home/` |
+| Features | `/features/` | `src/pages/features/` |
+| About | `/about/` | `src/pages/about/` |
+| Roadmap | `/roadmap/` | `src/pages/roadmap/` |
 | Documentation | `/docs/` | `src/pages/docs/` |
 | Privacy | `/privacy/` | `src/pages/privacy/` |
 
@@ -52,10 +55,10 @@ The site is static. It builds into `dist/` and runs on Cloudflare Pages (`pages.
 ### Project structure
 
 ```
-index.html, docs/, privacy/   one HTML shell per page
+index.html, features/, about/, roadmap/, docs/, privacy/   one HTML shell per page
 public/                       files served as they are: images, videos, logo, _headers
 src/entries/                  one entry script per page
-src/pages/                    the three pages
+src/pages/                    the six pages
 src/sections/                 home page sections, in page order
 src/components/               shared components (layout, buttons, media, theme, Mochi)
 src/content/                  all text and data, typed
@@ -70,7 +73,7 @@ All text on the site lives in `src/content/`. To change wording, edit those file
 ### Things to set before launch
 
 - **Release status:** the site says the open beta is coming soon. Update `src/content/hero.content.ts`, `coda.content.ts` and `docs.content.ts` when it is released.
-- **Roadmap:** the "What comes next" list in `src/content/docs.content.ts` should match your actual plans.
+- **Roadmap:** the phases in `src/content/roadmap.content.ts` and the "What comes next" list in `src/content/docs.content.ts` (shown under phase 1.5) should match your actual plans.
 - **Price:** the site says the open beta is free and version 1.0 will be a one-time purchase, with the price announced before 1.0. Update `src/content/pricing.content.ts` and `PRICING` in `docs.content.ts` when the price is set.
 
 ### Mochi

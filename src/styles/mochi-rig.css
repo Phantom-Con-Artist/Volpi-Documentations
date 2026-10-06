@@ -71,6 +71,24 @@
 @keyframes mf-arm-run-r { from { transform: rotate(-40deg); } to { transform: rotate(14deg); } }
 @keyframes mf-arm-run-l { from { transform: rotate(-8deg); } to { transform: rotate(22deg); } }
 
+/* Hug: peeking over the hero's fox seal with her chin on its top edge and both mittens gripping the edge.
+   Her arms reach up and out behind the seal; only the hands are drawn in front (see .mf-front). The book is
+   put away and her head nuzzles. .is-waving lifts the right hand off the edge to wave. */
+.mf[data-pose="hug"] .mf-book { opacity: 0; }
+.mf[data-pose="hug"] .mf-arm-l { transform: rotate(118deg); }
+.mf[data-pose="hug"] .mf-arm-r { transform: rotate(-118deg); }
+.mf[data-pose="hug"] .mf-head { animation: mf-nuzzle 4.2s ease-in-out infinite; }
+.mf[data-pose="hug"] .mf-upper { animation: mf-snuggle 4.2s ease-in-out infinite; }
+.mf[data-pose="hug"].is-waving .mf-arm-r { animation: mf-wave .36s ease-in-out infinite alternate; }
+/* Hovering the hugging Mochi must move both copies (behind and in front of the seal) together, or she grows a third hand. */
+.mf-hug:has(.mf-hover:hover) .mf[data-pose="hug"]:not(.is-waving) .mf-arm-r { animation: mf-wave .36s ease-in-out infinite alternate; }
+@keyframes mf-nuzzle { 0%, 100% { transform: rotate(4deg); } 50% { transform: rotate(8deg) translateY(2px); } }
+@keyframes mf-snuggle { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(2px) scaleY(.99); } }
+
+/* The front copy of a hugging Mochi shows only her hands, so they grip the front of the thing she hugs. */
+.mf-front { visibility: hidden; pointer-events: none; }
+.mf-front .mf-hand { visibility: visible; }
+
 @media (prefers-reduced-motion: reduce) {
   .mf *, .mf .mf-upper { animation: none !important; transition: none !important; }
   .mf[data-pose="eat"] .mf-bite { opacity: 1; }

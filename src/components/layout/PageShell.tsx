@@ -10,11 +10,11 @@ function Reveal() {
   return null;
 }
 
-/** Shared frame for every page: theme, header, footer, Mochi and scroll reveals. */
-export function PageShell({ children }: { children: ReactNode }) {
+/** Shared frame for every page: theme, header, footer, Mochi and scroll reveals. `roamingMochi={false}` keeps her from wandering the page. */
+export function PageShell({ children, roamingMochi = true }: { children: ReactNode; roamingMochi?: boolean }) {
   return (
     <ThemeProvider>
-      <MochiProvider>
+      <MochiProvider roaming={roamingMochi}>
         <SiteHeader />
         <main>{children}</main>
         <SiteFooter />

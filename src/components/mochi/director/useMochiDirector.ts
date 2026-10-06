@@ -14,11 +14,16 @@ const KEY = 'volpi.site.mochi';
 const IDLE: ActorState = { on: false, x: 0, y: 0, rotate: 0, scale: 1, flip: false, pose: 'idle', mood: 'smile', moving: false, moveMs: 0, bubble: null, carry: null };
 const SPAM = { count: 5, windowMs: 4000 };
 
-/** Runs Mochi: where she rests, what she says, and which antic she gets up to next. */
-export function useMochiDirector() {
+/**
+ * Runs Mochi: where she rests, what she says, and which antic she gets up to next.
+ * With `roaming` off (the About page, where she has her own film) she stays put: no antics, no corner lines.
+ */
+export function useMochiDirector(roaming = true) {
   const reduced = useReducedMotion();
   const section = useActiveSection();
-  const [hidden, setHiddenState] = useState(() => readJSON(KEY, { hidden: false }).hidden);
+  const [hiddenPref, setHiddenState] = useState(() => readJSON(KEY, { hidden: false }).hidden);
+  // Below, `hidden` means "keep the roaming Mochi away": switched off by the visitor, or not roaming on this page.
+  const hidden = hiddenPref || !roaming;
   const [actor, setActor] = useState<ActorState>(IDLE);
   const [hero, setHero] = useState<HeroState>({ away: false, pose: 'idle', mood: 'smile', bubble: null });
   const posRef = useRef({ x: 0, y: 0, on: false, flip: false });
@@ -165,5 +170,5 @@ export function useMochiDirector() {
     if (value) { running.current?.abort('hide'); setActor(IDLE); posRef.current.on = false; }
   }, []);
 
-  return { actor, hero, hidden, setHidden, registerHero, poke, pokeHero };
+  return { actor, hero, hidden: hiddenPref, setHidden, registerHero, poke, pokeHero };
 }
