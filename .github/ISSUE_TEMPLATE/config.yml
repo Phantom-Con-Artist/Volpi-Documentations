@@ -3,3 +3,6 @@ contact_links:
   - name: Questions, ideas and release news
     url: https://discord.gg/gkHMSq6emT
     about: Ask how something works, suggest a feature or hear when the open beta is out. This is on the Volpi Discord.
+  - name: Security problem
+    url: https://github.com/Phantom-Con-Artist/Volpi-Documentations/blob/main/SECURITY.md
+    about: Please report security problems privately, not as a public issue.

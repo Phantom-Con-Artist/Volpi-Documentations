@@ -8,7 +8,12 @@ body:
       value: |
         Thank you for reporting a bug. Volpi is not open source, so this report is the main way we hear about problems.
 
-        Please search the existing issues first. Do not attach files that contain your own research or personal data. If a file is needed to show the bug, make a small example instead.
+        Before you start:
+        - Check the known limits in the documentation and search the existing issues. If your bug is already reported, add your details there.
+        - Try it once more and write down the exact steps.
+        - Reports are public. Do not attach your own research, participant data or personal details. If a file is needed to show the bug, make a small example instead.
+
+        Found a security problem? Do not report it here. See SECURITY.md.
   - type: input
     id: version
     attributes:

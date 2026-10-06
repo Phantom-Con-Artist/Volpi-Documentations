@@ -93,3 +93,12 @@ export interface RoadmapPhase {
   /** The phase Volpi is in today. */
   current?: boolean;
 }
+
+/** One step of the bug-report guide. */
+export interface ReportStep {
+  title: string;
+  text: string;
+  /** Short checklist under the text. */
+  points?: string[];
+  links?: NavLink[];
+}

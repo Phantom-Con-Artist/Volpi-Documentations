@@ -1,6 +1,6 @@
 # Changelog
 
-Changes to the Volpi website. Dates are in YYYY-MM-DD format.
+Changes to the Volpi website and this repository's documents. Changes to the Volpi app are in its update log. Dates are in YYYY-MM-DD format.
 
 ## [Unreleased]
 
@@ -10,12 +10,13 @@ Changes to the Volpi website. Dates are in YYYY-MM-DD format.
 - New Pricing section on the home page (No. 07): the open beta is free for everyone, and version 1.0 will be a one-time purchase, not a subscription. The price will be announced before 1.0. "Pricing" is in the header menu, and the documentation's "Price and licence" section says the same.
 - The header shows the menu button below 1024 px wide, so the links do not wrap.
 - The main button is now "Join the Discord" (header, hero and closing section). It replaces "View on GitHub", which suggested Volpi is open source.
-- GitHub is now linked only for bug reports: "Report a bug" in the header and "Bug reports on GitHub" in the footer.
+- "Report a bug" in the header and footer opens a new page (`/report/`) that explains how to write a good report, in five steps, before linking to the GitHub forms. It also covers what to do without a GitHub account and how to report security problems.
 - The documentation's "Price and licence" section says that Volpi is not open source.
 - Links to Discord and GitHub open in a new tab.
 
 ### Added
 
+- Repository documents for the people this repository serves: a README about the documentation, bug reports and community; `WEBSITE.md` for working on the site; community guidelines (`CODE_OF_CONDUCT.md`); a security policy (`SECURITY.md`); and `.github/SUPPORT.md`. The bug form now lists what to check first and links to the security policy.
 - A Roadmap page (`/roadmap/`): phase 1, the MVP (now); 1.5, polish and reliability; 2, extensions; 3, your own local ML tools; and 4, to be decided with the community. "Roadmap" is in the header and footer, and the documentation's "What comes next" links to it.
 - An About page (`/about/`): how Volpi began, as an animated film in nine scenes starring Mochi, with play and pause, a progress bar for each scene, a text transcript and `?scene=N` links. Below it, the developer's story in their own words and a "Who is Mochi?" card. "About" is in the header and footer.
 - "What you can do" now has eight recorded steps, adding Open (opening a project) and Focus (Zen mode and the focus timer). The recording is sized to the window, with its caption beside it, so the tabs, recording and caption fit on one screen. "Not yet" links to the roadmap.

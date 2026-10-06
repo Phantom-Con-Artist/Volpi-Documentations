@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 
-// Six static pages, each with its own entry: home, features, about, roadmap, documentation and privacy.
+// Seven static pages, each with its own entry: home, features, about, roadmap, report, documentation and privacy.
 export default defineConfig({
   plugins: [react()],
   resolve: {
@@ -18,6 +18,7 @@ export default defineConfig({
         features: path.resolve(__dirname, 'features/index.html'),
         about: path.resolve(__dirname, 'about/index.html'),
         roadmap: path.resolve(__dirname, 'roadmap/index.html'),
+        report: path.resolve(__dirname, 'report/index.html'),
         privacy: path.resolve(__dirname, 'privacy/index.html'),
       },
     },

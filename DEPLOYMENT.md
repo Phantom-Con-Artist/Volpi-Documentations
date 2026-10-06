@@ -17,7 +17,7 @@ Connect the GitHub repository in the Cloudflare dashboard (Workers & Pages, Crea
 
 The Node.js version comes from `.nvmrc` (22).
 
-The build creates six pages: `dist/index.html`, `dist/features/index.html`, `dist/about/index.html`, `dist/roadmap/index.html`, `dist/docs/index.html` and `dist/privacy/index.html`. Cloudflare serves them at `/`, `/features/`, `/about/`, `/roadmap/`, `/docs/` and `/privacy/`.
+The build creates seven pages: `dist/index.html`, `dist/features/index.html`, `dist/about/index.html`, `dist/roadmap/index.html`, `dist/report/index.html`, `dist/docs/index.html` and `dist/privacy/index.html`. Cloudflare serves them at `/`, `/features/`, `/about/`, `/roadmap/`, `/report/`, `/docs/` and `/privacy/`.
 
 ## What is deployed
 
@@ -35,4 +35,4 @@ Cloudflare Pages allows up to 20,000 files and 25 MiB per file. The largest file
 ## Before the first deployment
 
 - Run `npm run build` locally and check the result with `npm run preview`.
-- After deploying, open `/`, `/features/`, `/about/`, `/roadmap/`, `/docs/` and `/privacy/` and check that images and videos load.
+- After deploying, open `/`, `/features/`, `/about/`, `/roadmap/`, `/report/`, `/docs/` and `/privacy/` and check that images and videos load.

@@ -1,100 +1,78 @@
-# Volpi documentation and website
+# Volpi: documentation, bug reports and community
 
-**Volpi** is a desktop app for researchers. In Volpi you read and highlight PDFs, write linked Markdown notes, check and chart data, and write papers with citations. Each project is a plain folder on your own computer.
+**Volpi** is a desktop app for researchers. You read and highlight PDFs, write linked Markdown notes, check and chart data, and write papers with citations, all in one place. Each project is a plain folder on your own computer.
 
-Volpi is in development. The open beta has not been released yet.
+Volpi is in development. The open beta is coming soon and will be free for everyone to download.
 
-## What this repository is for
+This repository is the public home of Volpi. It holds:
 
-- **Documentation.** What Volpi does, its keyboard shortcuts, known limits and planned work.
-- **Bug reports.** Found something wrong in Volpi or in the documentation? [Open an issue](https://github.com/Phantom-Con-Artist/Volpi-Documentations/issues/new/choose).
-- **The website.** The source of the Volpi website lives here too (see below).
+- **The documentation:** what Volpi does, its keyboard shortcuts, known limits and plans.
+- **Bug reports:** tell us when something in Volpi or its documentation is wrong.
+- **The website** that shows all of this.
 
 **Volpi itself is not open source.** The app's source code is not in this repository and is not published.
 
-## Get help
+## Read the documentation
 
-| You want to | Go to |
+The documentation lives on the Volpi website:
+
+| Page | What is on it |
 |---|---|
-| Report a bug in Volpi | [New bug report](https://github.com/Phantom-Con-Artist/Volpi-Documentations/issues/new?template=bug_report.yml) |
-| Report a mistake in the documentation | [New documentation issue](https://github.com/Phantom-Con-Artist/Volpi-Documentations/issues/new?template=docs_issue.yml) |
-| Ask a question, suggest a feature, hear about releases | [Volpi on Discord](https://discord.gg/gkHMSq6emT) |
+| Features (`/features/`) | A tour of everything Volpi does, with screenshots |
+| Documentation (`/docs/`) | Every feature in the beta, keyboard shortcuts, known limits, price and licence |
+| Roadmap (`/roadmap/`) | What comes next, phase by phase |
+| Privacy (`/privacy/`) | What stays on your computer and the only things Volpi sends |
+| Report a bug (`/report/`) | How to write a good bug report |
 
-Please search the [existing issues](https://github.com/Phantom-Con-Artist/Volpi-Documentations/issues) first, and do not attach files that contain your own research or personal data.
+The same text is in this repository, in [`src/content/`](src/content/). For example, the documentation is in [`docs.content.ts`](src/content/docs.content.ts).
 
-## The website
+## Report a bug
 
-The site has six pages:
+A clear report lets us find the problem and fix it.
 
-| Page | Path | Source |
-|---|---|---|
-| Home | `/` | `src/pages/home/` |
-| Features | `/features/` | `src/pages/features/` |
-| About | `/about/` | `src/pages/about/` |
-| Roadmap | `/roadmap/` | `src/pages/roadmap/` |
-| Documentation | `/docs/` | `src/pages/docs/` |
-| Privacy | `/privacy/` | `src/pages/privacy/` |
+1. **Check that it is not already known.** Read the known limits in the documentation and search the [existing reports](https://github.com/Phantom-Con-Artist/Volpi-Documentations/issues). If your bug is there, add your details to it.
+2. **Note your setup:** your Volpi version (shown in the update log on the Home screen) and your operating system with its version.
+3. **Make it happen again.** Write the exact steps, what you expected and what happened. Copy any error message word for word.
+4. **Keep your research private.** Reports are public. Do not attach your own files, participant data or personal details. Make a small example instead, and check screenshots before adding them.
+5. **Open the report** with the form that fits:
+   - [Bug in Volpi](https://github.com/Phantom-Con-Artist/Volpi-Documentations/issues/new?template=bug_report.yml)
+   - [Documentation or website problem](https://github.com/Phantom-Con-Artist/Volpi-Documentations/issues/new?template=docs_issue.yml)
 
-The documentation text is in `src/content/docs.content.ts`.
+You need a free GitHub account. If you do not have one, describe the bug on [Discord](https://discord.gg/gkHMSq6emT) instead.
 
-### Run it locally
+Found a security problem? Do not post it publicly. See [SECURITY.md](SECURITY.md).
 
-You need Node.js 22 or later.
+## Join the community
 
-```bash
-npm install
-npm run dev       # development server at http://localhost:3000
-npm run build     # type-check and build into dist/
-npm run preview   # serve the built site
-```
+[Volpi on Discord](https://discord.gg/gkHMSq6emT) is the place to:
 
-### Deploy
+- ask how something works,
+- suggest features and share ideas,
+- hear when the open beta and new versions are out,
+- talk with other researchers who use Volpi.
 
-The site is static. It builds into `dist/` and runs on Cloudflare Pages (`pages.dev`) with no server and no environment variables. See [DEPLOYMENT.md](DEPLOYMENT.md).
+Please read the [community guidelines](CODE_OF_CONDUCT.md). They apply on Discord and here on GitHub.
 
-### Project structure
+## Questions people ask
 
-```
-index.html, features/, about/, roadmap/, docs/, privacy/   one HTML shell per page
-public/                       files served as they are: images, videos, logo, _headers
-src/entries/                  one entry script per page
-src/pages/                    the six pages
-src/sections/                 home page sections, in page order
-src/components/               shared components (layout, buttons, media, theme, Mochi)
-src/content/                  all text and data, typed
-src/hooks/                    shared React hooks
-src/types/                    TypeScript types
-src/styles/                   design tokens and styles
-specimen/                     early static design drafts (not deployed)
-```
+**Is Volpi open source?**
+No. The app's source code is not published. This repository holds the documentation, bug reports and the website.
 
-All text on the site lives in `src/content/`. To change wording, edit those files; you do not need to touch the components.
+**What does it cost?**
+The open beta is free for everyone. Version 1.0 will be a one-time purchase, not a subscription. The price will be announced on the website before 1.0.
 
-### Things to set before launch
+**Which systems does it run on?**
+Linux first. Mac and Windows builds are planned.
 
-- **Release status:** the site says the open beta is coming soon. Update `src/content/hero.content.ts`, `coda.content.ts` and `docs.content.ts` when it is released.
-- **Roadmap:** the phases in `src/content/roadmap.content.ts` and the "What comes next" list in `src/content/docs.content.ts` (shown under phase 1.5) should match your actual plans.
-- **Price:** the site says the open beta is free and version 1.0 will be a one-time purchase, with the price announced before 1.0. Update `src/content/pricing.content.ts` and `PRICING` in `docs.content.ts` when the price is set.
+**Where is my data?**
+On your computer, in folders you choose. There is no account and no cloud. Volpi only uses the internet to check references, and you can turn that off. The privacy policy has the details.
 
-### Mochi
+**How do I suggest a feature?**
+On [Discord](https://discord.gg/gkHMSq6emT). Feature requests opened as issues may be moved there.
 
-Mochi is the guide character from the app. On this site she stands in the hero, comments on each section and sometimes gets up to mischief (she eats the logo, sits on the header, steals a letter from a heading). Visitors can turn her off with the switch in the footer. She does not move for visitors who prefer reduced motion.
+## Help with the documentation
 
-- Her lines: `src/content/mochi.content.ts`
-- Her drawing: `src/components/mochi/rig/`
-- Her behaviour: `src/components/mochi/director/`
-
-To see a particular antic, add `?mochi=eat` to the URL (or `peek`, `point`, `sit`, `steal`, `follow`).
-
-### Media
-
-The screenshots and videos in `public/assets/` were captured from the real app using a fictional demo project. The researcher, colleagues, papers, journals and DOIs shown in them are invented.
-
-They were exported from the app's own promotion tooling, which is kept outside this repository. Only the files the site uses are copied into `public/assets/`.
-
-### Privacy
-
-The site has no analytics, no cookies and no third-party requests. Fonts are served from the site itself. The only browser storage it uses is `localStorage`, for the chosen theme and whether Mochi is turned off.
+Spotted a typo or a wrong fact? Open a [documentation issue](https://github.com/Phantom-Con-Artist/Volpi-Documentations/issues/new?template=docs_issue.yml) or a pull request. See [CONTRIBUTING.md](CONTRIBUTING.md). Notes for working on the website itself are in [WEBSITE.md](WEBSITE.md).
 
 ## Licence
 
