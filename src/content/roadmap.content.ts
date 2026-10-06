@@ -3,7 +3,7 @@ import type { RoadmapPhase } from '@/types/content';
 export const ROADMAP_HEAD = {
   kicker: 'Roadmap',
   title: 'Where Volpi is going.',
-  text: 'From the desk you can use today to the tools you will build yourself. No dates yet. We would rather be right than early.',
+  text: 'From what you can use today to the tools you will build yourself. No dates yet. We would rather be right than early.',
   here: 'You are here',
   phase: 'Phase',
   alsoPlanned: 'Also on the list',
@@ -12,9 +12,9 @@ export const ROADMAP_HEAD = {
 
 export const ROADMAP_PHASES: RoadmapPhase[] = [
   {
-    id: 'mvp', number: '1', status: 'Now · open beta', current: true,
-    title: 'The MVP.',
-    text: 'The desk itself: read PDFs, write linked notes, check references, look at your data and write papers, all in plain files on your computer.',
+    id: 'first-version', number: '1', status: 'Now · open beta', current: true,
+    title: 'The first version.',
+    text: 'The app itself: read PDFs, write linked notes, check references, look at your data and write papers, all in plain files on your computer.',
     items: [
       { title: 'Everything in one place', text: 'Papers, notes, data and writing in one project folder.' },
       { title: 'Local and private', text: 'Your files stay on your computer. No account, no cloud.' },
@@ -25,7 +25,7 @@ export const ROADMAP_PHASES: RoadmapPhase[] = [
   {
     id: 'polish', number: '1.5', status: 'Next',
     title: 'Polish and reliability.',
-    text: 'Make the MVP solid. Fewer rough edges, fewer surprises, and fixes for what you report.',
+    text: 'Make the first version solid. Fewer rough edges, fewer surprises, and fixes for what you report.',
     items: [
       { title: 'Polish', text: 'Smooth out the rough edges you find in the open beta.' },
       { title: 'Reliability', text: 'Fix crashes and slow spots, so Volpi stays dependable on large projects.' },
@@ -39,20 +39,20 @@ export const ROADMAP_PHASES: RoadmapPhase[] = [
     text: 'Add the features your research needs as plug-ins, written in the language you already know.',
     items: [
       { title: 'Plug in and use', text: 'Install an extension and start using it.' },
-      { title: 'Any language', text: 'Extensions are language-agnostic. Write one in the language you already use.' },
+      { title: 'Any language', text: 'Write an extension in the programming language you already use.' },
       { title: 'Built in, not bolted on', text: 'Extensions fit into Volpi like its own features.' },
     ],
     mochi: 'Plug-ins! Finally, someone to help me around here.',
   },
   {
     id: 'ml', number: '3', status: 'Further out',
-    title: 'Build your own ML tools.',
+    title: 'Build your own machine-learning tools.',
     text: 'Make machine-learning tools for your own research, and run them on your own computer.',
     items: [
-      { title: 'Personalized tool builder', text: 'Shape ML tools around your data and your questions.' },
-      { title: 'Local inference', text: 'Models run on your computer. Your files do not leave it.' },
-      { title: 'Node-based building', text: 'Drag, drop and connect nodes to build a tool, like a blueprint.' },
-      { title: 'Save, import and reuse', text: 'Keep the tools you build and use them across all your vaults.' },
+      { title: 'Made for your research', text: 'Shape tools around your own data and your own questions.' },
+      { title: 'Runs on your computer', text: 'The models run on your machine. Your files do not leave it.' },
+      { title: 'Build by connecting blocks', text: 'Drag blocks onto a canvas and connect them to make a tool, like a blueprint.' },
+      { title: 'Save, import and reuse', text: 'Keep the tools you build and use them across all your branches.' },
     ],
     mochi: 'Robots that live on your own computer. I will keep an eye on them.',
   },

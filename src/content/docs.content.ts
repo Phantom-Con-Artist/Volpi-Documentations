@@ -5,7 +5,9 @@ import { feature, windowShot } from './media.content';
 export const DOCS_HEAD = {
   kicker: 'Documentation · v0.1.0',
   title: 'Documentation.',
-  text: 'What Volpi does in the first beta, what it does not do yet, and what is planned.',
+  text: 'How Volpi works in the first beta: every feature, the words it uses, link syntax, file formats, shortcuts and known limits.',
+  tour: { label: 'Prefer pictures? Take the features tour', href: '/features/' },
+  tourShort: 'See it in the tour',
   banner: 'The open beta is releasing very soon. This page describes that first build.',
 };
 
@@ -70,7 +72,7 @@ export const DOC_SECTIONS: DocSection[] = [
     intro: 'A reference library with checks against public databases.',
     image: feature('references', 'The reference library with verification badges.'),
     features: [
-      { title: 'Verification', text: 'Checked in Crossref, OpenAlex, arXiv and PubMed. Verified, Likely, Mismatch, Not found or Retracted, with the reason.' },
+      { title: 'Verification', text: 'Checked in Crossref, OpenAlex, arXiv and PubMed. Verified, Likely, Mismatch, Not found or Retracted, with the reason. See Reference checks below.' },
       { title: 'Papers recognised on import', text: 'A PDF that looks like a paper gets its own citation. Its reference list can be matched too.' },
       { title: 'Six styles', text: 'APA, IEEE, MLA, Chicago, Harvard and Vancouver.' },
       { title: 'Export', text: 'BibTeX, RIS and CSL-JSON.' },
@@ -86,7 +88,7 @@ export const DOC_SECTIONS: DocSection[] = [
       { title: 'Quick open', text: 'Ctrl+P opens any file by name.' },
       { title: 'Search everywhere', text: 'File names, notes, PDF text and highlights, in one branch or all recent ones.' },
       { title: 'Shelf view', text: 'Shows your papers as book spines. Taller spines are larger files.' },
-      { title: 'Vault check', text: 'Finds broken links and files that need attention.' },
+      { title: 'Branch check', text: 'Finds broken links and files that need attention.' },
     ],
   },
   {

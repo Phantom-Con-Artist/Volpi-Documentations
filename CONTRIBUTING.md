@@ -16,7 +16,7 @@ Before opening an issue, search the existing ones. One problem per issue. Do not
 
 ## Changing the documentation
 
-All the text on the website lives in [`src/content/`](src/content/). The documentation page is [`docs.content.ts`](src/content/docs.content.ts), the features tour is [`features.content.ts`](src/content/features.content.ts) and the roadmap is [`roadmap.content.ts`](src/content/roadmap.content.ts). You can fix wording there without touching any components.
+All the text on the website lives in [`src/content/`](src/content/). The documentation page is [`docs.content.ts`](src/content/docs.content.ts) with its reference tables in [`docs-reference.content.ts`](src/content/docs-reference.content.ts), the features tour is [`features.content.ts`](src/content/features.content.ts) and the roadmap is [`roadmap.content.ts`](src/content/roadmap.content.ts). You can fix wording there without touching any components.
 
 Small fixes are welcome as pull requests. Please open an issue first for larger changes, so we can agree on them before you spend time.
 

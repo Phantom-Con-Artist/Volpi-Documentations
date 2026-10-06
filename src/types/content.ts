@@ -68,13 +68,15 @@ export interface Pain {
   file?: boolean;
 }
 
-/** One chapter of the features page. Its facts come from the docs section with the same `docId`. */
+/** One chapter of the features page. The full facts live in the docs section with the same `docId`. */
 export interface FeatureChapter {
   id: string;
   docId: string;
   kicker: string;
   title: string;
   joke: string;
+  /** Two or three short "what you get" lines. The details are in the docs. */
+  highlights: string[];
   /** An honest caveat, said with a straight face. */
   note?: string;
   images: ThemedImage[];
@@ -101,4 +103,17 @@ export interface ReportStep {
   /** Short checklist under the text. */
   points?: string[];
   links?: NavLink[];
+}
+
+/** A reference table on the docs page: a term (or a bit of syntax) and what it means. */
+export interface RefTable {
+  id: string;
+  title: string;
+  intro: string;
+  /** Column headings for the term and its meaning. */
+  columns: [string, string];
+  rows: { term: string; text: string }[];
+  /** Show terms as code, for syntax and file names. */
+  code?: boolean;
+  note?: string;
 }

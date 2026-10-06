@@ -4,7 +4,7 @@ import { SectionHead } from '@/components/typography/SectionHead';
 import { MochiAside } from '@/components/mochi/MochiAside';
 import { PainCard } from './PainCard';
 
-/** Who Volpi is for: research scholars buried in papers, and the chaos it replaces with one quiet desk. */
+/** Who Volpi is for: research scholars buried in papers, and the chaos it replaces with one app. */
 export function WhoItsFor() {
   return (
     <section id="who" data-mochi="who" className="pt-[clamp(80px,12vw,140px)]">

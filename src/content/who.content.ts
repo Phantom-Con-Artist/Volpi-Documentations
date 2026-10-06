@@ -6,7 +6,7 @@ export const WHO = {
   lead: 'Research scholars who are buried in papers.',
   text: [
     'You read forty papers so you can write one. Your notes live in three apps, your PDFs live in Downloads, and the deadline lives in your head.',
-    'We built Volpi as a quiet desk for that work. Your papers, notes, data and drafts sit in one place, so you can think about the research instead of where you put it.',
+    'So we put it all in one app. Your papers, notes, data and drafts sit together, so you can think about the research instead of where you put it.',
   ],
   audienceLabel: 'Made for',
   audience: ['PhD students', "Master's students", 'Postdocs', 'Independent researchers'],

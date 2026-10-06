@@ -24,7 +24,7 @@ The documentation lives on the Volpi website:
 | Privacy (`/privacy/`) | What stays on your computer and the only things Volpi sends |
 | Report a bug (`/report/`) | How to write a good bug report |
 
-The same text is in this repository, in [`src/content/`](src/content/). For example, the documentation is in [`docs.content.ts`](src/content/docs.content.ts).
+The same text is in this repository, in [`src/content/`](src/content/). For example, the documentation is in [`docs.content.ts`](src/content/docs.content.ts) and its reference tables (glossary, link syntax, file formats) in [`docs-reference.content.ts`](src/content/docs-reference.content.ts).
 
 ## Report a bug
 

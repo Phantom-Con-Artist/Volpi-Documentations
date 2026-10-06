@@ -43,9 +43,9 @@ export const FILM_SCENES: FilmScene[] = [
     bubble: { kind: 'speech', text: 'Somewhere between app four and app five, the actual research got lost. Not literally. Mostly.' },
   },
   {
-    id: 'desk', title: 'One quiet desk', duration: 8000, set: 'merge',
+    id: 'desk', title: 'One app for all of it', duration: 8000, set: 'merge',
     mochi: { x: 760, y: 520, pose: 'wave', mood: 'happy' },
-    bubble: { kind: 'speech', text: 'So my human built one quiet desk: papers, notes, data and writing together, on their own computer.' },
+    bubble: { kind: 'speech', text: 'So my human built one app for all of it: papers, notes, data and writing, together, on their own computer.' },
     bubbleSide: 'above',
   },
   {
@@ -76,7 +76,7 @@ export const STORY = {
   paragraphs: [
     'I am a research scholar, and my days probably look a lot like yours: papers to read, notes to keep, data to check and a draft that is always due soon.',
     'For a long time, that work was split across five tools: a PDF reader, a notes app, a reference manager, a spreadsheet and a word processor. None of them talked to each other. I spent more time moving things between them than thinking about the research itself.',
-    'So I built the tool I wanted: one quiet desk where papers, notes, data and writing live together, as plain files on my own computer.',
+    'So I built the tool I wanted: one app where papers, notes, data and writing live together, as plain files on my own computer.',
     'I made it for my own work first. Now I would like it to help with yours. Your research stays on your computer, because it is private until you choose to publish it. And when version 1.0 arrives, you pay once, because you already have enough subscriptions.',
     'Volpi is still young, and the open beta will have rough edges. If something breaks, or you have an idea, tell me on Discord or in a bug report. I would love to hear from you.',
   ],
@@ -104,7 +104,7 @@ export const FILM_PROPS = {
   thesis: 'Thesis.docx',
   tools: ['PDF reader', 'Notes', 'References', 'Spreadsheet', 'Word processor', 'Browser · 47 tabs'],
   quote: '“…the critical variable”',
-  desk: 'One quiet desk.',
+  desk: 'All in one place.',
   deskRows: ['Papers', 'Notes', 'Data', 'Writing'],
   rules: [
     { text: 'Your files.', sub: 'On your disk' },
