@@ -6,12 +6,16 @@ Changes to the Volpi website and this repository's documents. Changes to the Vol
 
 ### Changed
 
+- A shorter, less repetitive home page. "How it is built" is gone (its facts are in the documentation and "Why it stays local"). "Three principles" is now "What makes it different": files you own, checked references and checked data. Mochi comments on fewer sections and never says the same line twice. The headline is now "For researchers with too many tabs open."
+- Videos play as H.264 MP4 first, with WebM as the fallback. Safari can play them now, and every browser downloads about a third as much.
+- The social preview image matches the new headline.
+- "Who is Mochi?" on the About page is now Mochi's citizen ID card from the Republic of Volpi, with a passport photo taken by surprise.
 - Plainer words across the site: the "quiet desk" slogan is gone, and the roadmap says "first version", "runs on your computer" and "build by connecting blocks" instead of MVP, local inference and node-based building. A project is called a branch everywhere (no more "vault"). The documentation explains every reference badge.
-- The Features page and the documentation now do different jobs. Features is a visual tour: each chapter has its joke, screenshots, three highlights and a "Details in the docs" link. The documentation is the reference: feature facts with smaller screenshots and a "See it in the tour" link, plus new tables for the glossary, link syntax, file formats, reference checks and internet settings.
+- The Features page and the documentation now do different jobs. Features is a visual tour: each chapter has a short introduction, screenshots, a few highlights and a "Details in the docs" link. The documentation is the reference: feature facts with smaller screenshots and a "See it in the tour" link, plus new tables for the glossary, link syntax, file formats, reference checks and internet settings.
 - The privacy policy now says this version has no AI features, and that the machine-learning tools planned on the roadmap will run on your computer without sending your files anywhere to train a model.
 - The licence now says what it covers (this repository, not the Volpi app, which has its own terms), what you may do without asking (link, quote short passages, share screenshots when writing about Volpi), what needs permission, and the terms for contributions. The copyright holder is named.
 - The home hero now shows the Volpi fox seal, with Mochi peeking over its top corner, chin on the edge and both hands gripping it. She still talks, waves, follows the pointer and runs off for her antics. The About page has no roaming Mochi, and its film is sized to fit the screen.
-- New Pricing section on the home page (No. 07): the open beta is free for everyone, and version 1.0 will be a one-time purchase, not a subscription. The price will be announced before 1.0. "Pricing" is in the header menu, and the documentation's "Price and licence" section says the same.
+- New Pricing section on the home page (No. 06): the open beta is free for everyone, and version 1.0 will be a one-time purchase, not a subscription. The price will be announced before 1.0. "Pricing" is in the header menu, and the documentation's "Price and licence" section says the same.
 - The header shows the menu button below 1024 px wide, so the links do not wrap.
 - The main button is now "Join the Discord" (header, hero and closing section). It replaces "View on GitHub", which suggested Volpi is open source.
 - "Report a bug" in the header and footer opens a new page (`/report/`) that explains how to write a good report, in five steps, before linking to the GitHub forms. It also covers what to do without a GitHub account and how to report security problems.
@@ -20,13 +24,14 @@ Changes to the Volpi website and this repository's documents. Changes to the Vol
 
 ### Added
 
+- Link previews and search: every page has a canonical link and full-URL preview tags, and the build writes `sitemap.xml` and `robots.txt`. A plain 404 page replaces the home page for addresses that do not exist.
 - Repository documents for the people this repository serves: a README about the documentation, bug reports and community; `WEBSITE.md` for working on the site; community guidelines (`CODE_OF_CONDUCT.md`); a security policy (`SECURITY.md`); and `.github/SUPPORT.md`. The bug form now lists what to check first and links to the security policy.
 - A Roadmap page (`/roadmap/`): phase 1, the first version (now); 1.5, polish and reliability; 2, extensions; 3, machine-learning tools that run on your computer; and 4, to be decided with the community. "Roadmap" is in the header and footer, and the documentation's "What comes next" links to it.
 - An About page (`/about/`): how Volpi began, as an animated film in nine scenes starring Mochi, with play and pause, a progress bar for each scene, a text transcript and `?scene=N` links. Below it, the developer's story in their own words and a "Who is Mochi?" card. "About" is in the header and footer.
 - "What you can do" now has eight recorded steps, adding Open (opening a project) and Focus (Zen mode and the focus timer). The recording is sized to the window, with its caption beside it, so the tabs, recording and caption fit on one screen. "Not yet" links to the roadmap.
 - A Features page (`/features/`): a full tour in eight chapters (projects, reading, notes and links, references, data and charts, writing papers, library and search, focus). Each has a joke, an honest note where one is needed, the facts from the documentation, and large screenshots. "Features" in the header and footer now opens it, and "What you can do" on the home page links to it.
 - "Who it is for" on the home page, as a prologue after the formats band: Volpi is for research scholars buried in papers, PDFs and deadlines, with a "Sound familiar?" list of the everyday chaos it replaces.
-- "Why it stays local" on the home page (No. 05) and "Why privacy matters" at the top of the privacy policy: four reasons research stays on your computer, why the policy exists, and our privacy promise. "Not yet" and "Pricing" move to No. 06 and No. 07.
+- "Why it stays local" on the home page (No. 04) and "Why privacy matters" at the top of the privacy policy: four reasons research stays on your computer, why the policy exists, and our privacy promise. "Not yet" and "Pricing" follow as No. 05 and No. 06.
 - Issue templates for bugs in Volpi and for documentation or website problems. Questions go to Discord.
 
 ### Fixed

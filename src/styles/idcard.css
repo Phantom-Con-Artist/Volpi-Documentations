@@ -1,0 +1,64 @@
+/* Mochi's citizen ID card (About page). Colours come from tokens, so it follows Day, Night and the inks. */
+.id-card {
+  border: var(--line-bold) solid var(--ink);
+  border-radius: 18px;
+  overflow: hidden;
+  /* Fine security lines, like a real card. */
+  background:
+    repeating-radial-gradient(circle at 100% 100%, transparent 0 13px, var(--tone-soft) 13px 14px),
+    var(--panel);
+  box-shadow: var(--shadow-offset) var(--shadow-offset) 0 var(--tone);
+  transform: rotate(-1.2deg);
+  transition: transform .35s ease;
+}
+.id-card:hover { transform: rotate(0deg) scale(1.01); }
+
+.id-band { background: var(--seal); color: var(--on-seal); }
+
+.id-photo {
+  background-color: var(--gutter);
+  background-image: radial-gradient(var(--tone) 1px, transparent 1.2px);
+  background-size: 7px 7px;
+}
+.id-photo-tag { color: var(--seal); font-size: 15px; letter-spacing: .05em; }
+
+.id-stamp {
+  position: absolute;
+  right: -16px;
+  top: 140px;
+  display: grid;
+  place-items: center;
+  width: 100px;
+  height: 100px;
+  border: 3px double var(--seal);
+  border-radius: 50%;
+  color: var(--seal);
+  font: 400 12px/1.2 DotGothic16, ui-monospace, monospace;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  opacity: .82;
+  transform: rotate(-16deg);
+  pointer-events: none;
+  align-content: center;
+  gap: 2px;
+}
+
+.id-mrz {
+  border-top: var(--line) solid var(--ink);
+  background: var(--gutter);
+  font: 400 clamp(11px, 1.6vw, 15px)/1.5 ui-monospace, "DotGothic16", monospace;
+  letter-spacing: .12em;
+  color: var(--ink-2);
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 639px) {
+  .id-stamp { right: -44px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .id-card, .id-card:hover { transition: none; transform: none; }
+}
+
+/* A passport photo holds still: no breathing, blinking or tail swishes. */
+.id-photo .mm-mochi, .id-photo .mm-mochi * { animation: none !important; transition: none !important; }

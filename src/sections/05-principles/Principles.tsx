@@ -4,7 +4,7 @@ import { PrincipleCard } from './PrincipleCard';
 
 export function Principles() {
   return (
-    <section id="desk" data-mochi="desk" className="py-[clamp(80px,12vw,140px)]">
+    <section id="desk" className="py-[clamp(80px,12vw,140px)]">
       <div className="wrap">
         <SectionHead {...PRINCIPLES_HEAD} />
         <div className="grid gap-14 md:grid-cols-3 md:gap-10 xl:gap-14">

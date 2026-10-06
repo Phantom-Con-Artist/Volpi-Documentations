@@ -58,7 +58,7 @@ All text on the site lives in `src/content/`. To change wording, edit those file
 
 ## Mochi
 
-Mochi is the guide character from the app. On this site she peeks over the logo in the hero, stars in the film on the About page, comments on each section and sometimes gets up to mischief (she eats the logo, sits on the header, steals a letter from a heading). Visitors can turn her off with the switch in the footer. She does not roam on the About page, where she has her own film. She does not move for visitors who prefer reduced motion.
+Mochi is the guide character from the app. On this site she peeks over the logo in the hero, stars in the film on the About page, has her own ID card there, comments on a few sections and sometimes gets up to mischief (she eats the logo, sits on the header, steals a letter from a heading). Visitors can turn her off with the switch in the footer. She does not roam on the About page, where she has her own film. She does not move for visitors who prefer reduced motion.
 
 - Her lines: `src/content/mochi.content.ts`
 - Her drawing: `src/components/mochi/rig/`
@@ -70,7 +70,7 @@ To see a particular antic, add `?mochi=eat` to the URL (or `peek`, `point`, `sit
 
 The screenshots and videos in `public/assets/` were captured from the real app using a fictional demo project. The researcher, colleagues, papers, journals and DOIs shown in them are invented.
 
-They were exported from the app's own promotion tooling, which is kept outside this repository. Only the files the site uses are copied into `public/assets/`.
+They were exported from the app's own promotion tooling, which is kept outside this repository. Only the files the site uses are copied into `public/assets/`. Each recording ships twice: an H.264 `.mp4`, which browsers try first because it is about a third of the size, and a `.webm` fallback.
 
 ## Privacy
 

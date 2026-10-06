@@ -11,6 +11,7 @@
 @import './mochi-rig.css';
 @import './bubbles.css';
 @import './film.css';
+@import './idcard.css';
 
 @tailwind base;
 @tailwind components;

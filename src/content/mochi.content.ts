@@ -1,26 +1,21 @@
 import type { MochiLine } from '@/types/mochi';
 
-/** What Mochi says as each part of a page comes into view. Keys are section ids. */
+/** What the roaming Mochi says as each part of a page comes into view. Keys are data-mochi ids.
+ *  Sections with a MochiAside are left out, so she never says the same thing twice. */
 export const MOCHI_LINES: Record<string, MochiLine> = {
-  who: { text: 'I have seen your Downloads folder. We need to talk.', mood: 'wow' },
-  formats: { text: 'Plain files. You could open them without me. Rude, but true.', mood: 'smile' },
-  desk: { text: 'Rename a paper and every link follows. I checked. Twice.', mood: 'smile' },
   loop: { text: 'Pick a step. Each one is a real recording. I was in the room.', mood: 'happy' },
-  theme: { text: 'Try the switch. I look nice at night too.', mood: 'happy' },
-  hood: { text: 'The internet only hears from us when you check a reference.', mood: 'smile' },
-  local: { text: 'What you write here stays here. I keep secrets very well.', mood: 'smile' },
-  notyet: { text: 'Being honest here. Scanned PDFs still stump me.', mood: 'wow' },
-  pricing: { text: 'Pay once and keep me. No monthly fee for cats.', mood: 'happy' },
   coda: { text: 'See you at the open beta! I will be the one eating your logo.', mood: 'happy' },
   'features-top': { text: 'The full tour. Please keep your hands inside the panels.', mood: 'happy' },
   'roadmap-top': { text: 'The plan. I added the snack breaks.', mood: 'happy' },
-  'report-top': { text: 'You found a bug? Hold it still. I am coming.', mood: 'wow' },
-  'docs-top': { text: 'Everything I can do, in one list. Well. Everything Volpi can do.', mood: 'happy' },
-  'docs-limits': { text: 'These are on my list too.', mood: 'wow' },
-  'docs-next': { text: 'No dates yet. We would rather be right.', mood: 'smile' },
-  'privacy-why': { text: 'We do not want your data. I checked. There is no server to keep it on.', mood: 'happy' },
-  'privacy-top': { text: 'Short version: your research never leaves your computer.', mood: 'smile' },
+  'docs-top': { text: 'Everything Volpi does, in one long list. Bring tea.', mood: 'happy' },
   'privacy-network': { text: 'Only a DOI or a title goes out. Never a file. I would know.', mood: 'smile' },
+};
+
+/** What the small Mochi beside a home section says. */
+export const MOCHI_ASIDES = {
+  who: 'I have seen your Downloads folder. We need to talk.',
+  notyet: 'Being honest here. Scanned PDFs still stump me.',
+  pricing: 'Pay once and keep me. No monthly fee for cats.',
 };
 
 /** Said by the big Mochi in the hero when clicked, in turn. */

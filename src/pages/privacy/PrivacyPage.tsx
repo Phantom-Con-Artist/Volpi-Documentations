@@ -19,7 +19,7 @@ export function PrivacyPage() {
   return (
     <PageShell>
       <div className="wrap">
-        <div data-mochi="privacy-top">
+        <div>
           <PageIntro kicker={PRIVACY_HEAD.kicker} title={PRIVACY_HEAD.title} text={PRIVACY_HEAD.text}>
             <p className="kicker mt-6">Last updated {SITE.updated} · applies to {SITE.version}</p>
           </PageIntro>

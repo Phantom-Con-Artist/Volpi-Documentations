@@ -34,7 +34,7 @@ export function PhaseCard({ phase, children }: { phase: RoadmapPhase; children?:
         )}
         {children}
       </div>
-      <MochiAside text={phase.mochi} mood={done ? 'happy' : 'smile'} />
+      {phase.mochi && <MochiAside text={phase.mochi} mood="smile" />}
     </li>
   );
 }

@@ -47,5 +47,5 @@ export const REPORT_ASIDE = {
   security: { title: 'A security problem?', text: 'Please do not post it publicly. Read how to report it privately.', link: { label: 'Security policy', href: SECURITY_URL } },
   discord: DISCORD_URL,
   mochi: 'Bugs are my natural enemy. Every report is a tiny victory.',
-  thanks: 'Thank you. Every report makes Volpi better for everyone who uses it.',
+  thanks: 'Thank you. Every report makes the beta a little less beta.',
 };

@@ -4,7 +4,7 @@ export const THEME_HEAD = {
   kicker: 'No. 03',
   chapter: '第三話',
   title: 'Day and Night themes.',
-  text: 'Volpi has the same look as this page, with three accent colours. Try the switch.',
+  text: 'The app looks like this page. Switch to Night here and the recording switches too. The three inks are in the app as well.'
 };
 
 export const ACCENTS: { id: AccentInk; label: string; swatch: string }[] = [

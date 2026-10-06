@@ -31,10 +31,10 @@ export const PRIVACY_PROMISE = {
 };
 
 export const WHY_LOCAL_HOME = {
-  kicker: 'No. 05',
-  chapter: '第五話',
+  kicker: 'No. 04',
+  chapter: '第四話',
   title: 'Why it stays local.',
-  text: 'Research is private until you publish it. Volpi keeps your work on your computer, because that is where it belongs.',
+  text: 'Research is private until you publish it, so Volpi keeps it on your computer.',
   link: 'Read the privacy policy',
 };
 

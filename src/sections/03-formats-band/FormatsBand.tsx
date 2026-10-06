@@ -3,7 +3,7 @@ import { FORMATS } from '@/content/formats.content';
 /** A sheared ink ribbon across the full width, with a red edge (P5's angle-and-contrast cue). */
 export function FormatsBand() {
   return (
-    <div data-mochi="formats" className="relative -mt-2 overflow-hidden py-6">
+    <div className="relative -mt-2 overflow-hidden py-6">
       <div className="origin-left -skew-y-[1.6deg] bg-ink text-paper" style={{ borderTop: '6px solid var(--seal)' }}>
         <div className="wrap grid skew-y-[1.6deg] md:grid-cols-3">
           {FORMATS.map((row, i) => (

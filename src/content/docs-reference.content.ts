@@ -64,7 +64,7 @@ export const REFERENCE_TABLES: RefTable[] = [
       { term: 'Retracted', text: 'The database marks this work as retracted.' },
       { term: 'Verified by you', text: 'You marked it with I checked it myself. Useful for books and older works.' },
       { term: 'Unchecked', text: 'Not checked yet.' },
-      ...LOOKUP_ENDPOINTS.map((e) => ({ term: e.name, text: `${e.host}. Sent: ${e.sends.toLowerCase()}.` })),
+      ...LOOKUP_ENDPOINTS.map((e) => ({ term: e.name, text: `${e.host}. Sends ${e.sends.charAt(0).toLowerCase()}${e.sends.slice(1)}.` })),
     ],
     note: 'Matching is careful rather than eager. Books, theses and older works often show Likely or Not found even when they are real. A verified reference exists, but Volpi cannot tell whether it supports your sentence.',
   },

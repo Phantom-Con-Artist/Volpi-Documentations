@@ -37,6 +37,8 @@ export function LoopVideo({ clip, loop = true, onEnded, className }: Props) {
       height={900}
       controls={reduced}
     >
+      {/* H.264 first: about a third of the WebM size and plays in every browser that has the codec. */}
+      <source src={`${base}.mp4`} type={'video/mp4; codecs="avc1.64002A"'} />
       <source src={`${base}.webm`} type="video/webm" />
     </video>
   );

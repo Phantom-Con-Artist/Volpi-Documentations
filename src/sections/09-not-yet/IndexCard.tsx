@@ -13,7 +13,7 @@ export function IndexCard() {
       <ul className="m-0 list-none p-0">
         {NOT_YET.items.map((item) => (
           <li key={item.title} className="font-mincho text-[18px] leading-10">
-            {item.title} <span className="font-maru text-[15px] text-ink-2">· {item.text}</span>
+            {item.title} <span className="whitespace-nowrap font-maru text-[15px] text-ink-2">· {item.text}</span>
           </li>
         ))}
       </ul>

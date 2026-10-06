@@ -9,7 +9,7 @@ export interface ThemedImage {
   srcSet?: { day: string; night?: string };
 }
 
-/** A recorded loop from the app. `name` maps to /assets/video/<name>-<mode>.webm (+ -poster.webp). */
+/** A recorded loop from the app. `name` maps to /assets/video/<name>-<mode>.mp4 (H.264), a .webm fallback and a -poster.webp. */
 export interface LoopClip {
   name: string;
   label: string;

@@ -1,5 +1,5 @@
 import { WHO, WHO_HEAD } from '@/content/who.content';
-import { MOCHI_LINES } from '@/content/mochi.content';
+import { MOCHI_ASIDES } from '@/content/mochi.content';
 import { SectionHead } from '@/components/typography/SectionHead';
 import { MochiAside } from '@/components/mochi/MochiAside';
 import { PainCard } from './PainCard';
@@ -20,7 +20,7 @@ export function WhoItsFor() {
                 <span key={a} className="border-[2px] border-ink bg-panel px-3 py-1 text-[15px] font-medium">{a}</span>
               ))}
             </div>
-            <MochiAside text={MOCHI_LINES.who.text} mood="wow" />
+            <MochiAside text={MOCHI_ASIDES.who} mood="wow" />
           </div>
           <div className="flex flex-col gap-8">
             <PainCard />

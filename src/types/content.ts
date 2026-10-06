@@ -24,6 +24,12 @@ export interface FormatRow {
   items: string[];
 }
 
+/** One line on Mochi's ID card. */
+export interface IdField {
+  label: string;
+  value: string;
+}
+
 export interface Fact {
   title: string;
   text: string;
@@ -91,7 +97,7 @@ export interface RoadmapPhase {
   title: string;
   text: string;
   items: Fact[];
-  mochi: string;
+  mochi?: string;
   /** The phase Volpi is in today. */
   current?: boolean;
 }

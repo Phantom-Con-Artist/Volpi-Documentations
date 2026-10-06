@@ -1,8 +1,8 @@
 import type { PricePlan } from '@/types/content';
 
 export const PRICING_HEAD = {
-  kicker: 'No. 07',
-  chapter: '第七話',
+  kicker: 'No. 06',
+  chapter: '第六話',
   title: 'Pricing.',
   text: 'The open beta is free for everyone. Version 1.0 will be a one-time purchase, not a subscription.',
 };

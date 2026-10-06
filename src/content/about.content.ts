@@ -1,4 +1,5 @@
 import type { FilmScene } from '@/types/film';
+import type { IdField } from '@/types/content';
 
 export const ABOUT_HEAD = {
   kicker: 'About',
@@ -84,15 +85,34 @@ export const STORY = {
   role: 'Developer',
 };
 
+/** Mochi's citizen ID card. Jokes on a card, but every field is true of the app. */
 export const MEET_MOCHI = {
   kicker: 'The cast',
   title: 'Who is Mochi?',
-  text: 'Mochi is the guide inside Volpi. She gives tips, keeps you company through long reading sessions and, on this website, eats the logo. Volpi means foxes in Italian. Mochi is a cat. Long story.',
-  facts: [
-    { title: 'Optional.', text: 'Switch her off in Settings. She will only sulk a little.' },
-    { title: 'Quiet in Zen mode.', text: 'When you focus, she naps.' },
-    { title: 'Offline.', text: 'Volpi sends nothing about you anywhere, so neither does she. Your secrets are safe.' },
-  ],
+  text: 'Mochi is the guide inside Volpi. She asked for a proper introduction, so here are her papers.',
+  card: {
+    country: 'Republic of Volpi',
+    kind: 'Citizen identity card',
+    kindJp: 'ヴォルピ市民証',
+    number: 'No. 000 001',
+    photoCaption: 'Photo taken by surprise',
+    fields: [
+      { label: 'Name', value: 'Mochi (もち)' },
+      { label: 'Species', value: 'Cat. Volpi means foxes in Italian. Long story.' },
+      { label: 'Purpose', value: 'Guide, moral support, part-time logo taster' },
+      { label: 'Habits', value: 'Gives tips. Keeps you company on long reading days. Naps in Zen mode.' },
+      { label: 'Internet', value: 'None. She sends nothing about you anywhere.' },
+      { label: 'Off switch', value: 'In Settings. She will only sulk a little.' },
+    ] satisfies IdField[],
+    dates: [
+      { label: 'Issued', value: 'v0.1.0' },
+      { label: 'Expires', value: 'When the snacks run out' },
+    ] satisfies IdField[],
+    signature: 'Signature of holder',
+    stamp: 'Approved',
+    stampJp: '認定',
+    mrz: ['IDVOL<<MOCHI<<<<<<<<<<<<<<<<<<<<<<<<<', 'CAT<<<LOGO<TASTER<<<NO<CLOUD<<<<<<<01'],
+  },
 };
 
 export const TRANSCRIPT = { summary: 'Read the film as text' };

@@ -14,7 +14,7 @@ export const SITE = {
   name: 'Volpi',
   version: 'v0.1.0',
   channel: 'Open beta, coming soon',
-  tagline: 'A focused tool for your research.',
+  tagline: 'For researchers with too many tabs open.',
   discordLabel: 'Join the Discord',
   bugLabel: 'Report a bug',
   updated: '6 October 2026',
