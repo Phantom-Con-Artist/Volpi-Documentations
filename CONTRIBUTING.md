@@ -45,6 +45,10 @@ The documentation describes what Volpi actually does, in plain words.
 
 Screenshots and videos must come from the real app with the fictional demo project. Do not add images that show real people's research or personal data.
 
+## Your contributions
+
+By sending a pull request, suggested change or text in an issue, you agree to the contribution terms in section 4 of the [LICENSE](LICENSE). In short: you confirm you have the right to share it, and Volpi may use and publish it as part of the website and documentation. You keep any copyright you have in it.
+
 ## Community guidelines
 
 Everyone taking part follows the [community guidelines](CODE_OF_CONDUCT.md).

@@ -11,7 +11,7 @@ export const PRIVACY_SUMMARY: string[] = [
   'Your files never leave your computer.',
   'Volpi only uses the internet to check references, and by default only when you click.',
   'It sends an identifier or a short citation. Never your notes, PDFs or name.',
-  'There is no tracking, no telemetry and no AI.',
+  'There is no tracking and no telemetry. This version has no AI features.',
 ];
 
 export const LOOKUP_ENDPOINTS: { name: string; host: string; sends: string }[] = [
@@ -71,7 +71,7 @@ export const PRIVACY_SECTIONS: PolicySection[] = [
       'No account or sign-in.',
       'No analytics, telemetry or crash reports.',
       'No ads and no selling of data, because there is no data to sell.',
-      'No AI features. Your files are never used to train anything.',
+      'No AI features in this version. Machine-learning tools are planned for later (see the roadmap). They will run on your computer, and your files will never be sent anywhere to train a model.',
       'No automatic update checks in the beta.',
     ],
     paragraphs: [],

@@ -1,20 +1,68 @@
-Copyright (c) 2026 The Volpi authors. All rights reserved.
+Copyright (c) 2026 Subhradeep Sarkar. All rights reserved.
 
-This repository contains the website and documentation for Volpi, including its
-source code, text, the Volpi name, the fox seal logo, the Mochi character, and the
-screenshots and videos of the Volpi app.
+This licence covers the contents of this repository only: the Volpi website and its
+source code, the documentation text, the Volpi name, the fox seal logo, the Mochi
+character, and the screenshots and videos of the Volpi app.
 
-You may read this repository and run it on your own computer to review it or to
-propose changes. You may not copy, modify, publish, distribute, sublicense or sell
-any part of it, or use the Volpi name, logo, Mochi character or screenshots,
-without written permission from the copyright holders.
+--------------------------------------------------------------------------------
+1. The Volpi app is not covered
+
+The Volpi desktop app is not in this repository. It is licensed separately, under
+the terms that come with the app. Nothing in this licence gives you any right to
+the app or its source code.
+
+--------------------------------------------------------------------------------
+2. What you may do
+
+You may, without asking:
+
+- read this repository and run the website on your own computer to review it or to
+  prepare a contribution;
+- link to the website, the documentation or this repository;
+- quote short passages of the documentation, with credit and a link to the source;
+- use the name "Volpi" to refer to the app, for example in a review, tutorial or
+  forum post;
+- share unmodified screenshots or videos from this repository when you write or
+  talk about Volpi, with credit and a link to the source.
+
+--------------------------------------------------------------------------------
+3. What needs written permission
+
+Everything else needs written permission from the copyright holder. In particular,
+you may not:
+
+- copy, publish or distribute the website, its design or its source code, in whole
+  or in part, or build another website from them;
+- modify, sublicense or sell any part of this repository;
+- use the Volpi name, the fox seal logo or the Mochi character in a way that
+  suggests you are Volpi, or that Volpi endorses you, your product or your work;
+- use the Mochi character, the logo or the screenshots in your own product,
+  merchandise or marketing.
+
+--------------------------------------------------------------------------------
+4. Contributions
+
+When you send a contribution to this repository (for example a pull request, a
+suggested change or text in an issue), you confirm that you have the right to
+share it, and you give the copyright holder a permanent, worldwide, royalty-free
+right to use, change, publish and relicense it as part of Volpi's website and
+documentation. You keep any copyright you have in your contribution.
+
+Bug reports and the information in them may be used to fix and improve Volpi.
+
+--------------------------------------------------------------------------------
+5. No warranty
+
+THE WEBSITE, DOCUMENTATION AND OTHER CONTENTS OF THIS REPOSITORY ARE PROVIDED
+"AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. IN NO EVENT SHALL THE
+COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY ARISING FROM
+THE USE OF THESE CONTENTS.
+
+--------------------------------------------------------------------------------
+6. Changes to this licence
 
 This licence may be replaced by a different licence in a future version. Any such
 change applies only to versions published after the change.
-
-THE SOFTWARE AND CONTENT ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
-OR IMPLIED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES
-OR OTHER LIABILITY ARISING FROM THE USE OF THE SOFTWARE OR CONTENT.
 
 --------------------------------------------------------------------------------
 Third-party components
@@ -33,3 +81,6 @@ its own licence, and those licences apply to those components only.
 
 The full licence texts are included with each package in node_modules after
 running npm install.
+
+Discord and the Discord logo are trademarks of Discord Inc. GitHub is a trademark of
+GitHub, Inc. They are used here only to link to those services.

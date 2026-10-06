@@ -76,4 +76,8 @@ Spotted a typo or a wrong fact? Open a [documentation issue](https://github.com/
 
 ## Licence
 
-All rights reserved. See [LICENSE](LICENSE). Third-party components keep their own licences, listed in the same file.
+The website, documentation, name, logo, Mochi and screenshots in this repository are all rights reserved. See [LICENSE](LICENSE) for what you may do without asking, such as linking, quoting short passages and sharing screenshots when you write about Volpi.
+
+The Volpi app is not covered by this licence. It comes with its own terms.
+
+Third-party components keep their own licences, listed in the same file.

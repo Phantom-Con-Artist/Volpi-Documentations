@@ -6,6 +6,8 @@ Changes to the Volpi website and this repository's documents. Changes to the Vol
 
 ### Changed
 
+- The privacy policy now says this version has no AI features, and that the machine-learning tools planned on the roadmap will run on your computer without sending your files anywhere to train a model.
+- The licence now says what it covers (this repository, not the Volpi app, which has its own terms), what you may do without asking (link, quote short passages, share screenshots when writing about Volpi), what needs permission, and the terms for contributions. The copyright holder is named.
 - The home hero now shows the Volpi fox seal, with Mochi peeking over its top corner, chin on the edge and both hands gripping it. She still talks, waves, follows the pointer and runs off for her antics. The About page has no roaming Mochi, and its film is sized to fit the screen.
 - New Pricing section on the home page (No. 07): the open beta is free for everyone, and version 1.0 will be a one-time purchase, not a subscription. The price will be announced before 1.0. "Pricing" is in the header menu, and the documentation's "Price and licence" section says the same.
 - The header shows the menu button below 1024 px wide, so the links do not wrap.
