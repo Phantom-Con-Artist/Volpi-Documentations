@@ -1,6 +1,6 @@
 import { FoxSeal } from '@/components/brand/FoxSeal';
 import { FILM_PROPS } from '@/content/about.content';
-import { Bit, Paper, Sfx, Win } from '../FilmBits';
+import { Bit, Paper, Sfx, Win } from '@/components/film/FilmBits';
 
 const [PDF, NOTES, REFS, SHEET, WORD] = FILM_PROPS.tools;
 

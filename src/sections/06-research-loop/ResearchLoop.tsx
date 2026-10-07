@@ -11,7 +11,7 @@ export function ResearchLoop() {
   const step = LOOP_STEPS[index];
 
   return (
-    <section id="loop" data-mochi="loop" className="pb-[clamp(80px,12vw,140px)]">
+    <section id="loop" data-mochi="loop" className="bd bd-hatch pb-[clamp(80px,12vw,140px)]">
       <div className="wrap">
         <SectionHead {...LOOP_HEAD} />
         <LoopTabs steps={LOOP_STEPS} active={index} onSelect={select} />

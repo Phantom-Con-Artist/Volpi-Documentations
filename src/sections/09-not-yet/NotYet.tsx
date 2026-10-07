@@ -6,7 +6,7 @@ import { IndexCard } from './IndexCard';
 
 export function NotYet() {
   return (
-    <section id="notyet" data-mochi="notyet" className="border-t border-tone-soft py-[clamp(80px,12vw,140px)]">
+    <section id="notyet" data-mochi="notyet" className="bd bd-streaks border-t border-tone-soft py-[clamp(80px,12vw,140px)]">
       <div className="wrap grid items-start gap-12 md:grid-cols-[5fr_7fr] md:gap-20">
         <div className="rise flex flex-col gap-5">
           <span className="p5-tag self-start">{NOT_YET.kicker}</span>

@@ -1,10 +1,10 @@
 import { Pause, Play, RotateCcw } from 'lucide-react';
-import type { FilmScene } from '@/types/film';
-import { FILM } from '@/content/about.content';
+import type { FilmScene, FilmText } from '@/types/film';
 import { P5Button } from '@/components/buttons/P5Button';
 
 interface Props {
   scenes: FilmScene[];
+  text: FilmText;
   index: number;
   playing: boolean;
   ended: boolean;
@@ -14,8 +14,8 @@ interface Props {
 }
 
 /** Play/pause and one segment per scene. The active segment's fill is the scene's clock. */
-export function FilmControls({ scenes, index, playing, ended, onToggle, onSelect, onSceneEnd }: Props) {
-  const label = ended ? FILM.replay : playing ? FILM.pause : FILM.play;
+export function FilmControls({ scenes, text, index, playing, ended, onToggle, onSelect, onSceneEnd }: Props) {
+  const label = ended ? text.replay : playing ? text.pause : text.play;
   const Icon = ended ? RotateCcw : playing ? Pause : Play;
   return (
     <div className="mt-6 flex items-center gap-5">
@@ -28,7 +28,7 @@ export function FilmControls({ scenes, index, playing, ended, onToggle, onSelect
             <button
               type="button"
               onClick={() => onSelect(i)}
-              aria-label={`${FILM.scene} ${i + 1}: ${s.title}`}
+              aria-label={`${text.scene} ${i + 1}: ${s.title}`}
               aria-current={i === index ? 'step' : undefined}
               className="block w-full cursor-pointer border-0 bg-transparent py-2"
             >

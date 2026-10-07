@@ -86,6 +86,8 @@ export interface FeatureChapter {
   /** An honest caveat, said with a straight face. */
   note?: string;
   images: ThemedImage[];
+  /** Recordings shown after the screenshots. */
+  clips?: LoopClip[];
 }
 
 /** One phase of the roadmap. */

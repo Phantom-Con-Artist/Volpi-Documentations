@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Wordmark } from '@/components/brand/Wordmark';
 import { DiscordButton } from '@/components/buttons/DiscordButton';
+import { HeaderDownload } from '@/components/download/DownloadButton';
 import { ThemeToggle } from '@/components/theme/ThemeToggle';
 import { NAV } from '@/content/site.content';
 import { P5Button } from '@/components/buttons/P5Button';
@@ -20,7 +21,8 @@ export function SiteHeader() {
         </nav>
         <div className="flex items-center gap-3">
           <ThemeToggle />
-          <span className="hidden sm:inline-flex"><DiscordButton size="sm" label="Discord" /></span>
+          <span className="hidden sm:inline-flex"><DiscordButton size="sm" label="Discord" primary={false} /></span>
+          <HeaderDownload />
           <P5Button size="sm" className="lg:hidden" onClick={() => setOpen((o) => !o)} aria-expanded={open} aria-label="Menu">
             {open ? <X size={15} /> : <Menu size={15} />}
           </P5Button>
@@ -31,7 +33,7 @@ export function SiteHeader() {
           {NAV.map((l) => (
             <a key={l.href} href={l.href} {...navLinkProps(l.href)} className="py-2 no-underline" onClick={() => setOpen(false)}>{l.label}</a>
           ))}
-          <span className="pt-2"><DiscordButton size="sm" label="Discord" /></span>
+          <span className="pt-2"><DiscordButton size="sm" label="Discord" primary={false} /></span>
         </nav>
       )}
     </header>

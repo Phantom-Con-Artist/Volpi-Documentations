@@ -1,7 +1,7 @@
 import { DiscordIcon } from '@/components/brand/DiscordIcon';
 import { FILM_PROPS } from '@/content/about.content';
 import { DISCORD_URL } from '@/content/site.content';
-import { Bit, Paper, Sfx, Stamp } from '../FilmBits';
+import { Bit, Paper, Sfx, Stamp } from '@/components/film/FilmBits';
 
 const STAMP_SPOTS = [{ x: 370, y: 240, r: -6, delay: 1.0 }, { x: 560, y: 320, r: 5, delay: 2.3 }, { x: 700, y: 150, r: -3, delay: 3.6 }];
 

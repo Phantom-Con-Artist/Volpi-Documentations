@@ -1,18 +1,8 @@
-import { useEffect, useState, type ComponentType } from 'react';
-import type { CSSProperties } from 'react';
-import type { FilmBubbleSide, FilmScene, FilmSetName } from '@/types/film';
+import { useEffect, useState, type CSSProperties } from 'react';
+import type { FilmBubbleSide, FilmScene, FilmSets } from '@/types/film';
 import type { TailSide } from '@/components/mochi/MochiBubble';
-import { FILM } from '@/content/about.content';
 import { MochiFull } from '@/components/mochi/rig/MochiFull';
 import { MochiBubble } from '@/components/mochi/MochiBubble';
-import { TitleSet, DeskSet, WindowsSet } from './sets/OpeningSets';
-import { ShuffleSet, LostSet, MergeSet } from './sets/MiddleSets';
-import { RulesSet, SnackSet, InviteSet } from './sets/ClosingSets';
-
-const SETS: Record<FilmSetName, ComponentType> = {
-  title: TitleSet, desk: DeskSet, windows: WindowsSet, shuffle: ShuffleSet, lost: LostSet,
-  merge: MergeSet, rules: RulesSet, snack: SnackSet, invite: InviteSet,
-};
 const STAGE_W = 960;
 const STAGE_H = 540;
 const MOCHI_W = 190;
@@ -34,8 +24,8 @@ function placeBubble(x: number, y: number, side?: FilmBubbleSide): { style: CSSP
 }
 
 /** One frame of the film: the scene's set, Mochi walking to her mark, her bubble and the scene card. */
-export function FilmStage({ scene, index, scale, bubbles }: { scene: FilmScene; index: number; scale: number; bubbles: boolean }) {
-  const Set = SETS[scene.set];
+export function FilmStage({ scene, index, scale, bubbles, sets, sceneWord }: { scene: FilmScene; index: number; scale: number; bubbles: boolean; sets: FilmSets; sceneWord: string }) {
+  const Set = sets[scene.set];
   const [walking, setWalking] = useState(false);
   useEffect(() => {
     setWalking(true);
@@ -57,7 +47,7 @@ export function FilmStage({ scene, index, scale, bubbles }: { scene: FilmScene; 
           <MochiBubble key={scene.id} bubble={scene.bubble} tail={place.tail} at={place.at} />
         </div>
       )}
-      <span key={`card-${scene.id}`} className="film-card p5-tag f-pop">{FILM.scene} {String(index + 1).padStart(2, '0')} · {scene.title}</span>
+      <span key={`card-${scene.id}`} className="film-card p5-tag f-pop">{sceneWord} {String(index + 1).padStart(2, '0')} · {scene.title}</span>
     </div>
   );
 }

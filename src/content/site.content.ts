@@ -10,10 +10,22 @@ export const NEW_BUG_URL = `${GITHUB_URL}/issues/new?template=bug_report.yml`;
 export const NEW_DOCS_ISSUE_URL = `${GITHUB_URL}/issues/new?template=docs_issue.yml`;
 export const SECURITY_URL = `${GITHUB_URL}/blob/main/SECURITY.md`;
 
+/** Installers are published as releases of this public repository (the app's source stays private).
+ *  `releases/latest/download/<file>` always serves the newest published release. */
+export const RELEASES_URL = 'https://github.com/Phantom-Con-Artist/Volpi-Releases/releases';
+export const INSTALL_URL = 'https://github.com/Phantom-Con-Artist/Volpi-Releases/blob/main/INSTALL.md';
+const latest = (file: string) => `${RELEASES_URL}/latest/download/${file}`;
+export const DOWNLOADS = [
+  { id: 'windows', label: 'Windows 10 or 11', detail: '64-bit', href: latest('Volpi-Windows-x64.zip') },
+  { id: 'mac-arm', label: 'macOS', detail: 'Apple Silicon (M1 and later)', href: latest('Volpi-macOS-AppleSilicon.zip') },
+  { id: 'mac-intel', label: 'macOS', detail: 'Intel', href: latest('Volpi-macOS-Intel.zip') },
+  { id: 'linux', label: 'Linux', detail: '64-bit, .deb and .rpm', href: latest('Volpi-Linux-x64.zip') },
+] as const;
+
 export const SITE = {
   name: 'Volpi',
   version: 'v0.1.0',
-  channel: 'Open beta, coming soon',
+  channel: 'Open beta',
   tagline: 'For researchers with too many tabs open.',
   discordLabel: 'Join the Discord',
   bugLabel: 'Report a bug',

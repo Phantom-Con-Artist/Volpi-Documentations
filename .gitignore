@@ -32,6 +32,7 @@ pnpm-debug.log*
 AGENTS.md
 VOLPI_WEBSITE_MASTER_STRATEGY.md
 CLAUDE.md
+for_website_agents.md
 
 # Promotion tooling and raw media (about 450 MB, including node_modules and raw recordings).
 # It is regenerated from the app repository and is not needed to build or deploy the site:

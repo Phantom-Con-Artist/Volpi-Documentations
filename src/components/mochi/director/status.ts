@@ -24,12 +24,12 @@ export function statusLine(): MochiLine {
     { text: night ? 'Night mode. Easier on the eyes. Mine too.' : 'Day mode. Very bright. I am squinting.', mood: night ? 'sleep' : 'smile' },
     { text: `Ink: ${ink}. Good choice. I would have picked Matcha.`, mood: 'happy' },
     { text: `You are ${scrolled}% down the page. It gets better. Probably.`, mood: 'smile' },
-    { text: 'Open beta status: coming soon. I keep refreshing too.', mood: 'wow' },
+    { text: 'Open beta status: out. I checked twice.', mood: 'wow' },
     { text: minutes > 0 ? `You have been here ${minutes} minute${minutes === 1 ? '' : 's'}. I have been counting.` : 'You just got here. I already like you.', mood: 'happy' },
     hour >= 23 || hour < 5
       ? { text: `It is ${clock}. Researchers never sleep, I see.`, mood: 'sleep' }
       : hour < 11
-        ? { text: `It is ${clock}. The beta is not out yet, but coffee is.`, mood: 'smile' }
+        ? { text: `It is ${clock}. The beta is out, and so is the coffee.`, mood: 'smile' }
         : { text: `It is ${clock}. A fine time to read a PDF.`, mood: 'smile' },
   ];
   if (page.startsWith('/docs')) lines.push({ text: `${DOC_SECTIONS.length} sections, ${features} features. I read them all.`, mood: 'happy' });

@@ -1,5 +1,5 @@
 export const HERO = {
-  kicker: 'Desktop app · open beta coming soon',
+  kicker: 'Desktop app · open beta',
   name: 'Volpi',
   headline: 'For researchers with too many tabs open.',
   lede: 'Read and highlight PDFs, write linked notes, check data and write papers with citations. Each project is a plain folder on your computer.',

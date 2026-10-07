@@ -1,4 +1,4 @@
-import type { FilmScene } from '@/types/film';
+import type { FilmScene, FilmText } from '@/types/film';
 import type { IdField } from '@/types/content';
 
 export const ABOUT_HEAD = {
@@ -7,10 +7,11 @@ export const ABOUT_HEAD = {
   text: 'A researcher, too many tools and one very opinionated cat. Mochi insisted on telling it herself.',
 };
 
-export const FILM = {
+export const FILM: FilmText = {
   label: 'The Mochi film: how Volpi began',
   play: 'Play', pause: 'Pause', replay: 'Watch again',
   scene: 'Scene',
+  transcript: 'Read the film as text',
 };
 
 /** Each line is Mochi's. The facts in them come from the developer; the jokes are hers. */
@@ -29,7 +30,7 @@ export const FILM_SCENES: FilmScene[] = [
   },
   {
     id: 'tools', title: 'Too many tools', duration: 8000, set: 'windows',
-    mochi: { x: 380, y: 520, pose: 'idle', mood: 'wow' },
+    mochi: { x: 380, y: 520, pose: 'idle', mood: 'pout' },
     bubble: { kind: 'speech', text: 'A PDF reader. A notes app. A reference manager. A spreadsheet. A word processor. None of them had ever met.' },
   },
   {
@@ -40,7 +41,7 @@ export const FILM_SCENES: FilmScene[] = [
   },
   {
     id: 'lost', title: 'Where did the research go?', duration: 7000, set: 'lost',
-    mochi: { x: 120, y: 520, pose: 'idle', mood: 'wow', flip: true },
+    mochi: { x: 120, y: 520, pose: 'idle', mood: 'flustered', flip: true },
     bubble: { kind: 'speech', text: 'Somewhere between app four and app five, the actual research got lost. Not literally. Mostly.' },
   },
   {
@@ -51,7 +52,7 @@ export const FILM_SCENES: FilmScene[] = [
   },
   {
     id: 'rules', title: 'House rules', duration: 8000, set: 'rules',
-    mochi: { x: 90, y: 520, pose: 'point', mood: 'smile' },
+    mochi: { x: 90, y: 520, pose: 'point', mood: 'smug' },
     bubble: { kind: 'speech', text: 'House rules: your files stay yours, nothing goes to a cloud, and you pay once. I insisted on that last one.' },
     bubbleSide: 'above',
   },
@@ -114,8 +115,6 @@ export const MEET_MOCHI = {
     mrz: ['IDVOL<<MOCHI<<<<<<<<<<<<<<<<<<<<<<<<<', 'CAT<<<LOGO<TASTER<<<NO<CLOUD<<<<<<<01'],
   },
 };
-
-export const TRANSCRIPT = { summary: 'Read the film as text' };
 
 /** Words drawn inside the film's scenes. */
 export const FILM_PROPS = {

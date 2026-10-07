@@ -9,18 +9,36 @@ import { WhyLocal } from '@/sections/08-why-local/WhyLocal';
 import { NotYet } from '@/sections/09-not-yet/NotYet';
 import { Pricing } from '@/sections/10-pricing/Pricing';
 import { Coda } from '@/sections/11-coda/Coda';
+import { useHomeView } from '@/hooks/useHomeView';
+import { HomeViewSwitch } from './tour/HomeViewSwitch';
+import { MochiTour } from './tour/MochiTour';
+
+/** Everything between the hero and pricing: the full page, or Mochi's tour of it. */
+function HomeMiddle() {
+  const { view, setView, available } = useHomeView();
+  return (
+    <>
+      {available && <div className="wrap pb-14 pt-12"><HomeViewSwitch view={view} onChange={setView} /></div>}
+      {view === 'watch' ? <MochiTour /> : (
+        <>
+          <FormatsBand />
+          <WhoItsFor />
+          <Principles />
+          <ResearchLoop />
+          <Themes />
+          <WhyLocal />
+          <NotYet />
+        </>
+      )}
+    </>
+  );
+}
 
 export function HomePage() {
   return (
     <PageShell>
       <Hero />
-      <FormatsBand />
-      <WhoItsFor />
-      <Principles />
-      <ResearchLoop />
-      <Themes />
-      <WhyLocal />
-      <NotYet />
+      <HomeMiddle />
       <Pricing />
       <Coda />
     </PageShell>

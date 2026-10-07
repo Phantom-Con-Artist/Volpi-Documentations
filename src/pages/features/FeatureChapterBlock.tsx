@@ -2,12 +2,13 @@ import { ArrowRight, Check } from 'lucide-react';
 import type { FeatureChapter } from '@/types/content';
 import { FEATURES_HEAD } from '@/content/features.content';
 import { ThemedImg } from '@/components/media/ThemedImg';
+import { LoopVideo } from '@/components/media/LoopVideo';
 
 /** One feature area: a joke that names the pain, a few highlights, large screenshots and a link to the details. Odd chapters flip sides. */
 export function FeatureChapterBlock({ chapter, index }: { chapter: FeatureChapter; index: number }) {
   const flip = index % 2 === 1;
   return (
-    <section id={chapter.id} className="border-t border-tone-soft py-[clamp(64px,9vw,120px)]">
+    <section id={chapter.id} style={{ ['--bd-x' as string]: flip ? '0%' : '100%' }} className={`bd bd-bleed ${index % 3 === 2 ? 'bd-hatch' : 'bd-tone'} border-t border-tone-soft py-[clamp(64px,9vw,120px)]`}>
       <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
         <div className={`rise lg:sticky lg:top-28 ${flip ? 'lg:order-2' : ''}`}>
           <span className="p5-tag">{String(index + 1).padStart(2, '0')} · {chapter.kicker}</span>
@@ -27,6 +28,11 @@ export function FeatureChapterBlock({ chapter, index }: { chapter: FeatureChapte
           {chapter.images.map((img) => (
             <div key={img.day} className="rise panel">
               <ThemedImg image={img} className="h-auto w-full" sizes="(max-width: 1024px) 100vw, 1000px" />
+            </div>
+          ))}
+          {chapter.clips?.map((clip) => (
+            <div key={clip.name} className="rise panel">
+              <LoopVideo clip={clip} className="block h-auto w-full" />
             </div>
           ))}
         </div>

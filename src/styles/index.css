@@ -12,6 +12,7 @@
 @import './bubbles.css';
 @import './film.css';
 @import './idcard.css';
+@import './backdrops.css';
 
 @tailwind base;
 @tailwind components;

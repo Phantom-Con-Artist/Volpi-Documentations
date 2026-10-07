@@ -1,0 +1,42 @@
+/* Manga backdrops for sections that have no picture of their own. Pure CSS gradients in the
+   screentone colour, so they follow Day and Night. Nothing moves.
+   Use: class="bd bd-tone" (plus bd-bleed when the element sits inside .wrap). Position with --bd-x / --bd-y. */
+.bd { position: relative; isolation: isolate; }
+.bd::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  pointer-events: none;
+}
+/* Reach the edges of the window from inside .wrap (body clips the overflow). */
+.bd-bleed::before { left: calc(50% - 50vw); right: calc(50% - 50vw); }
+
+/* Screentone: a patch of dots that fades out from one corner. */
+.bd-tone::before {
+  background: radial-gradient(var(--tone) 1.4px, transparent 1.7px) 0 0 / 11px 11px;
+  -webkit-mask-image: radial-gradient(ellipse 55% 70% at var(--bd-x, 100%) var(--bd-y, 0%), #000 0 20%, transparent 100%);
+  mask-image: radial-gradient(ellipse 55% 70% at var(--bd-x, 100%) var(--bd-y, 0%), #000 0 20%, transparent 100%);
+  opacity: .7;
+}
+
+/* Motion streaks: uneven horizontal lines, thick at one side and fading towards the text. */
+.bd-streaks::before {
+  background:
+    repeating-linear-gradient(to bottom, transparent 0 23px, var(--tone-soft) 23px 25px, transparent 25px 41px, var(--tone-soft) 41px 42px),
+    repeating-linear-gradient(to bottom, transparent 0 67px, var(--tone) 67px 70px);
+  -webkit-mask-image: linear-gradient(var(--bd-dir, to left), #000 0, rgb(0 0 0 / .5) 22%, transparent 55%);
+  mask-image: linear-gradient(var(--bd-dir, to left), #000 0, rgb(0 0 0 / .5) 22%, transparent 55%);
+}
+
+/* Hatching: fine diagonal lines in a band, the way manga shades a background. */
+.bd-hatch::before {
+  background: repeating-linear-gradient(-55deg, var(--tone-soft) 0 1.5px, transparent 1.5px 9px);
+  -webkit-mask-image: radial-gradient(ellipse 45% 60% at var(--bd-x, 0%) var(--bd-y, 100%), #000 0 30%, transparent 100%);
+  mask-image: radial-gradient(ellipse 45% 60% at var(--bd-x, 0%) var(--bd-y, 100%), #000 0 30%, transparent 100%);
+}
+
+/* Focus lines (集中線): rays converging on a point, empty in the middle. */
+.bd-focus::before {
+  background: repeating-conic-gradient(from 0deg at var(--bd-x, 50%) var(--bd-y, 50%), var(--tone-soft) 0 .3deg, transparent .3deg 2.6deg, var(--tone-soft) 2.6deg 2.75deg, transparent 2.75deg 5.1deg);
+  -webkit-mask-image: radial-gradient(circle at var(--bd-x, 50%) var(--bd-y, 50%), transparent 0 34%, #000 85%);
+  mask-image: radial-gradient(circle at var(--bd-x, 50%) var(--bd-y, 50%), transparent 0 34%, #000 85%);
+  opacity: .7;
+}

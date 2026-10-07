@@ -4,7 +4,7 @@ import { MochiAside } from '@/components/mochi/MochiAside';
 /** The developer's story, set as a signed letter. The heading stays in view beside it on wide screens. */
 export function StoryLetter() {
   return (
-    <section id="story" className="border-t border-tone-soft py-[clamp(72px,10vw,130px)]">
+    <section id="story" className="bd bd-bleed bd-tone border-t border-tone-soft py-[clamp(72px,10vw,130px)]">
       <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,4fr)_minmax(0,7fr)] lg:gap-16">
         <div className="rise flex flex-col items-start gap-8 lg:sticky lg:top-28">
           <span className="p5-tag">{STORY.kicker}</span>

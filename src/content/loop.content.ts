@@ -32,8 +32,13 @@ export const LOOP_STEPS: LoopStep[] = [
   },
   {
     id: 'write', kicker: 'Write', title: 'Write papers.',
-    text: 'Cite from your reference library as you write. Export to Word or PDF.',
-    clip: { name: 'paper-write', label: 'Typing into a paper, shown as a tracked change.' },
+    text: 'Cite from your reference library as you write. Export to OpenDocument, Word, PDF and other formats.',
+    clip: { name: 'paper-write', label: 'Typing a sentence into a paper with live citations.' },
+  },
+  {
+    id: 'versions', kicker: 'Versions', title: 'Bring back earlier text.',
+    text: 'Every change is kept. Compare a file with an earlier version, with added words underlined and removed words struck through, and bring the old text back.',
+    clip: { name: 'versions', label: 'Opening the versions of a paper and comparing it with an earlier one.' },
   },
   {
     id: 'find', kicker: 'Search', title: 'Search all projects.',

@@ -1,5 +1,6 @@
 import { useId } from 'react';
 import { ACCENT, HAIR, INK, OUTLINE, PINK, SKIN } from './palette';
+import { MochiMoods } from './MochiMoods';
 
 // The head from the app (../Volpi/src/components/mochi/MochiFace.tsx), in a 200-wide box.
 // Moods are picked by data-mood on an ancestor (styles/mochi.css). Pupils follow --gx / --gy.
@@ -47,6 +48,7 @@ export function MochiHead() {
       <path className="mood m-mc" d="M91 135 q4.5 5 9 0 q4.5 5 9 0" fill="none" stroke={INK} strokeWidth={2.6} strokeLinecap="round" strokeLinejoin="round" />
       <path className="mood m-ms" d="M90 134 q10 12 20 0 z" fill="#c0383e" stroke={INK} strokeWidth={2.4} strokeLinejoin="round" />
       <ellipse className="mood m-mo" cx={100} cy={138} rx={4.5} ry={5.5} fill={INK} />
+      <MochiMoods />
       <g className="mood m-z" fill="var(--ink)" fontFamily="Zen Maru Gothic, sans-serif"><text x={150} y={40} fontSize={18}>z</text><text x={164} y={24} fontSize={13}>z</text></g>
     </g>
   );

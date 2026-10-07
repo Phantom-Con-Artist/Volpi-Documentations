@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 
-/** Adds .is-in to every .rise element once it scrolls into view. Run once per page. */
+/** Adds .is-in to every .rise element once it scrolls into view. Run once per page.
+ *  Also watches for elements mounted later (the home page's read/watch switch swaps whole sections). */
 export function useReveal(): void {
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -14,7 +15,19 @@ export function useReveal(): void {
       },
       { rootMargin: '0px 0px -8% 0px' },
     );
-    document.querySelectorAll('.rise').forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+    const watch = (root: ParentNode) => root.querySelectorAll('.rise:not(.is-in)').forEach((el) => observer.observe(el));
+    watch(document);
+
+    const added = new MutationObserver((records) => {
+      for (const record of records) {
+        record.addedNodes.forEach((node) => {
+          if (!(node instanceof Element)) return;
+          if (node.matches('.rise:not(.is-in)')) observer.observe(node);
+          watch(node);
+        });
+      }
+    });
+    added.observe(document.body, { childList: true, subtree: true });
+    return () => { observer.disconnect(); added.disconnect(); };
   }, []);
 }

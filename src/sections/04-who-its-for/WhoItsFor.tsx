@@ -7,7 +7,7 @@ import { PainCard } from './PainCard';
 /** Who Volpi is for: research scholars buried in papers, and the chaos it replaces with one app. */
 export function WhoItsFor() {
   return (
-    <section id="who" data-mochi="who" className="pt-[clamp(80px,12vw,140px)]">
+    <section id="who" data-mochi="who" className="bd bd-tone pt-[clamp(80px,12vw,140px)]">
       <div className="wrap">
         <SectionHead kicker={WHO_HEAD.kicker} title={WHO_HEAD.title} chapter={WHO_HEAD.chapter} />
         <div className="grid items-start gap-12 lg:grid-cols-[6fr_5fr] lg:gap-16">

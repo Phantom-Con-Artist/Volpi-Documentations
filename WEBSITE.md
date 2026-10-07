@@ -51,7 +51,7 @@ All text on the site lives in `src/content/`. To change wording, edit those file
 
 ## Things to set before launch
 
-- **Release status:** the site says the open beta is coming soon. Update `src/content/hero.content.ts`, `coda.content.ts` and `docs.content.ts` when it is released.
+- **Release status:** the site says the open beta is out and offers downloads from the Volpi-Releases repository (`DOWNLOADS` in `site.content.ts`, buttons in `src/components/download/`). Bump `SITE.version` and the docs when a new version ships.
 - **Roadmap:** the phases in `src/content/roadmap.content.ts` and the "What comes next" list in `src/content/docs.content.ts` (shown under phase 1.5) should match your actual plans.
 - **Bug reports:** the guide on `/report/` (`src/content/report.content.ts`) and the README should describe the same steps as the issue forms in `.github/ISSUE_TEMPLATE/`.
 - **Price:** the site says the open beta is free and version 1.0 will be a one-time purchase, with the price announced before 1.0. Update `src/content/pricing.content.ts` and `PRICING` in `docs.content.ts` when the price is set.

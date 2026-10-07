@@ -1,4 +1,4 @@
-export type MochiMood = 'smile' | 'happy' | 'wow' | 'sleep';
+export type MochiMood = 'smile' | 'happy' | 'wow' | 'sleep' | 'smug' | 'angry' | 'pout' | 'flustered';
 
 export interface MochiLine {
   text: string;

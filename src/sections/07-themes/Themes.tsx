@@ -9,7 +9,7 @@ const THEME_CLIP = { name: 'theme', label: 'Switching Volpi from Day to Night, t
 /** The page and the app share a look: the switch here changes both the site and the recording. */
 export function Themes() {
   return (
-    <section id="themes" className="border-t border-tone-soft py-[clamp(80px,12vw,140px)]">
+    <section id="themes" style={{ ['--bd-x' as string]: '0%', ['--bd-y' as string]: '100%' }} className="bd bd-tone border-t border-tone-soft py-[clamp(80px,12vw,140px)]">
       <div className="wrap">
         <SectionHead kicker={THEME_HEAD.kicker} title={THEME_HEAD.title} chapter={THEME_HEAD.chapter} />
         <div className="grid items-center gap-10 lg:grid-cols-[380px_minmax(0,1fr)] lg:gap-16">

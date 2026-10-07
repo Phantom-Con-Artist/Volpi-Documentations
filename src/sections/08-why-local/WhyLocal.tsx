@@ -6,7 +6,7 @@ import { PromiseCard } from '@/components/cards/PromiseCard';
 /** Why Volpi keeps research on the user's computer, and what we promise about privacy. */
 export function WhyLocal() {
   return (
-    <section id="local" className="border-t border-tone-soft py-[clamp(80px,12vw,140px)]">
+    <section id="local" style={{ ['--bd-x' as string]: '8%', ['--bd-y' as string]: '30%' }} className="bd bd-focus border-t border-tone-soft py-[clamp(80px,12vw,140px)]">
       <div className="wrap">
         <SectionHead kicker={WHY_LOCAL_HOME.kicker} title={WHY_LOCAL_HOME.title} chapter={WHY_LOCAL_HOME.chapter} />
         <div className="grid items-start gap-12 lg:grid-cols-[5fr_7fr] lg:gap-16">

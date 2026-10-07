@@ -2,7 +2,7 @@
 
 **Volpi** is a desktop app for researchers. You read and highlight PDFs, write linked Markdown notes, check and chart data, and write papers with citations, all in one place. Each project is a plain folder on your own computer.
 
-Volpi is in development. The open beta is coming soon and will be free for everyone to download.
+Volpi is in open beta (version 0.1.0), free for everyone to download for Windows, macOS and Linux.
 
 This repository is the public home of Volpi. It holds:
 
@@ -48,7 +48,7 @@ Found a security problem? Do not post it publicly. See [SECURITY.md](SECURITY.md
 
 - ask how something works,
 - suggest features and share ideas,
-- hear when the open beta and new versions are out,
+- hear when new versions are out,
 - talk with other researchers who use Volpi.
 
 Please read the [community guidelines](CODE_OF_CONDUCT.md). They apply on Discord and here on GitHub.
@@ -62,7 +62,7 @@ No. The app's source code is not published. This repository holds the documentat
 The open beta is free for everyone. Version 1.0 will be a one-time purchase, not a subscription. The price will be announced on the website before 1.0.
 
 **Which systems does it run on?**
-Linux first. Mac and Windows builds are planned.
+Windows 10 and 11, macOS (Apple Silicon and Intel) and Linux. The beta installers are not signed yet, so your computer may warn you the first time.
 
 **Where is my data?**
 On your computer, in folders you choose. There is no account and no cloud. Volpi only uses the internet to check references, and you can turn that off. The privacy policy has the details.

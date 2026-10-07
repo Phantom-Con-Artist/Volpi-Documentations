@@ -10,8 +10,10 @@ import { DocSectionBlock } from './DocSectionBlock';
 import { DocsReference } from './DocsReference';
 import { ShortcutTable } from './ShortcutTable';
 import { DocsLater } from './DocsLater';
+import { InstallSection } from './InstallSection';
 
 const LINKS = [
+  { label: 'Install', href: '#install' },
   ...DOC_SECTIONS.map((s) => ({ label: s.title, href: `#${s.id}` })),
   ...REFERENCE_TABLES.map((t) => ({ label: t.title, href: `#${t.id}` })),
   { label: 'Keyboard shortcuts', href: '#shortcuts' },
@@ -36,6 +38,7 @@ export function DocsPage() {
         <div className="grid gap-12 pb-24 lg:grid-cols-[220px_1fr]">
           <SideNav title="On this page" links={LINKS} />
           <div className="min-w-0">
+            <InstallSection />
             {DOC_SECTIONS.map((s) => <DocSectionBlock key={s.id} section={s} tourId={tourFor(s.id)} />)}
             <DocsReference />
             <ShortcutTable />

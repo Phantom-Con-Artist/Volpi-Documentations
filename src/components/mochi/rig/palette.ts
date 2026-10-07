@@ -5,3 +5,5 @@ export const SKIN = '#fff4ea';
 export const PINK = '#f5b5c4';
 export const ACCENT = { fill: 'var(--accent)' };
 export const OUTLINE = { stroke: INK, strokeWidth: 3, strokeLinejoin: 'round' as const };
+export const SEAL = '#c0383e';
+export const CHEEK = '#ec8aa3';

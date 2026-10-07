@@ -11,6 +11,6 @@ export const NOT_YET = {
     { title: 'Search inside scanned PDFs', text: 'no OCR yet' },
     { title: 'Sync between computers', text: 'use your own folder sync' },
     { title: 'Verify older books', text: 'often "not found"' },
-    { title: 'Mac and Windows', text: 'Linux first' },
+    { title: 'Signed installers', text: 'expect a warning on first run' },
   ] satisfies Fact[],
 };
