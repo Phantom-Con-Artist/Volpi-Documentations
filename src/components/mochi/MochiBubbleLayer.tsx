@@ -33,7 +33,7 @@ export function MochiBubbleLayer({ actor, w, h }: { actor: ActorState; w: number
   return (
     <div
       ref={ref}
-      className="pointer-events-none fixed left-0 top-0 z-[60]"
+      className="mochi-roamer pointer-events-none fixed left-0 top-0 z-[60]"
       style={{
         visibility: measured ? 'visible' : 'hidden',
         transform: `translate3d(${place.left}px, ${place.top}px, 0)`,

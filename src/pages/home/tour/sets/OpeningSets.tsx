@@ -1,19 +1,11 @@
 import type { CSSProperties } from 'react';
 import { TOUR_PROPS } from '@/content/tour.content';
 import { Bit, Sfx, Stamp, Win } from '@/components/film/FilmBits';
+import { titleSet } from '@/components/film/titleSet';
 
 const delay = (s: number): CSSProperties => ({ animationDelay: `${s}s` });
 
-export function TitleSet() {
-  return (
-    <>
-      <div className="speedlines absolute inset-0" style={{ ['--sl-x' as string]: '74%', ['--sl-y' as string]: '55%' }} />
-      <Bit x={70} y={120} delay={0.2}><span className="slash font-mincho text-[150px] font-semibold leading-none">{TOUR_PROPS.title}</span></Bit>
-      <Bit x={80} y={330} delay={0.8}><span className="p5-tag p5-tag-seal">{TOUR_PROPS.subtitle}</span></Bit>
-      <Sfx x={80} y={410} r={-6} delay={1.2} text="ようこそ" size={64} />
-    </>
-  );
-}
+export const TitleSet = titleSet(TOUR_PROPS.title, TOUR_PROPS.subtitle, 'ようこそ');
 
 const TAB_SPOTS = [{ x: 420, y: 60, r: -4 }, { x: 470, y: 120, r: 3 }, { x: 520, y: 180, r: -2 }, { x: 570, y: 240, r: 4 }];
 
@@ -23,7 +15,7 @@ export function TabsSet() {
       {TOUR_PROPS.tabs.map((label, i) => <Win key={i} {...TAB_SPOTS[i]} w={330} h={140} label={label} delay={0.2 + i * 0.35} />)}
       <Stamp x={760} y={40} r={8} delay={1.9} text={TOUR_PROPS.tabCount} />
       <Bit x={440} y={440} delay={2.6}>
-        <span className="f-shake inline-block border-[3px] border-ink bg-panel px-3 py-2 font-dot text-[15px] shadow-[4px_4px_0_var(--tone)]">{TOUR_PROPS.thesis}</span>
+        <span className="inline-block border-[3px] border-ink bg-panel px-3 py-2 font-dot text-[15px] shadow-[4px_4px_0_var(--tone)]">{TOUR_PROPS.thesis}</span>
       </Bit>
       <Sfx x={790} y={460} r={8} delay={2.2} text="ドサッ" size={44} />
     </>
@@ -85,8 +77,8 @@ export function VerifySet() {
         <Bit key={db} x={40} y={80 + i * 64} delay={0.2 + i * 0.3}><span className="p5-tag">{db}</span></Bit>
       ))}
       {TOUR_PROPS.badges.map((b, i) => <Stamp key={b.text} {...STAMP_SPOTS[i]} text={b.text} sub={b.sub} />)}
-      <span className="f-fade" style={{ ...delay(4.2), position: 'absolute', left: 30, top: 470 }}>
-        <span className="f-float block font-mincho text-[44px] font-semibold text-seal">?!</span>
+      <span className="f-fade" style={{ ...delay(4.2), position: 'absolute', left: 30, top: 440 }}>
+        <span className="block font-mincho text-[44px] font-semibold text-seal">?!</span>
       </span>
     </>
   );

@@ -85,6 +85,16 @@
 @keyframes mf-nuzzle { 0%, 100% { transform: rotate(4deg); } 50% { transform: rotate(8deg) translateY(2px); } }
 @keyframes mf-snuggle { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(2px) scaleY(.99); } }
 
+/* Bow (お辞儀): hands together in front, then a slow, polite bow from the waist, a pause, and up again.
+   Seen from the front, a bow shows as the body dipping and foreshortening, with the head lowering further. */
+.mf[data-pose="bow"] .mf-book { opacity: 0; }
+.mf[data-pose="bow"] .mf-arm-l { transform: rotate(-22deg); }
+.mf[data-pose="bow"] .mf-arm-r { transform: rotate(22deg); }
+.mf[data-pose="bow"] .mf-upper { animation: mf-bow 3.6s ease-in-out infinite; }
+.mf[data-pose="bow"] .mf-head { animation: mf-bow-head 3.6s ease-in-out infinite; }
+@keyframes mf-bow { 0%, 12%, 88%, 100% { transform: none; } 34%, 66% { transform: translateY(16px) scaleY(.88); } }
+@keyframes mf-bow-head { 0%, 12%, 88%, 100% { transform: none; } 34%, 66% { transform: translateY(14px) scaleY(.9); } }
+
 /* The front copy of a hugging Mochi shows only her hands, so they grip the front of the thing she hugs. */
 .mf-front { visibility: hidden; pointer-events: none; }
 .mf-front .mf-hand { visibility: visible; }

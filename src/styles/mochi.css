@@ -21,7 +21,7 @@
 .mm-mochi[data-mood="sleep"] .m-z { display: inline; }
 /* Extra moods (rig/MochiMoods.tsx). */
 [data-mood="smug"] .mm-mochi .m-lid, .mm-mochi[data-mood="smug"] .m-lid,
-[data-mood="smug"] .mm-mochi .m-brow-up, .mm-mochi[data-mood="smug"] .m-brow-up,
+[data-mood="smug"] .mm-mochi .m-brow-smug, .mm-mochi[data-mood="smug"] .m-brow-smug,
 [data-mood="smug"] .mm-mochi .m-smirk, .mm-mochi[data-mood="smug"] .m-smirk,
 [data-mood="angry"] .mm-mochi .m-eo, .mm-mochi[data-mood="angry"] .m-eo,
 [data-mood="angry"] .mm-mochi .m-brow-down, .mm-mochi[data-mood="angry"] .m-brow-down,

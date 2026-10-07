@@ -9,7 +9,7 @@ export function FeatureChapterBlock({ chapter, index }: { chapter: FeatureChapte
   const flip = index % 2 === 1;
   return (
     <section id={chapter.id} style={{ ['--bd-x' as string]: flip ? '0%' : '100%' }} className={`bd bd-bleed ${index % 3 === 2 ? 'bd-hatch' : 'bd-tone'} border-t border-tone-soft py-[clamp(64px,9vw,120px)]`}>
-      <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16">
+      <div className={`grid items-start gap-12 lg:gap-16 ${chapter.images.length ? 'lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]' : 'max-w-[44rem]'}`}>
         <div className={`rise lg:sticky lg:top-28 ${flip ? 'lg:order-2' : ''}`}>
           <span className="p5-tag">{String(index + 1).padStart(2, '0')} · {chapter.kicker}</span>
           <h2 className="mt-6 text-[clamp(2.1rem,4vw,3.6rem)] leading-[1.05]"><span className="slash">{chapter.title}</span></h2>
@@ -24,7 +24,7 @@ export function FeatureChapterBlock({ chapter, index }: { chapter: FeatureChapte
           </ul>
           <a href={`/docs/#${chapter.docId}`} className="textlink mt-8">{FEATURES_HEAD.docsLink} <ArrowRight size={16} aria-hidden="true" /></a>
         </div>
-        <div className="flex flex-col gap-12">
+        {chapter.images.length > 0 && <div className="flex flex-col gap-12">
           {chapter.images.map((img) => (
             <div key={img.day} className="rise panel">
               <ThemedImg image={img} className="h-auto w-full" sizes="(max-width: 1024px) 100vw, 1000px" />
@@ -35,7 +35,7 @@ export function FeatureChapterBlock({ chapter, index }: { chapter: FeatureChapte
               <LoopVideo clip={clip} className="block h-auto w-full" />
             </div>
           ))}
-        </div>
+        </div>}
       </div>
     </section>
   );

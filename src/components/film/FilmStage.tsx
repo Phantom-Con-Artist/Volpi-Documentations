@@ -1,8 +1,10 @@
 import { useEffect, useState, type CSSProperties } from 'react';
 import type { FilmBubbleSide, FilmScene, FilmSets } from '@/types/film';
 import type { TailSide } from '@/components/mochi/MochiBubble';
+import { MOOD_EMOTES } from '@/content/film.content';
 import { MochiFull } from '@/components/mochi/rig/MochiFull';
 import { MochiBubble } from '@/components/mochi/MochiBubble';
+
 const STAGE_W = 960;
 const STAGE_H = 540;
 const MOCHI_W = 190;
@@ -23,7 +25,10 @@ function placeBubble(x: number, y: number, side?: FilmBubbleSide): { style: CSSP
   return { style: { right: STAGE_W - x - 14, top: top + 60 }, tail: 'right', at: 34 };
 }
 
-/** One frame of the film: the scene's set, Mochi walking to her mark, her bubble and the scene card. */
+/**
+ * One frame of a film: the set drifts slowly towards the camera, Mochi runs
+ * to her mark, lands with a hop and reacts in her mood, then her bubble and a little emote pop up.
+ */
 export function FilmStage({ scene, index, scale, bubbles, sets, sceneWord }: { scene: FilmScene; index: number; scale: number; bubbles: boolean; sets: FilmSets; sceneWord: string }) {
   const Set = sets[scene.set];
   const [walking, setWalking] = useState(false);
@@ -35,12 +40,18 @@ export function FilmStage({ scene, index, scale, bubbles, sets, sceneWord }: { s
 
   const { x, y, pose, mood, flip } = scene.mochi;
   const place = placeBubble(x, y, scene.bubbleSide);
+  const emote = scene.emote ?? MOOD_EMOTES[mood];
+  // The emote sits beside her head, on the side away from a bubble placed beside her.
+  const emoteLeft = place.tail === 'left' || (place.tail !== 'right' && !!flip);
 
   return (
     <div className="film-stage" style={{ transform: `scale(${scale})` }}>
-      <div key={scene.id} className="absolute inset-0"><Set /></div>
+      <div key={scene.id} className="film-cam" style={{ ['--d' as string]: `${scene.duration}ms`, ['--cx' as string]: `${x + MOCHI_W / 2}px` }}><Set /></div>
       <div className={`film-actor ${flip ? 'is-flipped' : ''}`} style={{ transform: `translate3d(${x}px, ${y - MOCHI_H}px, 0)` }}>
-        <MochiFull pose={walking ? 'idle' : pose} mood={mood} moving={walking} />
+        <div key={scene.id} className="film-react" data-mood={mood}>
+          <MochiFull pose={walking ? 'idle' : pose} mood={mood} moving={walking} />
+        </div>
+        {emote && !walking && <span key={`emote-${scene.id}`} className={`film-emote ${emoteLeft ? 'is-left' : ''}`} data-mood={mood} aria-hidden="true">{emote}</span>}
       </div>
       {bubbles && !walking && (
         <div className="film-bubble" style={{ ...place.style, width: BUBBLE_W }}>

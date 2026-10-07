@@ -19,7 +19,7 @@ export const FILM_SCENES: FilmScene[] = [
   {
     id: 'hello', title: 'Once upon a deadline', duration: 6500, set: 'title',
     mochi: { x: 650, y: 500, pose: 'wave', mood: 'happy' },
-    bubble: { kind: 'speech', text: "Hi, I'm Mochi! Grab a snack. I'm going to tell you how Volpi began." },
+    bubble: { kind: 'speech', text: "Hi, I'm Mochi. Grab a snack. This is how Volpi began. The facts are my human's; the jokes are mine." },
     bubbleSide: 'above',
   },
   {
@@ -64,8 +64,14 @@ export const FILM_SCENES: FilmScene[] = [
   {
     id: 'you', title: 'Your turn', duration: 7000, set: 'invite',
     mochi: { x: 640, y: 520, pose: 'wave', mood: 'happy' },
-    bubble: { kind: 'speech', text: "That's the story so far. The next chapter has you in it. Come say hi on Discord!" },
+    bubble: { kind: 'speech', text: "That's the story so far. The next chapter has you in it. Download the beta, or come say hi on Discord." },
     bubbleSide: 'above',
+  },
+  {
+    id: 'bow', title: 'Welcome', duration: 7000, set: 'finale',
+    mochi: { x: 385, y: 520, pose: 'bow', mood: 'happy' },
+    bubble: { kind: 'speech', text: 'Thank you for listening all the way to the end. Welcome to Volpi. Yoroshiku onegaishimasu.' },
+    bubbleSide: 'above', emote: '✿',
   },
 ];
 

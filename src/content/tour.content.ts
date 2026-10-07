@@ -1,12 +1,9 @@
+import type { ViewSwitchText } from '@/components/film/ViewSwitch';
+import { VIEW_SWITCH } from './film.content';
 import type { FilmScene, FilmText } from '@/types/film';
 
 /** The switch under the hero: read the home page, or let Mochi explain it. */
-export const HOME_VIEW = {
-  label: 'How to see this page',
-  read: 'Read the page',
-  watch: 'Watch Mochi explain',
-  hint: 'Tap or swipe',
-};
+export const HOME_VIEW: ViewSwitchText = { ...VIEW_SWITCH, label: 'How to see this page' };
 
 export const TOUR: FilmText = {
   label: 'Mochi explains Volpi: a short animated tour of this page',
@@ -20,25 +17,25 @@ export const TOUR_SCENES: FilmScene[] = [
   {
     id: 'hello', title: 'The short tour', duration: 6500, set: 'title',
     mochi: { x: 650, y: 520, pose: 'wave', mood: 'happy' },
-    bubble: { kind: 'speech', text: "Hi, I'm Mochi. Short on time? I'll walk you through this page. The bar below skips ahead." },
+    bubble: { kind: 'speech', text: "Hi, I'm Mochi. Short on time? I'll act out this whole page for you. Paws on the bar below to skip." },
     bubbleSide: 'above',
   },
   {
     id: 'who', title: 'Who it is for', duration: 7500, set: 'tabs',
     mochi: { x: 60, y: 520, pose: 'point', mood: 'smug' },
-    bubble: { kind: 'speech', text: 'Volpi is for research scholars buried in papers. Forty read to write one. Forty-seven tabs open. Sound familiar?' },
+    bubble: { kind: 'speech', text: 'Volpi is for research scholars buried in papers. Forty papers read to write one. Forty-seven tabs. I see you.' },
     bubbleSide: 'above',
   },
   {
     id: 'folder', title: 'Files you own', duration: 7500, set: 'folder',
     mochi: { x: 730, y: 520, pose: 'idle', mood: 'happy', flip: true },
-    bubble: { kind: 'speech', text: 'Each project is a plain folder on your computer. Stop using Volpi tomorrow and every file is still right there.' },
+    bubble: { kind: 'speech', text: 'Each project is a plain folder on your computer. Leave Volpi tomorrow and your files stay. I would cry, though.' },
     bubbleSide: 'above',
   },
   {
     id: 'read', title: 'Highlight PDFs', duration: 7500, set: 'highlight',
     mochi: { x: 60, y: 520, pose: 'point', mood: 'smile' },
-    bubble: { kind: 'speech', text: 'Highlight a PDF as much as you like. The highlights live in a small file beside it, so the PDF never changes.' },
+    bubble: { kind: 'speech', text: 'Highlight the whole PDF yellow if you must. The highlights live in a small file beside it. The PDF stays pristine.' },
     bubbleSide: 'above',
   },
   {
@@ -56,13 +53,13 @@ export const TOUR_SCENES: FilmScene[] = [
   {
     id: 'write', title: 'Write the paper', duration: 8000, set: 'write',
     mochi: { x: 730, y: 520, pose: 'point', mood: 'smile', flip: true },
-    bubble: { kind: 'speech', text: 'Write beside your sources. Versions keeps every change, and the paper exports to Word, PDF, LaTeX and more.' },
+    bubble: { kind: 'speech', text: 'Write beside your sources. Versions keeps every change, and the paper exports to Word, PDF, LaTeX and friends.' },
     bubbleSide: 'above',
   },
   {
     id: 'local', title: 'It stays local', duration: 7500, set: 'local',
     mochi: { x: 60, y: 520, pose: 'sit', mood: 'happy' },
-    bubble: { kind: 'speech', text: 'It all stays on your computer. No account, no cloud. Only reference checks go online, and you can turn them off.' },
+    bubble: { kind: 'speech', text: 'It all stays on your computer. No account, no cloud. Only reference checks go online, and you can switch those off.' },
     bubbleSide: 'above',
   },
   {
@@ -74,8 +71,14 @@ export const TOUR_SCENES: FilmScene[] = [
   {
     id: 'price', title: 'Free for now', duration: 7500, set: 'price',
     mochi: { x: 650, y: 520, pose: 'wave', mood: 'happy' },
-    bubble: { kind: 'speech', text: 'The beta is free. Version 1.0 will be a one-time purchase. Pricing and the download are just below. Off you go.' },
+    bubble: { kind: 'speech', text: 'The beta is free. Version 1.0 will be a one-time purchase. Pricing and the download button are just below.' },
     bubbleSide: 'above',
+  },
+  {
+    id: 'bow', title: 'Welcome', duration: 7000, set: 'finale',
+    mochi: { x: 385, y: 520, pose: 'bow', mood: 'happy' },
+    bubble: { kind: 'speech', text: 'Thank you for watching. Welcome to Volpi, from me and my human. Yoroshiku onegaishimasu.' },
+    bubbleSide: 'above', emote: '✿',
   },
 ];
 

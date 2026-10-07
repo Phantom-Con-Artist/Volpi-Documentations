@@ -3,13 +3,13 @@ import { ACCENT, CHEEK, INK, SEAL, SKIN } from './palette';
 // Extra expressions, drawn on the same head (eyes at x 76 and 124, y about 118; mouth at y about 136).
 // Each part is a `.mood` group that styles/mochi.css shows for its data-mood.
 
-/** Half-lidded eye: a flat lid with the pupil peeking out underneath. */
+/** Half-lidded eye: the lower half of the open eye, cut off by a flat lid that is part of the eye itself. */
 function LidEye({ cx }: { cx: number }) {
   return (
     <g>
-      <path d={`M${cx - 11} 117 A11 9 0 0 0 ${cx + 11} 117 Z`} fill={INK} />
+      <path d={`M${cx - 12} 116 Q${cx} 114 ${cx + 12} 116 A12 10 0 0 1 ${cx - 12} 116 Z`} fill={INK} stroke={INK} strokeWidth={2.5} strokeLinejoin="round" />
       <circle cx={cx + 3} cy={121} r={4.5} style={ACCENT} />
-      <path d={`M${cx - 14} 116 L${cx + 13} 114`} stroke={INK} strokeWidth={4.5} strokeLinecap="round" />
+      <circle cx={cx - 2} cy={119} r={1.8} fill="#fff" />
     </g>
   );
 }
@@ -17,9 +17,9 @@ function LidEye({ cx }: { cx: number }) {
 export function MochiMoods() {
   return (
     <>
-      {/* Smug: lids down, one brow up, a sideways smirk. */}
+      {/* Smug: heavy lids, one pair of relaxed brows (the right a touch higher) and a sideways smirk. */}
       <g className="mood m-lid"><LidEye cx={76} /><LidEye cx={124} /></g>
-      <path className="mood m-brow-up" d="M112 96 Q124 88 137 95" fill="none" stroke={INK} strokeWidth={3.5} strokeLinecap="round" />
+      <g className="mood m-brow-smug" fill="none" stroke={INK} strokeWidth={3} strokeLinecap="round"><path d="M65 104 Q76 100 87 103" /><path d="M113 102 Q125 96 136 100" /></g>
       <path className="mood m-smirk" d="M92 137 Q103 141 111 131" fill="none" stroke={INK} strokeWidth={3} strokeLinecap="round" />
 
       {/* Angry: brows slammed down, a frown and the manga anger mark. */}

@@ -6,7 +6,7 @@ export interface MochiLine {
 }
 
 /** What her arms and body are doing. Legs run on their own whenever she is moving. */
-export type MochiPose = 'idle' | 'wave' | 'point' | 'eat' | 'sit' | 'carry' | 'hug';
+export type MochiPose = 'idle' | 'wave' | 'point' | 'eat' | 'sit' | 'carry' | 'hug' | 'bow';
 
 /** Bubble shapes, one per feeling: talk, yell, ponder, sneak, hum. */
 export type BubbleKind = 'speech' | 'shout' | 'thought' | 'whisper' | 'song';

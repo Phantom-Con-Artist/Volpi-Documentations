@@ -42,7 +42,7 @@ export function WindowsSet() {
   return (
     <>
       {FILM_PROPS.tools.map((label, i) => <Win key={label} label={label} {...TOOL_SPOTS[i]} w={200} h={i === 5 ? 96 : 126} delay={0.3 + i * 0.55} />)}
-      <Sfx x={250} y={220} r={-10} delay={3.6} text="ピコン" size={54} />
+      <Sfx x={150} y={430} r={-10} delay={3.6} text="ピコン" size={54} />
     </>
   );
 }

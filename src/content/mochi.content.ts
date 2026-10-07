@@ -4,7 +4,7 @@ import type { MochiLine } from '@/types/mochi';
  *  Sections with a MochiAside are left out, so she never says the same thing twice. */
 export const MOCHI_LINES: Record<string, MochiLine> = {
   loop: { text: 'Pick a step. Each one is a real recording. I was in the room.', mood: 'happy' },
-  coda: { text: 'See you at the open beta! I will be the one eating your logo.', mood: 'happy' },
+  coda: { text: 'The beta is out. Download it and I come too. Free cat.', mood: 'smug' },
   'features-top': { text: 'The full tour. Please keep your hands inside the panels.', mood: 'happy' },
   'roadmap-top': { text: 'The plan. I added the snack breaks.', mood: 'happy' },
   'docs-top': { text: 'Everything Volpi does, in one long list. Bring tea.', mood: 'happy' },
@@ -29,7 +29,7 @@ export const HERO_POKES: MochiLine[] = [
 /** Antic dialogue. One is picked at random each time. */
 export const ANTIC_LINES = {
   eat: { start: ['Om nom.', 'Snack time!', 'Is this a cracker?'], taste: ['…tastes like a seal stamp.', '…a little red. A little foxy.'], after: ['I put it back. Mostly.', 'You saw nothing.'] },
-  peek: ['psst…', 'psst… I am not here.', 'psst… the beta is almost ready.', 'psst… nothing on this page leaves your computer. Not even me.'],
+  peek: ['psst…', 'psst… I am not here.', 'psst… the beta is out. Tell nobody. Tell everybody.', 'psst… nothing on this page leaves your computer. Not even me.'],
   steal: { grab: ['Mine now!', 'Yoink!', 'This letter is mine.'], hide: ["You didn't see anything.", 'Shh. I am a wall.'], give: ['Fine. Have it back.', 'It was boring anyway.'] },
   follow: { start: ['Ooh, a cursor!', 'Hold still!'], end: ['Got it! …no I did not.', 'Too fast. Unfair.'] },
   sit: ['♪ hm hm, plain folders ♪', '♪ la la, local files ♪', '♪ no cloud, no cloud ♪'],

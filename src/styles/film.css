@@ -11,7 +11,47 @@
 .film-actor.is-flipped .mm-mochi { transform: scaleX(-1); }
 .film-bubble { position: absolute; z-index: 3; }
 .film-bubble .mb { width: 100%; max-width: none; font-size: 17px; }
+
+/* Camera: each set drifts a little closer over its scene, towards Mochi. */
+.film-cam { position: absolute; inset: 0; transform-origin: var(--cx, 50%) 70%; animation: film-cam var(--d) linear both; }
+@keyframes film-cam { from { transform: scale(1); } to { transform: scale(1.045); } }
+
+/* While a film is on screen, the roaming Mochi ducks down below the edge to watch, and keeps quiet. */
+.mochi-roamer .mm-mochi { transition: transform .45s cubic-bezier(.3, 1.4, .5, 1); }
+[data-film="on"] .mochi-roamer .mm-mochi { transform: translateY(26%); }
+[data-film="on"] .mochi-roamer .mb { opacity: 0; transition: opacity .2s ease; }
+
 .film-card { position: absolute; left: 24px; top: 20px; z-index: 4; }
+
+/* Mochi lands on her mark with a squash, then keeps moving in her mood. */
+.film-react { transform-origin: 50% 100%; animation: film-land .5s cubic-bezier(.3, 1.6, .5, 1) .9s both; }
+.film-react[data-mood="happy"] { animation: film-land .5s cubic-bezier(.3, 1.6, .5, 1) .9s both, film-hop 1.3s ease-in-out 1.4s infinite; }
+.film-react[data-mood="angry"] { animation: film-land .5s cubic-bezier(.3, 1.6, .5, 1) .9s both, film-stomp .32s ease-in-out 1.4s infinite; }
+.film-react[data-mood="flustered"] { animation: film-land .5s cubic-bezier(.3, 1.6, .5, 1) .9s both, film-jitter .14s linear 1.4s infinite; }
+.film-react[data-mood="smug"] { animation: film-land .5s cubic-bezier(.3, 1.6, .5, 1) .9s both, film-lean 2.4s ease-in-out 1.4s infinite; }
+.film-react[data-mood="pout"] { animation: film-land .5s cubic-bezier(.3, 1.6, .5, 1) .9s both, film-puff 1.6s ease-in-out 1.4s infinite; }
+.film-react[data-mood="wow"] { animation: film-land .5s cubic-bezier(.3, 1.6, .5, 1) .9s both, film-jolt .5s ease-out 1.4s both; }
+@keyframes film-land { 0% { transform: scale(1.06, .9); } 60% { transform: scale(.97, 1.04); } 100% { transform: none; } }
+@keyframes film-hop { 0%, 60%, 100% { transform: none; } 75% { transform: translateY(-10px); } 88% { transform: translateY(0) scale(1.03, .97); } }
+@keyframes film-stomp { 0%, 100% { transform: rotate(-1.5deg); } 50% { transform: rotate(1.5deg) translateY(1px); } }
+@keyframes film-jitter { 0%, 100% { transform: translateX(-1.5px); } 50% { transform: translateX(1.5px); } }
+@keyframes film-lean { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(3deg); } }
+@keyframes film-puff { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.025, .985); } }
+@keyframes film-jolt { 0% { transform: none; } 30% { transform: translateY(-14px) scale(.96, 1.05); } 100% { transform: none; } }
+
+/* The emote above her head. */
+.film-emote {
+  position: absolute; left: 172px; top: 40px; z-index: 2; white-space: nowrap;
+  font: 700 30px/1 "Zen Old Mincho", serif; color: var(--ink);
+  animation: film-emote .45s cubic-bezier(.3, 1.6, .5, 1) both;
+}
+.film-emote.is-left { left: auto; right: 172px; }
+.film-emote[data-mood="angry"], .film-emote[data-mood="happy"] { color: var(--seal); }
+.film-emote[data-mood="smug"] { color: var(--accent); font-size: 34px; }
+@keyframes film-emote { from { opacity: 0; transform: scale(.2) rotate(-20deg); } to { opacity: 1; transform: none; } }
+
+/* Petals for the closing bow. */
+.f-petal { display: block; width: 16px; height: 11px; border-radius: 100% 0; background: var(--seal); opacity: .55; }
 
 .film-progress { transform-origin: 0 50%; animation: film-progress var(--d) linear forwards; }
 @keyframes film-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
@@ -21,20 +61,21 @@
 .f-drop { animation: f-drop .55s cubic-bezier(.3, 1.4, .5, 1) both; }
 .f-fade { animation: f-fade .6s ease both; }
 .f-stamp { animation: f-stamp .45s cubic-bezier(.2, 1.4, .4, 1) both; }
-.f-float { animation: f-float 2.4s ease-in-out infinite; }
 .f-spin { transform-origin: 50% 100%; animation: f-spin 1.1s linear infinite; }
 .f-spin-slow { transform-origin: 50% 100%; animation: f-spin 6s linear infinite; }
 .f-fall { animation: f-fall 3.2s ease-in both; }
 .f-fly { animation: f-fly 3.4s ease-in-out infinite both; }
 .f-merge { animation: f-merge 1.1s cubic-bezier(.6, 0, .3, 1) both; }
-.f-shake { animation: f-shake .5s ease-in-out infinite; }
+.f-slide { animation: f-slide 1.2s cubic-bezier(.5, 0, .3, 1) both; }
+.f-crop { transform-origin: 30% 30%; animation: f-crop 1s cubic-bezier(.5, 0, .3, 1) both; }
+.f-send { animation: f-send 1.8s cubic-bezier(.5, 0, .3, 1) both; }
+.f-shrink { transform-origin: 50% 50%; animation: f-shrink .9s cubic-bezier(.6, 0, .4, 1) both; }
 .f-sweep { transform-origin: 0 50%; animation: f-sweep .7s ease-out both; }
 .f-grow { transform-origin: 50% 100%; animation: f-grow .6s cubic-bezier(.3, 1.4, .5, 1) both; }
 @keyframes f-pop { from { opacity: 0; transform: scale(.3) rotate(var(--r, 0deg)); } to { opacity: 1; transform: scale(1) rotate(var(--r, 0deg)); } }
 @keyframes f-drop { from { opacity: 0; transform: translate3d(0, -160px, 0) rotate(var(--r, 0deg)); } to { opacity: 1; transform: translate3d(0, 0, 0) rotate(var(--r, 0deg)); } }
 @keyframes f-fade { from { opacity: 0; } to { opacity: 1; } }
 @keyframes f-stamp { 0% { opacity: 0; transform: scale(2.4) rotate(var(--r, 0deg)); } 70% { opacity: 1; transform: scale(.94) rotate(var(--r, 0deg)); } 100% { opacity: 1; transform: scale(1) rotate(var(--r, 0deg)); } }
-@keyframes f-float { 50% { transform: translate3d(0, -10px, 0) rotate(var(--r, 0deg)); } }
 @keyframes f-spin { to { transform: rotate(360deg); } }
 @keyframes f-fall { from { opacity: 1; transform: translate3d(0, -80px, 0) rotate(0); } to { opacity: 0; transform: translate3d(var(--dx, 0px), 620px, 0) rotate(var(--r, 90deg)); } }
 @keyframes f-fly {
@@ -44,9 +85,12 @@
   100% { transform: translate3d(0, 0, 0) rotate(-6deg); }
 }
 @keyframes f-merge { from { opacity: 1; transform: translate3d(0, 0, 0) rotate(var(--r, 0deg)); } to { opacity: 0; transform: translate3d(var(--tx), var(--ty), 0) scale(.2); } }
+@keyframes f-slide { from { transform: translateX(0); } to { transform: translateX(130px); } }
+@keyframes f-crop { from { opacity: 0; transform: scale(1.1); } to { opacity: 1; transform: scale(.8); } }
+@keyframes f-send { 0% { transform: none; } 70% { opacity: 1; transform: translate3d(380px, -110px, 0) rotate(8deg) scale(.7); } 100% { opacity: 0; transform: translate3d(400px, -120px, 0) rotate(8deg) scale(.5); } }
+@keyframes f-shrink { to { opacity: 0; transform: translate3d(330px, 160px, 0) scale(.15) rotate(30deg); } }
 @keyframes f-sweep { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 @keyframes f-grow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
-@keyframes f-shake { 0%, 100% { transform: rotate(-4deg); } 50% { transform: rotate(4deg); } }
 
 @media (prefers-reduced-motion: reduce) {
   .film-stage *, .film-stage *::before, .film-stage *::after { animation-duration: 0s !important; animation-delay: 0s !important; animation-iteration-count: 1 !important; transition: none !important; }

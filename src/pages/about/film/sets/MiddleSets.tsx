@@ -13,7 +13,7 @@ export function ShuffleSet() {
       <Bit x={70} y={300} delay={0.9} className="f-fade">
         <div className="f-fly border-[3px] border-seal bg-panel px-3 py-2 font-mincho text-[15px] italic shadow-[4px_4px_0_var(--tone)]">{FILM_PROPS.quote}</div>
       </Bit>
-      <Sfx x={60} y={60} r={-6} delay={1.2} text="ぐるぐる" size={56} />
+      <Sfx x={60} y={90} r={-6} delay={1.2} text="ぐるぐる" size={56} />
     </>
   );
 }
@@ -32,7 +32,7 @@ export function LostSet() {
           <span className="f-spin absolute bottom-1/2 left-[calc(50%-2px)] h-[78px] w-[4px] bg-seal" />
         </div>
       </Bit>
-      <Bit x={440} y={60} delay={0.8}><span className="f-float block font-mincho text-[130px] font-semibold leading-none text-seal">?</span></Bit>
+      <Bit x={440} y={60} delay={0.8}><span className="block font-mincho text-[130px] font-semibold leading-none text-seal">?</span></Bit>
       <Sfx x={640} y={360} r={6} delay={1.4} text="あれ？" size={62} />
     </>
   );
@@ -63,7 +63,7 @@ export function MergeSet() {
           {FILM_PROPS.deskRows.map((r) => <span key={r} className="border-[2px] border-ink bg-accent-soft px-3 py-2 font-dot text-[15px] tracking-[.08em]">{r}</span>)}
         </div>
       </Win>
-      <Sfx x={70} y={40} r={-8} delay={1.6} text="ポン" size={70} />
+      <Sfx x={70} y={90} r={-8} delay={1.6} text="ポン" size={70} />
     </>
   );
 }

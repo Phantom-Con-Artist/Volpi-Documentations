@@ -19,6 +19,8 @@ export interface FilmScene {
   bubble: Bubble;
   /** The bubble is anchored to her head; this picks the side. Default: whichever side has more room. */
   bubbleSide?: FilmBubbleSide;
+  /** The sound or symbol above her head. Default: one for her mood (content/film.content.ts); '' for none. */
+  emote?: string;
 }
 
 /** The words around a film: its label for screen readers, the controls and the transcript. */

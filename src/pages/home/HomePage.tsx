@@ -9,16 +9,17 @@ import { WhyLocal } from '@/sections/08-why-local/WhyLocal';
 import { NotYet } from '@/sections/09-not-yet/NotYet';
 import { Pricing } from '@/sections/10-pricing/Pricing';
 import { Coda } from '@/sections/11-coda/Coda';
-import { useHomeView } from '@/hooks/useHomeView';
-import { HomeViewSwitch } from './tour/HomeViewSwitch';
+import { useViewChoice } from '@/hooks/useViewChoice';
+import { ViewSwitch } from '@/components/film/ViewSwitch';
+import { HOME_VIEW } from '@/content/tour.content';
 import { MochiTour } from './tour/MochiTour';
 
 /** Everything between the hero and pricing: the full page, or Mochi's tour of it. */
 function HomeMiddle() {
-  const { view, setView, available } = useHomeView();
+  const { view, setView, available } = useViewChoice('volpi-home-view');
   return (
     <>
-      {available && <div className="wrap pb-14 pt-12"><HomeViewSwitch view={view} onChange={setView} /></div>}
+      {available && <div className="wrap pb-14 pt-12"><ViewSwitch view={view} onChange={setView} text={HOME_VIEW} /></div>}
       {view === 'watch' ? <MochiTour /> : (
         <>
           <FormatsBand />

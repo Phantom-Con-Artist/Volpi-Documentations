@@ -114,7 +114,7 @@ export function PriceSet() {
       <Stamp x={300} y={240} r={4} delay={2.0} {...TOUR_PROPS.payOnce} />
       <Bit x={80} y={420} delay={3.2}>
         <span className="inline-flex items-center gap-2 font-dot text-[18px] tracking-[.1em]">
-          {TOUR_PROPS.below}<span className="f-float inline-block text-seal"><ArrowDown size={26} strokeWidth={3} aria-hidden="true" /></span>
+          {TOUR_PROPS.below}<span className="inline-block text-seal"><ArrowDown size={26} strokeWidth={3} aria-hidden="true" /></span>
         </span>
       </Bit>
     </>

@@ -15,7 +15,7 @@ export function MochiActor({ actor, onPoke }: { actor: ActorState; onPoke: () =>
   return (
     <>
       <div
-        className="pointer-events-none fixed left-0 top-0 z-50"
+        className="mochi-roamer pointer-events-none fixed left-0 top-0 z-50"
         style={{
           width: w,
           height: h,

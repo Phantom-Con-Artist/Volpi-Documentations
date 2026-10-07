@@ -50,7 +50,7 @@ export const REFERENCE_TABLES: RefTable[] = [
       { term: '.xlsx', text: 'Search reads the text of Excel workbooks and shows the sheet and row of a match.' },
       { term: '.odt  .rtf  .html  .tex  .txt', text: 'Papers also export to OpenDocument, Rich Text, a web page, LaTeX and plain text, and to Markdown (.md).' },
       { term: '.png  .jpg  .gif  .webp  .avif  .bmp  .tiff', text: 'Pictures open in the picture tools: crop, turn, flip, greyscale, brightness and contrast. Save a copy writes a new file. SVG opens too.' },
-      { term: '.txt  .tex  .bib  .ris', text: 'Plain text and reference files open in Volpi and are kept in Versions like notes. A .bib or .ris file can be read as a list of references.' },
+      { term: '.txt  .tex  .bib  .ris', text: 'Plain text and reference files open in Volpi and are kept in Versions like notes. A .bib or .ris file can be read as a list of references and added to the library.' },
       { term: '.svg', text: 'Charts are saved as SVG, ready for a paper.' },
       { term: '.bib  .ris  CSL-JSON', text: 'References export to BibTeX, RIS and CSL-JSON.' },
       { term: 'Anything else', text: 'Any file type can be imported. The original is copied, never changed.' },

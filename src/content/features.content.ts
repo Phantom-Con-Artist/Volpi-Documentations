@@ -5,7 +5,6 @@ export const FEATURES_HEAD = {
   kicker: 'Features · v0.1.0',
   title: 'Everything Volpi does.',
   text: 'Reading, notes, references, data and writing, in one app. Here is the tour, with screenshots and the occasional joke.',
-  index: 'Jump to',
   docsLink: 'Details in the docs',
 };
 
@@ -48,7 +47,7 @@ export const FEATURE_CHAPTERS: FeatureChapter[] = [
   {
     id: 'data', docId: 'data', kicker: 'Data and charts', title: 'Look at your data before reviewers do.',
     joke: 'Find the participant whose age is 999 before they turn up in Figure 3. Then make the chart and save it as SVG.',
-    highlights: ['Checks CSV, TSV and JSON for gaps, label typos and outliers.', 'Bar, line, scatter and more.', 'Draw a box around a table in a PDF and chart it.', 'Charts saved as SVG.', 'Crop, turn and adjust pictures. Save a copy and the original stays as it was.'],
+    highlights: ['Checks CSV, TSV and JSON for gaps, label typos and outliers.', 'Bar, line, scatter and more.', 'Volpi finds captioned tables in a PDF: chart one, save it as CSV or put it in a note.', 'Charts saved as SVG.', 'Crop, turn and adjust pictures. Save a copy and the original stays as it was.'],
     images: [
       feature('data', 'A data health check with a score of 94, missing cells, outliers and what to check.'),
       feature('chart', 'The chart builder with a scatter plot and its options.'),
@@ -59,7 +58,7 @@ export const FEATURE_CHAPTERS: FeatureChapter[] = [
   {
     id: 'papers', docId: 'papers', kicker: 'Writing papers', title: 'Write where your sources are.',
     joke: 'Cite from your library as you type. Comments stay in the paper, and Versions keeps every change. When your supervisor insists on Word, export to Word, or to OpenDocument, LaTeX or PDF.',
-    highlights: ['Sections, figures, tables, equations and footnotes.', 'Comments, with every change kept in Versions. Compare, and bring back earlier text.', 'Export to OpenDocument, Word, PDF, LaTeX and more.'],
+    highlights: ['Four numbered heading levels, an outline, and a table of contents that stays up to date.', 'Type $$ on its own line for a numbered equation.', 'Comments, with every change kept in Versions. Compare, and bring back earlier text.', 'Export to OpenDocument, Word, PDF, LaTeX and more.'],
     images: [
       windowCrop('paper-pages', 'The paper editor in page view, showing the title, abstract and first section.', true),
       feature('paper', 'The paper editor with comment threads in the side panel.'),
@@ -71,7 +70,7 @@ export const FEATURE_CHAPTERS: FeatureChapter[] = [
   {
     id: 'library', docId: 'library', kicker: 'Library and search', title: 'Find it again.',
     joke: 'Search looks through file names, notes, PDF text and highlights. Yes, that quote from last spring too.',
-    highlights: ['Folders, tags, stars and reading status.', 'Ctrl+P opens any file by name. Ctrl+/ lists every shortcut.', 'Right-click a file or several for their actions.', 'Search reads Word and Excel files too.'],
+    highlights: ['Folders, tags, stars and reading status.', 'Up to three files side by side, or a link as a peek.', 'Ctrl+P opens any file by name. Ctrl+/ lists every shortcut.', 'Right-click a file or several for their actions.', 'Search reads Word and Excel files too.'],
     images: [
       feature('search', 'Search results across notes, papers, data and highlights.'),
       feature('library', 'The file list: fourteen papers with tags and their reading status.', false),
@@ -82,12 +81,19 @@ export const FEATURE_CHAPTERS: FeatureChapter[] = [
   {
     id: 'focus', docId: 'desk', kicker: 'Focus', title: 'Nothing pinging you.',
     joke: 'No notifications, no badges, no streaks. Zen mode fills the screen with the page and nothing else.',
-    highlights: ['Zen fills the screen. Ctrl+Tab switches files without leaving it.', 'A 25 minute focus timer.', 'Changes save as you work, with a stamp in the title bar.', 'Undo in every editor, and a history you can restore from.'],
+    highlights: ['Zen fills the screen. Ctrl+Tab switches files without leaving it.', 'A 25 minute focus timer.', 'Changes save as you work. If Volpi closes unexpectedly, unsaved edits are kept in a recovery journal.', 'Undo in every editor, and a history you can restore from.'],
     images: [
       windowCrop('zen', 'Zen mode: only the paper and the focus timer are visible.', true, 1500),
       windowCrop('switcher', 'The recent files switcher open over a paper in Zen mode.', true, 1500),
     ],
     clips: [{ name: 'zen-switch', label: 'Switching between files with Ctrl+Tab without leaving Zen mode.' }],
+  },
+  {
+    id: 'later', docId: 'next', kicker: 'Coming later', title: 'What is next.',
+    joke: 'The big plans, with no dates attached. We would rather be right than early, and Mochi would rather nap.',
+    highlights: ['OCR, so scanned PDFs can be searched and quoted.', 'Whole-folder import for an existing library.', 'Extensions, written in the language you already use.', 'Machine-learning tools you build yourself, running on your own computer.'],
+    note: 'These are plans, not promises. The roadmap has the order, and it may change.',
+    images: [],
   },
 ];
 

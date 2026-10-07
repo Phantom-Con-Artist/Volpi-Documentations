@@ -94,7 +94,7 @@ export const PRIVACY_SECTIONS: PolicySection[] = [
     id: 'website',
     title: 'This website',
     paragraphs: [
-      'This site uses no cookies, no analytics and no third-party scripts. Fonts are served from this site. Your theme choice, whether Mochi is hidden and whether you chose to read the home page or watch Mochi\'s tour are kept in your browser\'s local storage and never sent anywhere.',
+      'This site uses no cookies, no analytics and no third-party scripts. Fonts are served from this site. Your theme choice, whether Mochi is hidden and whether you chose to read or watch Mochi\'s films (on the home, features and privacy pages) are kept in your browser\'s local storage and never sent anywhere.',
     ],
   },
   {
