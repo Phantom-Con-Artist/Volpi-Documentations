@@ -17,7 +17,9 @@ export function StoryLetter() {
             {STORY.paragraphs.map((p) => <p key={p}>{p}</p>)}
           </div>
           <footer className="mt-12 border-t-[3px] border-ink pt-6">
-            <p className="font-mincho text-[clamp(1.6rem,2.6vw,2.2rem)] font-semibold leading-none">{STORY.name}</p>
+            <p className="font-mincho text-[clamp(1.6rem,2.6vw,2.2rem)] font-semibold leading-none">
+              <a href={STORY.href} target="_blank" rel="noopener noreferrer" className="textlink">{STORY.name}</a>
+            </p>
             <p className="kicker mt-3">{STORY.role}</p>
           </footer>
         </article>

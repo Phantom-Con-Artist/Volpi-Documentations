@@ -40,7 +40,7 @@ export const PRIVACY_SCENES: FilmScene[] = [
   {
     id: 'switch', title: 'You choose when', duration: 8000, set: 'modes',
     mochi: { x: 730, y: 520, pose: 'wave', mood: 'happy', flip: true },
-    bubble: { kind: 'speech', text: 'You choose when it goes online: only when you click (the default), right after an import, or never. Off means off.' },
+    bubble: { kind: 'speech', text: 'You choose when references go online: only when you click (the default), right after an import, or never. Off means off.' },
     bubbleSide: 'above',
   },
   {

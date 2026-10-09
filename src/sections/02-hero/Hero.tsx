@@ -6,6 +6,7 @@ import { DownloadButton } from '@/components/download/DownloadButton';
 import { DownloadNote } from '@/components/download/DownloadNote';
 import { ThemedImg } from '@/components/media/ThemedImg';
 import { HeroMochi } from './HeroMochi';
+import { VolpiWordmark } from '@/components/brand/VolpiWordmark';
 
 export function Hero() {
   return (
@@ -15,17 +16,19 @@ export function Hero() {
           <div className="rise">
             <span className="p5-tag p5-tag-seal">{HERO.kicker}</span>
             <h1 className="mb-8 mt-8">
-              <span className="slash block w-fit text-[clamp(4.2rem,11vw,11rem)] leading-[.95]">{HERO.name}</span>
+              <span className="slash block w-fit"><VolpiWordmark className="block h-[clamp(4.6rem,11.5vw,11.5rem)] w-auto" /></span>
               <span className="mt-6 block max-w-[16em] text-[clamp(2rem,4.2vw,4.4rem)] leading-[1.08]">{HERO.headline}</span>
             </h1>
-            <p className="mb-11 max-w-[34em] text-[clamp(1.15rem,1.7vw,1.45rem)] text-ink-2">{HERO.lede}</p>
+            <p className="mb-10 max-w-[34em] text-[clamp(1.15rem,1.7vw,1.45rem)] text-ink-2">{HERO.lede}</p>
             <div className="flex flex-wrap items-center gap-x-8 gap-y-5">
               <DownloadButton size="lg" />
               <DiscordButton size="lg" primary={false} />
               <a className="textlink" href="#loop">{HERO.secondary} <ArrowDown size={16} aria-hidden="true" /></a>
             </div>
-            <DownloadNote className="mt-6" />
-            <p className="mt-6 text-[15px] text-ink-2">{HERO.trust}</p>
+            <div className="mt-9 max-w-[40em] border-l-[3px] border-tone-soft pl-5">
+              <p className="font-mincho text-[16.5px] font-semibold leading-snug text-ink">{HERO.trust}</p>
+              <DownloadNote className="mt-2.5" />
+            </div>
           </div>
           <HeroMochi />
         </div>

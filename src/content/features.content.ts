@@ -2,7 +2,7 @@ import type { FeatureChapter } from '@/types/content';
 import { feature, windowCrop } from './media.content';
 
 export const FEATURES_HEAD = {
-  kicker: 'Features · v0.1.0',
+  kicker: 'Features · v0.1.1',
   title: 'Everything Volpi does.',
   text: 'Reading, notes, references, data and writing, in one app. Here is the tour, with screenshots and the occasional joke.',
   docsLink: 'Details in the docs',

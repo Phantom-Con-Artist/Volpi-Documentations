@@ -7,14 +7,13 @@ import { ResearchLoop } from '@/sections/06-research-loop/ResearchLoop';
 import { Themes } from '@/sections/07-themes/Themes';
 import { WhyLocal } from '@/sections/08-why-local/WhyLocal';
 import { NotYet } from '@/sections/09-not-yet/NotYet';
-import { Pricing } from '@/sections/10-pricing/Pricing';
 import { Coda } from '@/sections/11-coda/Coda';
 import { useViewChoice } from '@/hooks/useViewChoice';
 import { ViewSwitch } from '@/components/film/ViewSwitch';
 import { HOME_VIEW } from '@/content/tour.content';
 import { MochiTour } from './tour/MochiTour';
 
-/** Everything between the hero and pricing: the full page, or Mochi's tour of it. */
+/** Everything between the hero and the coda: the full page, or Mochi's tour of it. */
 function HomeMiddle() {
   const { view, setView, available } = useViewChoice('volpi-home-view');
   return (
@@ -40,7 +39,6 @@ export function HomePage() {
     <PageShell>
       <Hero />
       <HomeMiddle />
-      <Pricing />
       <Coda />
     </PageShell>
   );

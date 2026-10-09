@@ -5,7 +5,7 @@ import type { Plugin } from 'vite';
 
 /** The public address of the site. Link previews, the canonical link and the sitemap need it as a full URL. */
 const SITE_URL = 'https://volpi.pages.dev';
-const PAGES = ['/', '/features/', '/docs/', '/about/', '/roadmap/', '/report/', '/privacy/'];
+const PAGES = ['/', '/features/', '/docs/', '/about/', '/roadmap/', '/report/', '/pricing/', '/privacy/'];
 
 /** Adds absolute social-preview and canonical tags to every page, and writes sitemap.xml and robots.txt. */
 function siteMeta(): Plugin {
@@ -26,7 +26,7 @@ function siteMeta(): Plugin {
   };
 }
 
-// Seven static pages, each with its own entry: home, features, about, roadmap, report, documentation and privacy.
+// Eight static pages, each with its own entry: home, features, about, roadmap, report, documentation, pricing and privacy.
 export default defineConfig({
   plugins: [react(), siteMeta()],
   resolve: {
@@ -43,6 +43,7 @@ export default defineConfig({
         about: path.resolve(__dirname, 'about/index.html'),
         roadmap: path.resolve(__dirname, 'roadmap/index.html'),
         report: path.resolve(__dirname, 'report/index.html'),
+        pricing: path.resolve(__dirname, 'pricing/index.html'),
         privacy: path.resolve(__dirname, 'privacy/index.html'),
       },
     },

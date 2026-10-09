@@ -16,7 +16,7 @@ export const WHY_LOCAL_REASONS: Fact[] = [
   },
   {
     title: 'It works offline.',
-    text: 'In the library, on a train or in the field. Only reference checks need the internet, and you can turn them off.',
+    text: 'In the library, on a train or in the field. Only reference checks and update checks need the internet.',
   },
 ];
 

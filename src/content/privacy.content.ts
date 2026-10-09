@@ -1,6 +1,6 @@
 import type { PolicySection } from '@/types/content';
 
-/** Facts verified against the app: ../Volpi/src-tauri/src/citations/online.rs and src/features/citations/settings.ts. */
+/** Facts verified against the app: ../Volpi/src-tauri/src/citations/online.rs, src/features/citations/settings.ts, src-tauri/src/updates/ and src/features/updates/. */
 export const PRIVACY_HEAD = {
   kicker: 'Privacy',
   title: 'Your files stay on your computer.',
@@ -9,7 +9,7 @@ export const PRIVACY_HEAD = {
 
 export const PRIVACY_SUMMARY: string[] = [
   'Your files never leave your computer.',
-  'Volpi only uses the internet to check references, and by default only when you click.',
+  'Volpi uses the internet for two things: checking references (by default only when you click) and asking GitHub whether a new version is out.',
   'It sends an identifier or a short citation. Never your notes, PDFs or name.',
   'There is no tracking and no telemetry. This version has no AI features.',
 ];
@@ -24,7 +24,7 @@ export const LOOKUP_ENDPOINTS: { name: string; host: string; sends: string }[] =
 export const ONLINE_MODES: { name: string; text: string; isDefault?: boolean }[] = [
   { name: 'When I click', text: 'Only when you press Verify or Look up.', isDefault: true },
   { name: 'Automatic', text: 'Also checks papers right after you import them.' },
-  { name: 'Off', text: 'Volpi never contacts the internet.' },
+  { name: 'Off', text: 'References are never checked online.' },
 ];
 
 export const PRIVACY_SECTIONS: PolicySection[] = [
@@ -42,9 +42,18 @@ export const PRIVACY_SECTIONS: PolicySection[] = [
     id: 'network',
     title: 'When Volpi uses the internet',
     paragraphs: [
-      'Reference checks are the only feature that connects to the internet. When a reference is checked, Volpi asks one of four public scholarly databases whether it exists and how it is described.',
+      'Volpi connects to the internet for reference checks and update checks, nothing else. When a reference is checked, Volpi asks one of four public scholarly databases whether it exists and how it is described.',
       'Only fixed addresses can be reached. Each request has a time and size limit, and Volpi waits between requests so it does not overload the databases.',
       'Volpi identifies itself as "Volpi/0.1". Like any web request, the database can see your IP address. Their own privacy policies apply to what they receive.',
+    ],
+  },
+  {
+    id: 'updates',
+    title: 'Update checks',
+    paragraphs: [
+      'From version 0.1.1, each time Home opens, Volpi asks GitHub whether a newer version has been published. It fetches a small file with the latest version number from github.com/Phantom-Con-Artist/Volpi-Releases (and, if that fails, the same answer from api.github.com).',
+      'The check sends nothing about you, your files or how you use Volpi. Like any web request, GitHub can see your IP address, and GitHub\'s privacy policy applies. Without an internet connection the check fails and nothing else changes.',
+      'Nothing is downloaded until you choose Update and restart. Updates are signed, and Volpi checks the signature before installing. There is no switch to turn the check off yet.',
     ],
   },
   {
@@ -72,7 +81,6 @@ export const PRIVACY_SECTIONS: PolicySection[] = [
       'No analytics, telemetry or crash reports.',
       'No ads and no selling of data, because there is no data to sell.',
       'No AI features in this version. Machine-learning tools are planned for later (see the roadmap). They will run on your computer, and your files will never be sent anywhere to train a model.',
-      'No automatic update checks in the beta.',
     ],
     paragraphs: [],
   },

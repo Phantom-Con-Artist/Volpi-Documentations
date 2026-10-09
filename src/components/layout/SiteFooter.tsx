@@ -1,4 +1,5 @@
 import { FoxSeal } from '@/components/brand/FoxSeal';
+import { VolpiWordmark } from '@/components/brand/VolpiWordmark';
 import { FOOTER_LINKS, SITE } from '@/content/site.content';
 import { MochiToggle } from '@/components/mochi/MochiToggle';
 import { navLinkProps } from '@/components/navigation/navLinkProps';
@@ -11,7 +12,7 @@ export function SiteFooter() {
         <div>
           <a href="/" className="flex items-center gap-3 no-underline">
             <FoxSeal className="h-[34px] w-[34px]" />
-            <span className="font-mincho text-2xl font-semibold leading-none">{SITE.name}</span>
+            <VolpiWordmark className="h-[28px] w-auto" />
           </a>
           <p className="mt-4 font-mincho text-ink-3">{SITE.tagline}</p>
         </div>

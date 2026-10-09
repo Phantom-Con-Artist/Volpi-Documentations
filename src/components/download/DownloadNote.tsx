@@ -6,10 +6,10 @@ import { useDownloadTarget } from '@/hooks/useDownloadTarget';
 export function DownloadNote({ className = '' }: { className?: string }) {
   const target = useDownloadTarget();
   return (
-    <div className={`text-[15px] text-ink-2 ${className}`}>
+    <div className={`text-[15px] leading-[1.6] text-ink-2 ${className}`}>
       {target === 'mac' && <p className="mb-2 max-w-[38em]">{DOWNLOAD.macHint}</p>}
-      <p className="max-w-[38em]">{DOWNLOAD.unsigned} <a className="textlink" href={DOWNLOAD.installHref}>{DOWNLOAD.install}</a></p>
-      <details className="mt-3">
+      <p className="max-w-[38em]">{DOWNLOAD.unsigned} <a className="whitespace-nowrap font-bold text-ink underline decoration-seal decoration-2 underline-offset-4 hover:text-seal" href={DOWNLOAD.installHref}>{DOWNLOAD.install}</a></p>
+      <details className="mt-2.5">
         <summary className="cursor-pointer font-medium text-ink">{DOWNLOAD.other}</summary>
         <ul className="m-0 mt-2 grid list-none gap-1 p-0">
           {DOWNLOADS.map((d) => (

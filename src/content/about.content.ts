@@ -88,7 +88,8 @@ export const STORY = {
     'I made it for my own work first. Now I would like it to help with yours. Your research stays on your computer, because it is private until you choose to publish it. And when version 1.0 arrives, you pay once, because you already have enough subscriptions.',
     'Volpi is still young, and the open beta will have rough edges. If something breaks, or you have an idea, tell me on Discord or in a bug report. I would love to hear from you.',
   ],
-  name: 'Subhradeep Sarkar',
+  name: 'Mavern',
+  href: 'https://mavern.in',
   role: 'Developer',
 };
 

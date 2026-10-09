@@ -37,7 +37,7 @@ The site is static. It builds into `dist/` and runs on Cloudflare Pages (`pages.
 index.html, features/, about/, roadmap/, report/, docs/, privacy/   one HTML shell per page
 public/                       files served as they are: images, videos, logo, _headers
 src/entries/                  one entry script per page
-src/pages/                    the seven pages
+src/pages/                    the eight pages
 src/sections/                 home page sections, in page order
 src/components/               shared components (layout, buttons, media, theme, Mochi)
 src/content/                  all text and data, typed

@@ -59,7 +59,7 @@ export const TOUR_SCENES: FilmScene[] = [
   {
     id: 'local', title: 'It stays local', duration: 7500, set: 'local',
     mochi: { x: 60, y: 520, pose: 'sit', mood: 'happy' },
-    bubble: { kind: 'speech', text: 'It all stays on your computer. No account, no cloud. Only reference checks go online, and you can switch those off.' },
+    bubble: { kind: 'speech', text: 'It all stays on your computer. No account, no cloud. Only reference checks and update checks go online.' },
     bubbleSide: 'above',
   },
   {
@@ -71,7 +71,7 @@ export const TOUR_SCENES: FilmScene[] = [
   {
     id: 'price', title: 'Free for now', duration: 7500, set: 'price',
     mochi: { x: 650, y: 520, pose: 'wave', mood: 'happy' },
-    bubble: { kind: 'speech', text: 'The beta is free. Version 1.0 will be a one-time purchase. Pricing and the download button are just below.' },
+    bubble: { kind: 'speech', text: 'The beta is free. Version 1.0 will be a one-time purchase. Pricing has its own page. The download button is just below.' },
     bubbleSide: 'above',
   },
   {
@@ -116,5 +116,5 @@ export const TOUR_PROPS = {
   notYet: ['OCR for scanned PDFs', 'Sync between computers', 'Signed installers'],
   free: { text: 'Free', sub: 'Open beta, now' },
   payOnce: { text: 'Pay once', sub: 'From v1.0' },
-  below: 'Pricing below',
+  below: 'Download below',
 };

@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 // Colours point at the CSS variables in src/styles/tokens.css, so Day/Night and the accent inks switch in one place.
 export default {
-  content: ['./index.html', './docs/index.html', './features/index.html', './about/index.html', './roadmap/index.html', './report/index.html', './privacy/index.html', './src/**/*.{ts,tsx}'],
+  content: ['./index.html', './docs/index.html', './features/index.html', './about/index.html', './roadmap/index.html', './report/index.html', './pricing/index.html', './privacy/index.html', './src/**/*.{ts,tsx}'],
   theme: {
     extend: {
       colors: {

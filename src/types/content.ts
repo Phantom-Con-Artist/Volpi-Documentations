@@ -102,6 +102,9 @@ export interface RoadmapPhase {
   mochi?: string;
   /** The phase Volpi is in today. */
   current?: boolean;
+  /** A small in-between step, drawn as a smaller card. */
+  compact?: boolean;
+  link?: { label: string; href: string };
 }
 
 /** One step of the bug-report guide. */
@@ -124,4 +127,15 @@ export interface RefTable {
   /** Show terms as code, for syntax and file names. */
   code?: boolean;
   note?: string;
+}
+
+/** One version in the docs' release notes. Copied from the app's in-app update log. */
+export type ChangeKind = 'latest' | 'feature' | 'issue';
+export interface Release {
+  version: string;
+  channel: string;
+  /** ISO date, e.g. 2026-10-09. */
+  date: string;
+  summary: string;
+  changes: Record<ChangeKind, { title: string; text: string }[]>;
 }

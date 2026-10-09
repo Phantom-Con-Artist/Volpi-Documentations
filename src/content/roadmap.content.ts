@@ -12,7 +12,7 @@ export const ROADMAP_HEAD = {
 
 export const ROADMAP_PHASES: RoadmapPhase[] = [
   {
-    id: 'first-version', number: '1', status: 'Now · open beta', current: true,
+    id: 'first-version', number: '1', status: 'Out · v0.1.0',
     title: 'The first version.',
     text: 'The app itself: read PDFs, write linked notes, check references, look at your data and write papers, all in plain files on your computer.',
     items: [
@@ -20,6 +20,17 @@ export const ROADMAP_PHASES: RoadmapPhase[] = [
       { title: 'Local and private', text: 'Your files stay on your computer. No account, no cloud.' },
       { title: 'Free to try', text: 'The open beta is free for everyone to download.' },
     ],
+  },
+  {
+    id: 'first-update', number: '1.25', status: 'Now · v0.1.1', current: true, compact: true,
+    title: 'The first update.',
+    text: 'Bug fixes from the first beta, quicker files, and Volpi now updates itself.',
+    items: [
+      { title: 'Quicker return to files', text: 'PDFs, data, pictures and papers you opened before reuse the work already done.' },
+      { title: 'Steadier PDFs on Linux', text: 'No more blank pages after switching files or resizing the window.' },
+      { title: 'Updates from Home', text: 'Volpi checks for new versions. Choose Update and restart when you are ready.' },
+    ],
+    link: { label: 'Read the release notes', href: '/docs/#releases' },
   },
   {
     id: 'polish', number: '1.5', status: 'Next',

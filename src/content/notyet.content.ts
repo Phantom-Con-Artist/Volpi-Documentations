@@ -6,7 +6,7 @@ export const NOT_YET = {
   title: 'Not yet.',
   text: 'This is the first beta. These things are not supported yet.',
   roadmap: { label: 'See the roadmap', href: '/roadmap/' },
-  card: 'Beta · v0.1.0',
+  card: 'Beta · v0.1.1',
   items: [
     { title: 'Search inside scanned PDFs', text: 'no OCR yet' },
     { title: 'Sync between computers', text: 'use your own folder sync' },

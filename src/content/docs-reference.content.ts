@@ -73,7 +73,7 @@ export const REFERENCE_TABLES: RefTable[] = [
     note: 'Matching is careful rather than eager. Books, theses and older works often show Likely or Not found even when they are real. A verified reference exists, but Volpi cannot tell whether it supports your sentence.',
   },
   {
-    id: 'online', title: 'Internet settings', intro: 'Reference checks are the only feature that uses the internet. You choose when they run.',
+    id: 'online', title: 'Internet settings', intro: 'Reference checks use the internet only when this setting allows. Home also asks GitHub whether a new version is out.',
     columns: ['Setting', 'What happens'],
     rows: ONLINE_MODES.map((m) => ({ term: m.isDefault ? `${m.name} (default)` : m.name, text: m.text })),
     note: 'A check never sends your files, notes, name or anything about how you use Volpi. See the privacy policy.',

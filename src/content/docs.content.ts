@@ -3,12 +3,12 @@ import { feature, windowShot } from './media.content';
 
 /** Product facts follow the app's release notes (../Volpi/src/features/changelog/entries.ts). */
 export const DOCS_HEAD = {
-  kicker: 'Documentation · v0.1.0',
+  kicker: 'Documentation · v0.1.1',
   title: 'Documentation.',
   text: 'How Volpi works in the first beta: every feature, the words it uses, link syntax, file formats, shortcuts and known limits.',
   tour: { label: 'Prefer pictures? Take the features tour', href: '/features/' },
   tourShort: 'See it in the tour',
-  banner: 'The open beta is out. This page describes version 0.1.0.',
+  banner: "The open beta is out. This page describes version 0.1.1. Every version's changes are under Release notes.",
 };
 
 export const DOC_SECTIONS: DocSection[] = [

@@ -11,6 +11,10 @@ import { DocsReference } from './DocsReference';
 import { ShortcutTable } from './ShortcutTable';
 import { DocsLater } from './DocsLater';
 import { InstallSection } from './InstallSection';
+import { DocsTabs, type DocsTab } from './DocsTabs';
+import { ReleaseNotes } from './releases/ReleaseNotes';
+import { useHashTab } from '@/hooks/useHashTab';
+import { RELEASES, RELEASES_HEAD } from '@/content/releases.content';
 
 const LINKS = [
   { label: 'Install', href: '#install' },
@@ -22,10 +26,15 @@ const LINKS = [
   { label: 'Price and licence', href: '#pricing' },
 ];
 
+const RELEASE_LINKS = RELEASES.map((r) => ({ label: `v${r.version}`, href: `#v${r.version}` }));
+const isReleaseAnchor = (hash: string) => /^v\d/.test(hash);
+
 /** The tour chapter that shows each docs section, so the two pages link to each other. */
 const tourFor = (docId: string) => FEATURE_CHAPTERS.find((c) => c.docId === docId)?.id;
 
 export function DocsPage() {
+  const [tab, setTab] = useHashTab<DocsTab>('guide', 'releases', isReleaseAnchor);
+  const guide = tab === 'guide';
   return (
     <PageShell>
       <div className="wrap">
@@ -35,14 +44,21 @@ export function DocsPage() {
             <a href={DOCS_HEAD.tour.href} className="textlink mt-6">{DOCS_HEAD.tour.label} <ArrowRight size={16} aria-hidden="true" /></a>
           </PageIntro>
         </div>
+        <DocsTabs tab={tab} onChange={setTab} />
         <div className="grid gap-12 pb-24 lg:grid-cols-[220px_1fr]">
-          <SideNav title="On this page" links={LINKS} />
-          <div className="min-w-0">
-            <InstallSection />
-            {DOC_SECTIONS.map((s) => <DocSectionBlock key={s.id} section={s} tourId={tourFor(s.id)} />)}
-            <DocsReference />
-            <ShortcutTable />
-            <DocsLater />
+          <SideNav key={tab} title={guide ? 'On this page' : RELEASES_HEAD.nav} links={guide ? LINKS : RELEASE_LINKS} />
+          <div id={`docs-panel-${tab}`} role="tabpanel" aria-labelledby={`docs-tab-${tab}`} className="min-w-0">
+            {guide ? (
+              <>
+                <InstallSection />
+                {DOC_SECTIONS.map((s) => <DocSectionBlock key={s.id} section={s} tourId={tourFor(s.id)} />)}
+                <DocsReference />
+                <ShortcutTable />
+                <DocsLater />
+              </>
+            ) : (
+              <ReleaseNotes />
+            )}
           </div>
         </div>
       </div>
