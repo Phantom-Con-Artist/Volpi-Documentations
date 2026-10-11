@@ -20,7 +20,7 @@ export function HeroMochi() {
   const waving = hero.pose === 'wave' ? 'is-waving' : '';
 
   return (
-    <div ref={registerHero} className="rise relative mx-auto w-[min(80vw,380px)] lg:mx-0 lg:ml-auto lg:w-full">
+    <div ref={registerHero} className="relative mx-auto w-[min(80vw,380px)] lg:mx-0 lg:ml-auto lg:w-full">
       <span className="sfx absolute -left-10 -top-10 rotate-[-8deg]" aria-hidden="true">{HERO.sfx.text}</span>
       {hero.bubble && !hero.away && (
         <div className="absolute bottom-[96%] right-[30%] z-10">

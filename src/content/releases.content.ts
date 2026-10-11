@@ -1,15 +1,17 @@
 import type { ChangeKind, Release } from '@/types/content';
 
-/** The Release notes tab on the docs page. */
+/** The release notes page (/docs/releases/). */
 export const RELEASES_HEAD = {
-  id: 'releases',
+  kicker: 'Documentation · Release notes',
+  href: '/docs/releases/',
+  listLabel: 'Versions, newest first',
   title: 'Release notes.',
   intro: 'Every version of Volpi, newest first. The same notes are in the update log on Volpi\'s Home screen.',
   latest: 'Latest',
   nav: 'Versions',
 };
 
-export const DOCS_TABS = { label: 'Documentation views', guide: 'Guide', releases: 'Release notes' };
+export const DOCS_TABS = { label: 'Documentation', guide: 'Guide', guideHref: '/docs/', releases: 'Release notes' };
 
 export const CHANGE_LABELS: Record<ChangeKind, string> = { latest: "What's new", feature: 'Features', issue: 'Known issues' };
 

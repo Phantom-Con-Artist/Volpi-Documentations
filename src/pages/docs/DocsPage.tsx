@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { PageShell } from '@/components/layout/PageShell';
 import { PageIntro } from '@/components/typography/PageIntro';
@@ -11,10 +12,8 @@ import { DocsReference } from './DocsReference';
 import { ShortcutTable } from './ShortcutTable';
 import { DocsLater } from './DocsLater';
 import { InstallSection } from './InstallSection';
-import { DocsTabs, type DocsTab } from './DocsTabs';
-import { ReleaseNotes } from './releases/ReleaseNotes';
-import { useHashTab } from '@/hooks/useHashTab';
-import { RELEASES, RELEASES_HEAD } from '@/content/releases.content';
+import { DocsTabs } from './DocsTabs';
+import { RELEASES_HEAD } from '@/content/releases.content';
 
 const LINKS = [
   { label: 'Install', href: '#install' },
@@ -26,15 +25,20 @@ const LINKS = [
   { label: 'Price and licence', href: '#pricing' },
 ];
 
-const RELEASE_LINKS = RELEASES.map((r) => ({ label: `v${r.version}`, href: `#v${r.version}` }));
-const isReleaseAnchor = (hash: string) => /^v\d/.test(hash);
+/** Release notes used to be a tab here, so old links such as /docs/#v0.1.1 are sent on to their page. */
+function useOldReleaseLinks() {
+  useEffect(() => {
+    const hash = location.hash.slice(1);
+    if (hash === 'releases') location.replace(RELEASES_HEAD.href);
+    else if (/^v\d/.test(hash)) location.replace(`${RELEASES_HEAD.href}#${hash}`);
+  }, []);
+}
 
 /** The tour chapter that shows each docs section, so the two pages link to each other. */
 const tourFor = (docId: string) => FEATURE_CHAPTERS.find((c) => c.docId === docId)?.id;
 
 export function DocsPage() {
-  const [tab, setTab] = useHashTab<DocsTab>('guide', 'releases', isReleaseAnchor);
-  const guide = tab === 'guide';
+  useOldReleaseLinks();
   return (
     <PageShell>
       <div className="wrap">
@@ -44,21 +48,15 @@ export function DocsPage() {
             <a href={DOCS_HEAD.tour.href} className="textlink mt-6">{DOCS_HEAD.tour.label} <ArrowRight size={16} aria-hidden="true" /></a>
           </PageIntro>
         </div>
-        <DocsTabs tab={tab} onChange={setTab} />
+        <DocsTabs current="guide" />
         <div className="grid gap-12 pb-24 lg:grid-cols-[220px_1fr]">
-          <SideNav key={tab} title={guide ? 'On this page' : RELEASES_HEAD.nav} links={guide ? LINKS : RELEASE_LINKS} />
-          <div id={`docs-panel-${tab}`} role="tabpanel" aria-labelledby={`docs-tab-${tab}`} className="min-w-0">
-            {guide ? (
-              <>
-                <InstallSection />
-                {DOC_SECTIONS.map((s) => <DocSectionBlock key={s.id} section={s} tourId={tourFor(s.id)} />)}
-                <DocsReference />
-                <ShortcutTable />
-                <DocsLater />
-              </>
-            ) : (
-              <ReleaseNotes />
-            )}
+          <SideNav title="On this page" links={LINKS} />
+          <div className="min-w-0">
+            <InstallSection />
+            {DOC_SECTIONS.map((s) => <DocSectionBlock key={s.id} section={s} tourId={tourFor(s.id)} />)}
+            <DocsReference />
+            <ShortcutTable />
+            <DocsLater />
           </div>
         </div>
       </div>

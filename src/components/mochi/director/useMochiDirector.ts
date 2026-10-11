@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import type { ActorState, BubbleKind, HeroState, MochiLine } from '@/types/mochi';
 import { HERO_POKES, MOCHI_LINES, ANTIC_LINES, REACTIONS } from '@/content/mochi.content';
 import { useActiveSection } from '@/hooks/useActiveSection';
@@ -21,7 +21,9 @@ const SPAM = { count: 5, windowMs: 4000 };
 export function useMochiDirector(roaming = true) {
   const reduced = useReducedMotion();
   const section = useActiveSection();
-  const [hiddenPref, setHiddenState] = useState(() => readJSON(KEY, { hidden: false }).hidden);
+  const [hiddenPref, setHiddenState] = useState(false);
+  // The saved switch is read after hydration, before the page is painted.
+  useLayoutEffect(() => { if (readJSON(KEY, { hidden: false }).hidden) setHiddenState(true); }, []);
   // Below, `hidden` means "keep the roaming Mochi away": switched off by the visitor, or not roaming on this page.
   const hidden = hiddenPref || !roaming;
   const [actor, setActor] = useState<ActorState>(IDLE);

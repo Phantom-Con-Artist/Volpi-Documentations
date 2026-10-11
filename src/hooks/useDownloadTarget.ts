@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useSyncExternalStore } from 'react';
 
 export type DownloadTarget = 'windows' | 'mac' | 'linux' | null;
 
@@ -16,7 +16,9 @@ export function detectTarget(): DownloadTarget {
   return null;
 }
 
-/** Read once: the page is client-rendered, so there is no server markup to disagree with. */
+const never = () => () => {};
+
+/** Null in the prerendered page (the general download link), then the visitor's system once the page hydrates. */
 export function useDownloadTarget(): DownloadTarget {
-  return useState(detectTarget)[0];
+  return useSyncExternalStore(never, detectTarget, () => null);
 }

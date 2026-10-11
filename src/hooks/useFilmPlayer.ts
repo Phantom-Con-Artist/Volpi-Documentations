@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState, type RefObject } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, type RefObject } from 'react';
 
 /**
  * Plays a list of scenes like a video. The active scene's progress bar is a CSS animation;
@@ -7,10 +7,11 @@ import { useCallback, useEffect, useRef, useState, type RefObject } from 'react'
  */
 export function useFilmPlayer(count: number, ref: RefObject<HTMLElement | null>, autoplay: boolean) {
   // ?scene=3 opens the film at that scene (handy for sharing a moment).
-  const [index, setIndex] = useState(() => {
+  const [index, setIndex] = useState(0);
+  useLayoutEffect(() => {
     const n = Number(new URLSearchParams(location.search).get('scene'));
-    return n >= 1 && n <= count ? n - 1 : 0;
-  });
+    if (n >= 1 && n <= count) setIndex(n - 1);
+  }, [count]);
   const [playing, setPlaying] = useState(false);
   const [ended, setEnded] = useState(false);
   const userPaused = useRef(false);

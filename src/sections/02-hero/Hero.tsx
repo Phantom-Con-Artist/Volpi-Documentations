@@ -13,7 +13,7 @@ export function Hero() {
     <section className="speedlines overflow-hidden pt-[clamp(48px,7vw,112px)]" style={{ ['--sl-x' as string]: '88%', ['--sl-y' as string]: '18%' }}>
       <div className="wrap">
         <div className="grid items-end gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(300px,430px)]">
-          <div className="rise">
+          <div>
             <span className="p5-tag p5-tag-seal">{HERO.kicker}</span>
             <h1 className="mb-8 mt-8">
               <span className="slash block w-fit"><VolpiWordmark className="block h-[clamp(4.6rem,11.5vw,11.5rem)] w-auto" /></span>
@@ -32,7 +32,7 @@ export function Hero() {
           </div>
           <HeroMochi />
         </div>
-        <figure className="rise m-0 mt-[clamp(56px,7vw,96px)]">
+        <figure className="m-0 mt-[clamp(56px,7vw,96px)]">
           <ThemedImg
             image={HERO_IMAGE}
             eager

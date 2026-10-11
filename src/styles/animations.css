@@ -1,8 +1,11 @@
 /* Short fades and rises (see useInView). Transforms and opacity only. */
-.rise { opacity: 0; transform: translate3d(0, 14px, 0); transition: opacity .5s ease, transform .5s ease; }
-.rise.is-in { opacity: 1; transform: none; }
+/* Hidden only once the inline theme script has run (it sets data-mode on <html>), so the text is
+   readable with scripts off. The hero and page intros are above the fold and never wait. */
+.rise { transition: opacity .5s ease, transform .5s ease; }
+html[data-mode] .rise:not(.is-in) { opacity: 0; transform: translate3d(0, 14px, 0); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto !important; }
-  .rise { opacity: 1; transform: none; transition: none; }
+  html[data-mode] .rise:not(.is-in) { opacity: 1; transform: none; }
+  .rise { transition: none; }
 }

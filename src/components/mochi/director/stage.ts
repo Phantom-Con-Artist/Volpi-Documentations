@@ -24,8 +24,11 @@ export function visibleTarget(selector: string): Element | null {
 }
 
 /** Last known pointer position, and whether this device has a fine pointer. */
-export const pointer = { x: innerWidth / 2, y: innerHeight / 2, fine: matchMedia('(pointer: fine)').matches };
-addEventListener('pointermove', (e) => { pointer.x = e.clientX; pointer.y = e.clientY; }, { passive: true });
+const inBrowser = typeof window !== 'undefined';
+export const pointer = inBrowser
+  ? { x: innerWidth / 2, y: innerHeight / 2, fine: matchMedia('(pointer: fine)').matches }
+  : { x: 0, y: 0, fine: false };
+if (inBrowser) addEventListener('pointermove', (e) => { pointer.x = e.clientX; pointer.y = e.clientY; }, { passive: true });
 
 export interface MoveOptions { speed?: number; ms?: number; run?: boolean; pose?: MochiPose }
 

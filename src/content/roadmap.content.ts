@@ -30,7 +30,7 @@ export const ROADMAP_PHASES: RoadmapPhase[] = [
       { title: 'Steadier PDFs on Linux', text: 'No more blank pages after switching files or resizing the window.' },
       { title: 'Updates from Home', text: 'Volpi checks for new versions. Choose Update and restart when you are ready.' },
     ],
-    link: { label: 'Read the release notes', href: '/docs/#releases' },
+    link: { label: 'Read the release notes', href: '/docs/releases/' },
   },
   {
     id: 'polish', number: '1.5', status: 'Next',

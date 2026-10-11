@@ -1,10 +1,4 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import '@/styles/index.css';
 import { AboutPage } from '@/pages/about/AboutPage';
+import { mount } from './mount';
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <AboutPage />
-  </StrictMode>,
-);
+mount(<AboutPage />);

@@ -1,10 +1,4 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import '@/styles/index.css';
 import { FeaturesPage } from '@/pages/features/FeaturesPage';
+import { mount } from './mount';
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <FeaturesPage />
-  </StrictMode>,
-);
+mount(<FeaturesPage />);

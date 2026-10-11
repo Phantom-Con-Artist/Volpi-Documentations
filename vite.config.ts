@@ -3,9 +3,10 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import type { Plugin } from 'vite';
 
-/** The public address of the site. Link previews, the canonical link and the sitemap need it as a full URL. */
-const SITE_URL = 'https://volpi.pages.dev';
-const PAGES = ['/', '/features/', '/docs/', '/about/', '/roadmap/', '/report/', '/pricing/', '/privacy/'];
+/** The public address of the site. Link previews, the canonical link and the sitemap need it as a full URL.
+ *  volpi.pages.dev only redirects here, so it must never appear in a canonical link or the sitemap. */
+const SITE_URL = 'https://volpi.mavern.in';
+const PAGES = ['/', '/features/', '/docs/', '/docs/releases/', '/about/', '/roadmap/', '/report/', '/pricing/', '/privacy/'];
 
 /** Adds absolute social-preview and canonical tags to every page, and writes sitemap.xml and robots.txt. */
 function siteMeta(): Plugin {
@@ -19,14 +20,15 @@ function siteMeta(): Plugin {
         .replace('</title>', `</title>\n    <link rel="canonical" href="${url}" />\n    <meta property="og:url" content="${url}" />\n    <meta property="og:type" content="website" />\n    <meta property="og:site_name" content="Volpi" />`);
     },
     generateBundle() {
-      const urls = PAGES.map((p) => `  <url><loc>${SITE_URL}${p}</loc></url>`).join('\n');
+      const today = new Date().toISOString().slice(0, 10);
+      const urls = PAGES.map((p) => `  <url><loc>${SITE_URL}${p}</loc><lastmod>${today}</lastmod></url>`).join('\n');
       this.emitFile({ type: 'asset', fileName: 'sitemap.xml', source: `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n` });
       this.emitFile({ type: 'asset', fileName: 'robots.txt', source: `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n` });
     },
   };
 }
 
-// Eight static pages, each with its own entry: home, features, about, roadmap, report, documentation, pricing and privacy.
+// Nine static pages, each with its own entry: home, features, about, roadmap, report, documentation, release notes, pricing and privacy.
 export default defineConfig({
   plugins: [react(), siteMeta()],
   resolve: {
@@ -39,6 +41,7 @@ export default defineConfig({
       input: {
         home: path.resolve(__dirname, 'index.html'),
         docs: path.resolve(__dirname, 'docs/index.html'),
+        releases: path.resolve(__dirname, 'docs/releases/index.html'),
         features: path.resolve(__dirname, 'features/index.html'),
         about: path.resolve(__dirname, 'about/index.html'),
         roadmap: path.resolve(__dirname, 'roadmap/index.html'),

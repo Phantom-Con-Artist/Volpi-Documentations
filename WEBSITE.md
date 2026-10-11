@@ -12,9 +12,11 @@ Notes for whoever maintains the Volpi website in this repository. If you only wa
 | Roadmap | `/roadmap/` | `src/pages/roadmap/` |
 | Report a bug | `/report/` | `src/pages/report/` |
 | Documentation | `/docs/` | `src/pages/docs/` |
+| Release notes | `/docs/releases/` | `src/pages/docs/releases/` |
+| Pricing | `/pricing/` | `src/pages/pricing/` |
 | Privacy | `/privacy/` | `src/pages/privacy/` |
 
-Each page has its own HTML shell (`index.html`, `features/index.html` and so on) and entry script in `src/entries/`. A new page needs an entry in `vite.config.ts`, its path in `tailwind.config.js` `content`, and an exact copy of the inline theme script from the other shells (its hash is allowed in `public/_headers`).
+Each page has its own HTML shell (`index.html`, `features/index.html` and so on) and entry script in `src/entries/`. A new page needs an entry and its path in `PAGES` in `vite.config.ts`, a line in `src/prerender.tsx`, its path in `tailwind.config.js` `content`, and an exact copy of the inline theme script from the other shells (its hash is allowed in `public/_headers`).
 
 ## Run it locally
 
@@ -23,13 +25,13 @@ You need Node.js 22 or later.
 ```bash
 npm install
 npm run dev       # development server at http://localhost:3000
-npm run build     # type-check and build into dist/
+npm run build     # type-check, build into dist/ and draw each page into its HTML
 npm run preview   # serve the built site
 ```
 
 ## Deploy
 
-The site is static. It builds into `dist/` and runs on Cloudflare Pages (`pages.dev`) with no server and no environment variables. See [DEPLOYMENT.md](DEPLOYMENT.md).
+The site is static. It builds into `dist/` and runs on Cloudflare Pages at https://volpi.mavern.in with no server and no environment variables. See [DEPLOYMENT.md](DEPLOYMENT.md).
 
 ## Project structure
 
@@ -37,7 +39,7 @@ The site is static. It builds into `dist/` and runs on Cloudflare Pages (`pages.
 index.html, features/, about/, roadmap/, report/, docs/, privacy/   one HTML shell per page
 public/                       files served as they are: images, videos, logo, _headers
 src/entries/                  one entry script per page
-src/pages/                    the eight pages
+src/pages/                    the nine pages
 src/sections/                 home page sections, in page order
 src/components/               shared components (layout, buttons, media, theme, Mochi)
 src/content/                  all text and data, typed

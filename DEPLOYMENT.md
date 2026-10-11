@@ -1,6 +1,6 @@
 # Deployment
 
-The site is a static build. Any static host works. These steps are for Cloudflare Pages (`pages.dev`).
+The site is a static build. Any static host works. These steps are for Cloudflare Pages.
 
 ## Cloudflare Pages settings
 
@@ -17,7 +17,9 @@ Connect the GitHub repository in the Cloudflare dashboard (Workers & Pages, Crea
 
 The Node.js version comes from `.nvmrc` (22).
 
-The build creates eight pages: `dist/index.html`, `dist/features/index.html`, `dist/about/index.html`, `dist/roadmap/index.html`, `dist/report/index.html`, `dist/docs/index.html`, `dist/pricing/index.html` and `dist/privacy/index.html`. Cloudflare serves them at `/`, `/features/`, `/about/`, `/roadmap/`, `/report/`, `/docs/`, `/pricing/` and `/privacy/`.
+The build creates nine pages: `dist/index.html`, `dist/features/index.html`, `dist/about/index.html`, `dist/roadmap/index.html`, `dist/report/index.html`, `dist/docs/index.html`, `dist/docs/releases/index.html`, `dist/pricing/index.html` and `dist/privacy/index.html`. Cloudflare serves them at `/`, `/features/`, `/about/`, `/roadmap/`, `/report/`, `/docs/`, `/docs/releases/`, `/pricing/` and `/privacy/`.
+
+The last step of the build draws each page into its HTML file, so the text is readable without scripts (by search engines too). The page's script then takes over the HTML that is already there.
 
 ## What is deployed
 
@@ -36,9 +38,9 @@ Cloudflare Pages allows up to 20,000 files and 25 MiB per file. The largest file
 
 ## Site address
 
-The site lives at `https://volpi.pages.dev`. Link previews, canonical links and the sitemap need the full address, so it is set once, as `SITE_URL` in `vite.config.ts`. If the site moves to its own domain, change it there.
+The site lives at `https://volpi.mavern.in`, a custom domain on the Cloudflare Pages project. `https://volpi.pages.dev` redirects there permanently (308). Link previews, canonical links and the sitemap need the full address, so it is set once, as `SITE_URL` in `vite.config.ts`. It must always be the address visitors end up on, never one that redirects.
 
 ## Before the first deployment
 
 - Run `npm run build` locally and check the result with `npm run preview`.
-- After deploying, open `/`, `/features/`, `/about/`, `/roadmap/`, `/report/`, `/docs/` and `/privacy/` and check that images and videos load. Open a made-up address such as `/nope/` to see the 404 page.
+- After deploying, open `/`, `/features/`, `/about/`, `/roadmap/`, `/report/`, `/docs/`, `/docs/releases/`, `/pricing/` and `/privacy/` and check that images and videos load. Open a made-up address such as `/nope/` to see the 404 page.
