@@ -22,7 +22,7 @@ export const LOOP_STEPS: LoopStep[] = [
   },
   {
     id: 'graph', kicker: 'Graph', title: 'See how files connect.',
-    text: 'The research graph shows every link. Select a note to see its connections.',
+    text: 'The research graph shows the links between your notes, papers and files. Select a note to see its connections.',
     clip: { name: 'graph', label: 'The research graph, with one note selected and its links drawn.' },
   },
   {
@@ -37,12 +37,12 @@ export const LOOP_STEPS: LoopStep[] = [
   },
   {
     id: 'versions', kicker: 'Versions', title: 'Bring back earlier text.',
-    text: 'Every change is kept. Compare a file with an earlier version, with added words underlined and removed words struck through, and bring the old text back.',
+    text: 'Volpi keeps a history of each file. Compare a file with an earlier version, with added words underlined and removed words struck through, and bring the old text back.',
     clip: { name: 'versions', label: 'Opening the versions of a paper and comparing it with an earlier one.' },
   },
   {
-    id: 'find', kicker: 'Search', title: 'Search all projects.',
-    text: 'Search file names, notes, PDF text and highlights in one project or all of them.',
+    id: 'find', kicker: 'Search', title: 'Search across projects.',
+    text: 'Search file names, notes, PDF text and highlights in one project or all your recent ones.',
     clip: { name: 'search', label: 'Searching across notes, papers, data and highlights.' },
   },
   {

@@ -28,7 +28,7 @@ export const FEATURES_SCENES: FilmScene[] = [
   {
     id: 'versions', title: 'Versions', duration: 8000, set: 'versions',
     mochi: { x: 60, y: 520, pose: 'point', mood: 'smug' },
-    bubble: { kind: 'speech', text: 'Versions keeps every change. Compare, then bring back the sentence you deleted on Tuesday. Time travel for commas.' },
+    bubble: { kind: 'speech', text: 'Versions keeps the history. Compare, then bring back the sentence you deleted on Tuesday. Time travel for commas.' },
     bubbleSide: 'above',
   },
   {
@@ -82,7 +82,7 @@ export const FEATURES_SCENES: FilmScene[] = [
   {
     id: 'later', title: 'Coming later', duration: 8000, set: 'later',
     mochi: { x: 730, y: 520, pose: 'point', mood: 'smug', flip: true },
-    bubble: { kind: 'thought', text: 'Planned, no dates: OCR for scans, whole-folder import, extensions, and machine-learning tools that run on your computer.' },
+    bubble: { kind: 'thought', text: 'Being tested, no dates: sync, import from Zotero, a phone app, and machine-learning tools that run on your computer.' },
     bubbleSide: 'above',
   },
   {
@@ -127,7 +127,7 @@ export const FEATURES_PROPS = {
   menu: ['Open', 'Open beside', 'Star', 'Rename', 'Move to', 'Earlier versions'],
   journal: 'Recovery journal',
   conflict: ['Keep yours', 'Save yours as a copy', 'Use the disk version'],
-  later: ['OCR for scans', 'Whole-folder import', 'Extensions', 'Local machine learning'],
-  planned: 'Planned',
+  later: ['Sync', 'Import from Zotero', 'Phone app', 'Local machine learning'],
+  planned: 'In testing',
   noDates: 'No dates yet',
 };

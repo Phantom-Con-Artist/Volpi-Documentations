@@ -4,19 +4,18 @@ Notes for whoever maintains the Volpi website in this repository. If you only wa
 
 ## Pages
 
-| Page | Path | Source |
+| Pages | Path | Source |
 |---|---|---|
 | Home | `/` | `src/pages/home/` |
 | Features | `/features/` | `src/pages/features/` |
-| About | `/about/` | `src/pages/about/` |
-| Roadmap | `/roadmap/` | `src/pages/roadmap/` |
-| Report a bug | `/report/` | `src/pages/report/` |
-| Documentation | `/docs/` | `src/pages/docs/` |
+| Download | `/download/` | `src/pages/download/` |
+| Documentation | `/docs/` and `/docs/<subject>/` | `src/pages/docs/` |
 | Release notes | `/docs/releases/` | `src/pages/docs/releases/` |
-| Pricing | `/pricing/` | `src/pages/pricing/` |
-| Privacy | `/privacy/` | `src/pages/privacy/` |
+| Guides, formats, comparisons | `/guides/`, `/formats/`, `/vs/` | `src/pages/articles/`, text in `src/content/articles/` |
+| FAQ | `/faq/` | `src/pages/faq/` |
+| Pricing, Roadmap, About, Privacy, Report a bug | `/pricing/` and so on | `src/pages/<name>/` |
 
-Each page has its own HTML shell (`index.html`, `features/index.html` and so on) and entry script in `src/entries/`. A new page needs an entry and its path in `PAGES` in `vite.config.ts`, a line in `src/prerender.tsx`, its path in `tailwind.config.js` `content`, and an exact copy of the inline theme script from the other shells (its hash is allowed in `public/_headers`).
+Every page is listed in `src/content/routes.ts` with its address, title and description. All of them are built from one template, `page.html`. To add a guide, a format page or a comparison, add it to its file in `src/content/articles/` and add its route. See `AGENTS.md` section 1 for a new kind of page.
 
 ## Run it locally
 
@@ -36,10 +35,10 @@ The site is static. It builds into `dist/` and runs on Cloudflare Pages at https
 ## Project structure
 
 ```
-index.html, features/, about/, roadmap/, report/, docs/, privacy/   one HTML shell per page
+page.html                     the one HTML template every page is built from
 public/                       files served as they are: images, videos, logo, _headers
 src/entries/                  one entry script per page
-src/pages/                    the nine pages
+src/pages/                    the pages
 src/sections/                 home page sections, in page order
 src/components/               shared components (layout, buttons, media, theme, Mochi)
 src/content/                  all text and data, typed

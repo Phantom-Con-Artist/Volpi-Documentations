@@ -3,42 +3,22 @@ import { ArrowRight } from 'lucide-react';
 import { PageShell } from '@/components/layout/PageShell';
 import { PageIntro } from '@/components/typography/PageIntro';
 import { BetaBanner } from '@/components/feedback/BetaBanner';
-import { SideNav } from '@/components/navigation/SideNav';
-import { DOCS_HEAD, DOC_SECTIONS } from '@/content/docs.content';
-import { REFERENCE_TABLES } from '@/content/docs-reference.content';
-import { FEATURE_CHAPTERS } from '@/content/features.content';
-import { DocSectionBlock } from './DocSectionBlock';
-import { DocsReference } from './DocsReference';
-import { ShortcutTable } from './ShortcutTable';
-import { DocsLater } from './DocsLater';
-import { InstallSection } from './InstallSection';
+import { DOCS_HEAD } from '@/content/docs.content';
+import { DOC_GROUPS, OLD_ANCHORS } from '@/content/docs-pages.content';
 import { DocsTabs } from './DocsTabs';
-import { RELEASES_HEAD } from '@/content/releases.content';
 
-const LINKS = [
-  { label: 'Install', href: '#install' },
-  ...DOC_SECTIONS.map((s) => ({ label: s.title, href: `#${s.id}` })),
-  ...REFERENCE_TABLES.map((t) => ({ label: t.title, href: `#${t.id}` })),
-  { label: 'Keyboard shortcuts', href: '#shortcuts' },
-  { label: 'Known limits', href: '#limits' },
-  { label: 'What comes next', href: '#next' },
-  { label: 'Price and licence', href: '#pricing' },
-];
-
-/** Release notes used to be a tab here, so old links such as /docs/#v0.1.1 are sent on to their page. */
-function useOldReleaseLinks() {
+/** The documentation used to be one page, so old links such as /docs/#reading or /docs/#v0.1.1 are sent on to the page that has it now. */
+function useOldAnchors() {
   useEffect(() => {
     const hash = location.hash.slice(1);
-    if (hash === 'releases') location.replace(RELEASES_HEAD.href);
-    else if (/^v\d/.test(hash)) location.replace(`${RELEASES_HEAD.href}#${hash}`);
+    if (OLD_ANCHORS[hash]) location.replace(OLD_ANCHORS[hash]);
+    else if (/^v\d/.test(hash)) location.replace(`${OLD_ANCHORS.releases}#${hash}`);
   }, []);
 }
 
-/** The tour chapter that shows each docs section, so the two pages link to each other. */
-const tourFor = (docId: string) => FEATURE_CHAPTERS.find((c) => c.docId === docId)?.id;
-
+/** The documentation's front page: every page, grouped, with a line on what it covers. */
 export function DocsPage() {
-  useOldReleaseLinks();
+  useOldAnchors();
   return (
     <PageShell>
       <div className="wrap">
@@ -49,15 +29,20 @@ export function DocsPage() {
           </PageIntro>
         </div>
         <DocsTabs current="guide" />
-        <div className="grid gap-12 pb-24 lg:grid-cols-[220px_1fr]">
-          <SideNav title="On this page" links={LINKS} />
-          <div className="min-w-0">
-            <InstallSection />
-            {DOC_SECTIONS.map((s) => <DocSectionBlock key={s.id} section={s} tourId={tourFor(s.id)} />)}
-            <DocsReference />
-            <ShortcutTable />
-            <DocsLater />
-          </div>
+        <div className="grid gap-14 pb-24">
+          {DOC_GROUPS.map((group) => (
+            <section key={group.title} className="rise">
+              <h2 className="border-b-[3px] border-ink pb-3 text-[clamp(1.5rem,2.6vw,2rem)] leading-tight">{group.title}</h2>
+              <ul className="m-0 grid list-none gap-x-10 p-0 md:grid-cols-2 xl:grid-cols-3">
+                {group.pages.map((p) => (
+                  <li key={p.href} className="border-b border-tone-soft py-5">
+                    <a href={p.href} className="textlink text-[18px]">{p.label} <ArrowRight size={16} aria-hidden="true" /></a>
+                    <p className="mt-2 text-[15.5px] text-ink-2">{p.text}</p>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
         </div>
       </div>
     </PageShell>

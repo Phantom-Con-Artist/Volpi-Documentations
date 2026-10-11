@@ -1,6 +1,7 @@
 import type { PolicySection } from '@/types/content';
 
-/** Facts verified against the app: ../Volpi/src-tauri/src/citations/online.rs, src/features/citations/settings.ts, src-tauri/src/updates/ and src/features/updates/. */
+/** Facts checked against the app at v0.1.1 (see FEATURE_GAPS.md and Guidelines.md in the app repository): crates/volpi-core/src/citations/online.rs,
+ *  apps/desktop/src/features/citations/verify.ts, features/updates/, features/profiles/registry.ts and crates/volpi-core/src/pdf_cache/. */
 export const PRIVACY_HEAD = {
   kicker: 'Privacy',
   title: 'Your files stay on your computer.',
@@ -9,14 +10,14 @@ export const PRIVACY_HEAD = {
 
 export const PRIVACY_SUMMARY: string[] = [
   'Your files never leave your computer.',
-  'Volpi uses the internet for two things: checking references (by default only when you click) and asking GitHub whether a new version is out.',
-  'It sends an identifier or a short citation. Never your notes, PDFs or name.',
+  'Volpi uses the internet for two things: checking references (by default only when you click) and updates (asking GitHub whether a new version is out, and downloading it when you choose to).',
+  'A reference check sends an identifier or a short citation (first author, year, title, journal). Never your notes, PDFs or name.',
   'There is no tracking and no telemetry. This version has no AI features.',
 ];
 
 export const LOOKUP_ENDPOINTS: { name: string; host: string; sends: string }[] = [
-  { name: 'Crossref', host: 'api.crossref.org', sends: 'A DOI, or a citation or title' },
-  { name: 'OpenAlex', host: 'api.openalex.org', sends: 'A DOI, or a citation or title' },
+  { name: 'Crossref', host: 'api.crossref.org', sends: 'A DOI, or a short citation: first author, year, title and journal' },
+  { name: 'OpenAlex', host: 'api.openalex.org', sends: 'A DOI, or a title or short citation' },
   { name: 'arXiv', host: 'export.arxiv.org', sends: 'An arXiv identifier' },
   { name: 'PubMed', host: 'eutils.ncbi.nlm.nih.gov', sends: 'A PubMed ID' },
 ];
@@ -31,19 +32,20 @@ export const PRIVACY_SECTIONS: PolicySection[] = [
   {
     id: 'stays',
     title: 'What stays on your computer',
-    paragraphs: ['Everything you make or import in Volpi is stored on your own disk, in folders you choose.'],
+    paragraphs: ['Everything you make or import in Volpi is stored on your own disk. Your branches are in folders you choose. Volpi keeps its own settings in its app storage on the same computer.'],
     list: [
       'Your branches: PDFs, notes, papers, data, figures and references.',
-      'Highlights, comments and the history of every change.',
-      'Profiles, profile passwords and settings.',
+      'Highlights, comments and each branch\'s history, inside the branch folder (the history is in a hidden .volpi folder there).',
+      'Profiles, profile passwords and settings, in Volpi\'s own app storage.',
+      'A cache that makes PDFs you have opened before quicker, in your system\'s cache folder.',
     ],
   },
   {
     id: 'network',
     title: 'When Volpi uses the internet',
     paragraphs: [
-      'Volpi connects to the internet for reference checks and update checks, nothing else. When a reference is checked, Volpi asks one of four public scholarly databases whether it exists and how it is described.',
-      'Only fixed addresses can be reached. Each request has a time and size limit, and Volpi waits between requests so it does not overload the databases.',
+      'Volpi connects to the internet for reference checks and updates, nothing else. When a reference is checked, Volpi asks one of four public scholarly databases whether it exists and how it is described.',
+      'Reference checks only go to the four fixed addresses below. Each request has a time and size limit, and Volpi waits between requests so it does not overload the databases.',
       'Volpi identifies itself as "Volpi/0.1". Like any web request, the database can see your IP address. Their own privacy policies apply to what they receive.',
     ],
   },
@@ -51,9 +53,9 @@ export const PRIVACY_SECTIONS: PolicySection[] = [
     id: 'updates',
     title: 'Update checks',
     paragraphs: [
-      'From version 0.1.1, each time Home opens, Volpi asks GitHub whether a newer version has been published. It fetches a small file with the latest version number from github.com/Phantom-Con-Artist/Volpi-Releases (and, if that fails, the same answer from api.github.com).',
+      'From version 0.1.1, each time Home opens, Volpi asks GitHub whether a newer version has been published. It fetches a small file with the latest version number from github.com/Phantom-Con-Artist/Volpi-Releases (and, if that fails, it asks api.github.com for the latest version number).',
       'The check sends nothing about you, your files or how you use Volpi. Like any web request, GitHub can see your IP address, and GitHub\'s privacy policy applies. Without an internet connection the check fails and nothing else changes.',
-      'Nothing is downloaded until you choose Update and restart. Updates are signed, and Volpi checks the signature before installing. There is no switch to turn the check off yet.',
+      'The update itself is not downloaded until you choose Update and restart. It comes from the address named in that small file. Updates are signed, and Volpi checks the signature before installing. There is no switch to turn the check off yet.',
     ],
   },
   {
@@ -80,7 +82,7 @@ export const PRIVACY_SECTIONS: PolicySection[] = [
       'No account or sign-in.',
       'No analytics, telemetry or crash reports.',
       'No ads and no selling of data, because there is no data to sell.',
-      'No AI features in this version. Machine-learning tools are planned for later (see the roadmap). They will run on your computer, and your files will never be sent anywhere to train a model.',
+      'No AI features in this version. Machine-learning tools you build yourself are being tested for a later version (see the roadmap). They run on your computer, and your files are never sent anywhere to train a model.',
     ],
     paragraphs: [],
   },
@@ -95,7 +97,7 @@ export const PRIVACY_SECTIONS: PolicySection[] = [
     id: 'delete',
     title: 'Deleting your data',
     paragraphs: [
-      'Delete a branch folder and it is gone. Uninstall Volpi to remove the app. There is nothing to delete on our side, because we never had it.',
+      'Delete a branch folder and its files, highlights and history are gone. Profiles, settings and the PDF cache are kept apart from your branches, in Volpi\'s app storage and your system\'s cache folder. Uninstall Volpi and clear its app data to remove those. There is nothing to delete on our side, because we never had it.',
     ],
   },
   {

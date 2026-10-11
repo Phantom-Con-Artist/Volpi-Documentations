@@ -1,11 +1,12 @@
 import type { RefTable } from '@/types/content';
 
-/** One reference table: a term (or syntax) column and its meaning, with an optional note under it. */
-export function RefTableBlock({ table }: { table: RefTable }) {
+/** One reference table: a term (or syntax) column and its meaning, with an optional note under it.
+ *  `bare` leaves out the heading and intro, for a page whose own heading already says them. */
+export function RefTableBlock({ table, bare = false }: { table: RefTable; bare?: boolean }) {
   return (
-    <section id={table.id} className="rise border-t border-tone-soft py-12">
-      <h3 className="text-[clamp(1.4rem,2.4vw,1.8rem)] leading-tight">{table.title}</h3>
-      <p className="mb-6 mt-2 text-ink-2">{table.intro}</p>
+    <section id={table.id} className={bare ? 'pb-12' : 'rise border-t border-tone-soft py-12'}>
+      {!bare && <h2 className="text-[clamp(1.4rem,2.4vw,1.8rem)] leading-tight">{table.title}</h2>}
+      {!bare && <p className="mb-6 mt-2 text-ink-2">{table.intro}</p>}
       <div className="overflow-x-auto">
         <table className="w-full min-w-[480px] border-collapse text-left text-[15.5px]">
           <thead>

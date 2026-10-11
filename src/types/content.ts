@@ -139,3 +139,45 @@ export interface Release {
   summary: string;
   changes: Record<ChangeKind, { title: string; text: string }[]>;
 }
+
+/** One part of an article: a heading, then any of paragraphs, a list, numbered steps, a table and a note. */
+export interface ArticleBlock {
+  id?: string;
+  title: string;
+  paragraphs?: string[];
+  list?: string[];
+  /** Numbered steps, in order. */
+  steps?: string[];
+  table?: { columns: string[]; rows: string[][] };
+  note?: string;
+  links?: NavLink[];
+}
+
+/** A written page: a guide, a file format or a comparison. */
+export interface Article {
+  /** The last part of the page's address. It must have a route in routes.ts. */
+  slug: string;
+  title: string;
+  lede: string;
+  blocks: ArticleBlock[];
+  /** Other pages on this site worth reading next. */
+  related?: NavLink[];
+  /** The other tool's own pages that a comparison's statements about it come from. */
+  sources?: NavLink[];
+}
+
+/** A set of articles with a front page that lists them. */
+export interface ArticleSection {
+  /** The first part of the address: /guides/, /formats/ or /vs/. */
+  id: string;
+  kicker: string;
+  title: string;
+  lede: string;
+  /** Shown above an article's links back to the set. */
+  back: string;
+  /** A line under every article of the set, such as the date its facts were checked. */
+  footnote?: string;
+  articles: Article[];
+}
+
+export interface FaqGroup { title: string; items: { q: string; a: string; link?: NavLink }[] }

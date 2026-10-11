@@ -67,7 +67,7 @@ The open beta is free for everyone. Version 1.0 will be a one-time purchase, not
 Windows 10 and 11, macOS (Apple Silicon and Intel) and Linux. The beta installers are not signed yet, so your computer may warn you the first time.
 
 **Where is my data?**
-On your computer, in folders you choose. There is no account and no cloud. Volpi only uses the internet to check references, and you can turn that off. The privacy policy has the details.
+On your computer, in folders you choose. There is no account and no cloud. Volpi only uses the internet to check references (you can turn that off) and to check for and download updates. The privacy policy has the details.
 
 **How do I suggest a feature?**
 On [Discord](https://discord.gg/gkHMSq6emT). Feature requests opened as issues may be moved there.

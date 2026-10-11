@@ -2,9 +2,8 @@ import { SHORTCUTS } from '@/content/docs.content';
 
 export function ShortcutTable() {
   return (
-    <section id="shortcuts" className="rise border-t border-tone-soft py-14">
-      <h2 className="text-[clamp(1.6rem,3vw,2.1rem)] leading-tight">Keyboard shortcuts</h2>
-      <table className="mt-8 w-full border-collapse text-left">
+    <section id="shortcuts" className="pb-14">
+      <table className="w-full border-collapse text-left">
         <tbody>
           {SHORTCUTS.map((s) => (
             <tr key={s.action} className="border-b border-tone-soft">

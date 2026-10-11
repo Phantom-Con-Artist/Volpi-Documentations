@@ -1,54 +1,70 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
+import fs from 'fs';
 import type { Plugin } from 'vite';
+import { ROUTES, fileOf, type Route } from './src/content/routes';
 
 /** The public address of the site. Link previews, the canonical link and the sitemap need it as a full URL.
  *  volpi.pages.dev only redirects here, so it must never appear in a canonical link or the sitemap. */
 const SITE_URL = 'https://volpi.mavern.in';
-const PAGES = ['/', '/features/', '/docs/', '/docs/releases/', '/about/', '/roadmap/', '/report/', '/pricing/', '/privacy/'];
+const TEMPLATE = path.resolve(__dirname, 'page.html');
+const fileFor = (route: Route) => path.resolve(__dirname, fileOf(route));
+const attr = (text: string) => text.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 
-/** Adds absolute social-preview and canonical tags to every page, and writes sitemap.xml and robots.txt. */
-function siteMeta(): Plugin {
+/** page.html filled in for one route: title, description, canonical and social tags, and its entry script. */
+function shell(route: Route): string {
+  const fill: Record<string, string> = { TITLE: attr(route.title), DESCRIPTION: attr(route.description), URL: SITE_URL + route.path, SITE: SITE_URL, ENTRY: route.entry };
+  return fs.readFileSync(TEMPLATE, 'utf8').replace(/%(TITLE|DESCRIPTION|URL|SITE|ENTRY)%/g, (_, key: string) => fill[key]);
+}
+
+/**
+ * One HTML file per route in src/content/routes.ts, all made from page.html, so no page has a shell of its own.
+ * The build treats each as an input; the development server answers each route's address the same way.
+ * Also writes sitemap.xml and robots.txt.
+ */
+function pages(): Plugin {
+  const byFile = new Map(ROUTES.map((route) => [fileFor(route), route]));
   return {
-    name: 'volpi-site-meta',
-    transformIndexHtml(html, ctx) {
-      const page = ctx.path.replace(/index\.html$/, '');
-      const url = SITE_URL + page;
-      return html
-        .replace('content="/assets/social/og-day.png"', `content="${SITE_URL}/assets/social/og-day.png"`)
-        .replace('</title>', `</title>\n    <link rel="canonical" href="${url}" />\n    <meta property="og:url" content="${url}" />\n    <meta property="og:type" content="website" />\n    <meta property="og:site_name" content="Volpi" />`);
+    name: 'volpi-pages',
+    resolveId(id) { return byFile.has(id) ? id : null; },
+    load(id) { const route = byFile.get(id); return route ? shell(route) : null; },
+    configureServer(server) {
+      server.watcher.add(TEMPLATE);
+      server.middlewares.use(async (req, res, next) => {
+        const url = (req.url ?? '').split('?')[0];
+        const route = ROUTES.find((r) => r.path === url || r.path === `${url}/`);
+        if (!route || req.method !== 'GET') return next();
+        try {
+          const html = await server.transformIndexHtml(route.path, shell(route));
+          res.statusCode = 200;
+          res.setHeader('Content-Type', 'text/html');
+          res.end(html);
+        } catch (error) { next(error); }
+      });
     },
     generateBundle() {
       const today = new Date().toISOString().slice(0, 10);
-      const urls = PAGES.map((p) => `  <url><loc>${SITE_URL}${p}</loc><lastmod>${today}</lastmod></url>`).join('\n');
+      const urls = ROUTES.map((r) => `  <url><loc>${SITE_URL}${r.path}</loc><lastmod>${today}</lastmod></url>`).join('\n');
       this.emitFile({ type: 'asset', fileName: 'sitemap.xml', source: `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n` });
       this.emitFile({ type: 'asset', fileName: 'robots.txt', source: `User-agent: *\nAllow: /\n\nSitemap: ${SITE_URL}/sitemap.xml\n` });
     },
   };
 }
 
-// Nine static pages, each with its own entry: home, features, about, roadmap, report, documentation, release notes, pricing and privacy.
 export default defineConfig({
-  plugins: [react(), siteMeta()],
+  plugins: [react(), pages()],
+  // The structured data drawn into each page needs the full address too (src/content/structured-data.ts).
+  define: { __SITE_URL__: JSON.stringify(SITE_URL) },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
   },
+  appType: 'mpa',
   build: {
     rollupOptions: {
-      input: {
-        home: path.resolve(__dirname, 'index.html'),
-        docs: path.resolve(__dirname, 'docs/index.html'),
-        releases: path.resolve(__dirname, 'docs/releases/index.html'),
-        features: path.resolve(__dirname, 'features/index.html'),
-        about: path.resolve(__dirname, 'about/index.html'),
-        roadmap: path.resolve(__dirname, 'roadmap/index.html'),
-        report: path.resolve(__dirname, 'report/index.html'),
-        pricing: path.resolve(__dirname, 'pricing/index.html'),
-        privacy: path.resolve(__dirname, 'privacy/index.html'),
-      },
+      input: Object.fromEntries(ROUTES.map((route) => [route.path === '/' ? 'home' : route.path.replace(/^\/|\/$/g, '').replace(/\//g, '-'), fileFor(route)])),
     },
   },
   server: {

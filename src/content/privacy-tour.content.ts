@@ -28,7 +28,7 @@ export const PRIVACY_SCENES: FilmScene[] = [
   {
     id: 'postcard', title: 'Checking a reference', duration: 8500, set: 'postcard',
     mochi: { x: 730, y: 520, pose: 'point', mood: 'smile', flip: true },
-    bubble: { kind: 'speech', text: 'Say you check a reference. Volpi sends a tiny postcard: just a DOI or a title. Your thesis stays home.' },
+    bubble: { kind: 'speech', text: 'Say you check a reference. Volpi sends a tiny postcard: a DOI or a short citation. Your thesis stays home.' },
     bubbleSide: 'above',
   },
   {
@@ -58,7 +58,7 @@ export const PRIVACY_SCENES: FilmScene[] = [
   {
     id: 'delete', title: 'Deleting your data', duration: 7500, set: 'delete',
     mochi: { x: 60, y: 520, pose: 'wave', mood: 'happy' },
-    bubble: { kind: 'speech', text: 'Want it gone? Delete the folder. There is nothing to delete on our side, because we never had it.' },
+    bubble: { kind: 'speech', text: 'Want a project gone? Delete its folder. There is nothing to delete on our side, because we never had it.' },
     bubbleSide: 'above',
   },
   {
@@ -70,7 +70,7 @@ export const PRIVACY_SCENES: FilmScene[] = [
   {
     id: 'bow', title: 'Welcome', duration: 7000, set: 'finale',
     mochi: { x: 385, y: 520, pose: 'bow', mood: 'happy' },
-    bubble: { kind: 'speech', text: 'That is the whole policy. Your research is yours. Thank you for watching. Yoroshiku onegaishimasu.' },
+    bubble: { kind: 'speech', text: 'That is the short version. Your research is yours. Thank you for watching. Yoroshiku onegaishimasu.' },
     bubbleSide: 'above', emote: '✿',
   },
 ];

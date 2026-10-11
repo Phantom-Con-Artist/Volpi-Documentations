@@ -9,7 +9,7 @@ const dist = path.join(root, 'dist');
 const ssr = path.join(root, 'dist-ssr');
 const EMPTY = '<div id="root"></div>';
 
-const { files, render } = await import(pathToFileURL(path.join(ssr, 'prerender.js')).href);
+const { files, render, schema } = await import(pathToFileURL(path.join(ssr, 'prerender.js')).href);
 
 for (const file of files) {
   const target = path.join(dist, file);
@@ -17,7 +17,9 @@ for (const file of files) {
   if (!html.includes(EMPTY)) throw new Error(`${file}: no empty root to draw into`);
   const body = render(file);
   if (!body.includes('<h1')) throw new Error(`${file}: the drawn page has no h1`);
-  await writeFile(target, html.replace(EMPTY, () => `<div id="root">${body}</div>`));
+  if (!html.includes('</head>')) throw new Error(`${file}: no head to put structured data in`);
+  const data = `    <script type="application/ld+json">${schema(file)}</script>\n  </head>`;
+  await writeFile(target, html.replace('</head>', () => data).replace(EMPTY, () => `<div id="root">${body}</div>`));
   console.log(`prerendered ${file} (${Math.round(body.length / 1024)} kB)`);
 }
 

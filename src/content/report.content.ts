@@ -12,7 +12,7 @@ export const REPORT_STEPS: ReportStep[] = [
     title: 'Check that it is not already known.',
     text: 'Some limits of the beta are already listed. Someone may also have reported your bug. If they have, add your details to their report instead of opening a new one.',
     links: [
-      { label: 'Known limits', href: '/docs/#limits' },
+      { label: 'Known limits', href: '/docs/limits/' },
       { label: 'Existing reports', href: BUG_REPORT_URL },
     ],
   },

@@ -8,7 +8,7 @@ export const MOCHI_LINES: Record<string, MochiLine> = {
   'features-top': { text: 'The full tour. Please keep your hands inside the panels.', mood: 'happy' },
   'roadmap-top': { text: 'The plan. I added the snack breaks.', mood: 'happy' },
   'docs-top': { text: 'Everything Volpi does, in one long list. Bring tea.', mood: 'happy' },
-  'privacy-network': { text: 'Only a DOI or a title goes out. Never a file. I would know.', mood: 'smile' },
+  'privacy-network': { text: 'Only a DOI or a short citation goes out. Never a file. I would know.', mood: 'smile' },
 };
 
 /** What the small Mochi beside a home section says. */

@@ -6,7 +6,7 @@ export const PRICING_HEAD = {
   text: 'The open beta is free for everyone. Version 1.0 will be a one-time purchase, not a subscription.',
   plansLabel: 'Plans',
   install: 'How to install',
-  installHref: '/docs/#install',
+  installHref: '/download/',
 };
 
 export const PRICE_PLANS: PricePlan[] = [

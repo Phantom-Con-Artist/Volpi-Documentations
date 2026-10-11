@@ -47,7 +47,12 @@ export const NAV: NavLink[] = [
 
 export const FOOTER_LINKS: NavLink[] = [
   { label: 'Features', href: '/features/' },
+  { label: 'Download', href: '/download/' },
   { label: 'Documentation', href: '/docs/' },
+  { label: 'Guides', href: '/guides/' },
+  { label: 'Formats', href: '/formats/' },
+  { label: 'Compare', href: '/vs/' },
+  { label: 'FAQ', href: '/faq/' },
   { label: 'Pricing', href: '/pricing/' },
   { label: 'Roadmap', href: '/roadmap/' },
   { label: 'About', href: '/about/' },

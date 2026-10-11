@@ -9,8 +9,9 @@ export const NOT_YET = {
   card: 'Beta · v0.1.1',
   items: [
     { title: 'Search inside scanned PDFs', text: 'no OCR yet' },
-    { title: 'Sync between computers', text: 'use your own folder sync' },
+    { title: 'Sync between computers', text: 'coming in the next version' },
     { title: 'Verify older books', text: 'often "not found"' },
     { title: 'Signed installers', text: 'expect a warning on first run' },
+    { title: 'A phone app', text: 'Android, in early testing' },
   ] satisfies Fact[],
 };

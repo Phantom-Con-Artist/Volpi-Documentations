@@ -16,12 +16,13 @@ export const DOWNLOAD = {
   macHint: 'Not sure which Mac? Apple menu, About This Mac: Chip means Apple Silicon, Processor means Intel.',
   unsigned: 'The beta installers are not signed yet. Windows may show SmartScreen (More info, then Run anyway), and macOS may need a right-click, then Open.',
   install: 'Install help',
-  installHref: '/docs/#install',
+  installHref: '/download/',
 };
 
 export const INSTALL_DOCS = {
   id: 'install',
   title: 'Install',
+  short: 'Get the installer for Windows, macOS or Linux, and the steps for each.',
   intro: 'Volpi 0.1.1 is an open beta for Windows 10 and 11, macOS (Apple Silicon and Intel) and Linux. Download the zip for your computer and unzip it. It holds the installer, install steps, the changelog, the licence and the notices for the open-source software Volpi includes.',
   steps: [
     { title: 'Windows', text: 'Double-click the setup file. If Windows protected your PC appears, choose More info, then Run anyway. Volpi needs Microsoft Edge WebView2, which most computers have; the installer fetches it if not.' },
@@ -31,4 +32,19 @@ export const INSTALL_DOCS = {
     { title: 'Updating', text: 'From 0.1.1, Home checks for new versions in the background. Choose Update and restart when one is ready. Coming from 0.1.0? Install 0.1.1 over it once, by hand. Your branches and settings stay as they are.' },
   ],
   full: 'Full install steps on GitHub',
+};
+
+/** The download page (/download/). */
+export const DOWNLOAD_PAGE = {
+  kicker: 'Download',
+  title: 'Download Volpi.',
+  filesTitle: 'Installers',
+  filesIntro: 'Each link downloads the newest release from GitHub.',
+  stepsTitle: 'How to install',
+  moreTitle: 'After installing',
+  more: [
+    { label: 'Read the documentation', href: '/docs/' },
+    { label: 'See what changed in this version', href: '/docs/releases/' },
+    { label: 'What Volpi sends over the internet', href: '/privacy/' },
+  ],
 };

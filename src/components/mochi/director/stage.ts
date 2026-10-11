@@ -6,9 +6,11 @@ export function actorSize() {
   return { w, h: Math.round((w * 320) / 210) };
 }
 
-/** Where she waits when the hero is off screen: peeking up from the bottom-right corner. */
+/** Where she waits when the hero is off screen: peeking up from the bottom-right corner.
+ *  On a phone the text runs to the edge, so only her ears and eyes show and she covers no words. */
 export function cornerSpot() {
   const { w, h } = actorSize();
+  if (innerWidth < 640) return { x: innerWidth - w * 0.66, y: innerHeight - h * 0.3 };
   return { x: innerWidth - w * 0.8 - 18, y: innerHeight - h * 0.48 };
 }
 

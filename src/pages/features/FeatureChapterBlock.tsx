@@ -22,7 +22,7 @@ export function FeatureChapterBlock({ chapter, index }: { chapter: FeatureChapte
               </li>
             ))}
           </ul>
-          <a href={`/docs/#${chapter.docId}`} className="textlink mt-8">{FEATURES_HEAD.docsLink} <ArrowRight size={16} aria-hidden="true" /></a>
+          <a href={`/docs/${chapter.docId}/`} className="textlink mt-8">{FEATURES_HEAD.docsLink} <ArrowRight size={16} aria-hidden="true" /></a>
         </div>
         {chapter.images.length > 0 && <div className="flex flex-col gap-12">
           {chapter.images.map((img) => (

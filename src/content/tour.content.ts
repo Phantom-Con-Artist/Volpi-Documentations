@@ -35,31 +35,31 @@ export const TOUR_SCENES: FilmScene[] = [
   {
     id: 'read', title: 'Highlight PDFs', duration: 7500, set: 'highlight',
     mochi: { x: 60, y: 520, pose: 'point', mood: 'smile' },
-    bubble: { kind: 'speech', text: 'Highlight the whole PDF yellow if you must. The highlights live in a small file beside it. The PDF stays pristine.' },
+    bubble: { kind: 'speech', text: 'Highlight the whole PDF yellow if you must. The highlights live in a small file of their own. The PDF stays pristine.' },
     bubbleSide: 'above',
   },
   {
     id: 'refs', title: 'Checked references', duration: 8000, set: 'verify',
     mochi: { x: 730, y: 520, pose: 'wave', mood: 'smug', flip: true },
-    bubble: { kind: 'speech', text: 'Volpi asks Crossref, OpenAlex, arXiv and PubMed whether each reference is real. Reviewer 2 will need a new hobby.' },
+    bubble: { kind: 'speech', text: 'Volpi asks Crossref, OpenAlex, arXiv or PubMed whether a reference is real. Reviewer 2 will need a new hobby.' },
     bubbleSide: 'above',
   },
   {
     id: 'data', title: 'Data, checked first', duration: 8000, set: 'data',
     mochi: { x: 60, y: 520, pose: 'idle', mood: 'angry' },
-    bubble: { kind: 'shout', text: 'Open a CSV and Volpi flags gaps, label typos and outliers. A participant aged 999? Caught. Then chart it as SVG.' },
+    bubble: { kind: 'shout', text: 'Open a CSV and Volpi flags gaps, mismatched labels and outliers. A participant aged 999? Worth a look. Then chart it as SVG.' },
     bubbleSide: 'above',
   },
   {
     id: 'write', title: 'Write the paper', duration: 8000, set: 'write',
     mochi: { x: 730, y: 520, pose: 'point', mood: 'smile', flip: true },
-    bubble: { kind: 'speech', text: 'Write beside your sources. Versions keeps every change, and the paper exports to Word, PDF, LaTeX and friends.' },
+    bubble: { kind: 'speech', text: 'Write beside your sources. Versions keeps the history, and the paper exports to Word, PDF, LaTeX and friends.' },
     bubbleSide: 'above',
   },
   {
     id: 'local', title: 'It stays local', duration: 7500, set: 'local',
     mochi: { x: 60, y: 520, pose: 'sit', mood: 'happy' },
-    bubble: { kind: 'speech', text: 'It all stays on your computer. No account, no cloud. Only reference checks and update checks go online.' },
+    bubble: { kind: 'speech', text: 'It all stays on your computer. No account, no cloud. Only reference checks and updates go online.' },
     bubbleSide: 'above',
   },
   {

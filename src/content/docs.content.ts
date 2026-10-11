@@ -1,14 +1,14 @@
 import type { DocSection, Fact, Shortcut } from '@/types/content';
 import { feature, windowShot } from './media.content';
 
-/** Product facts follow the app's release notes (../Volpi/src/features/changelog/entries.ts). */
+/** Product facts follow the app at v0.1.1: its release notes (../Volpi/apps/desktop/src/features/changelog/entries.ts) and the audit in ../Volpi/FEATURE_GAPS.md. */
 export const DOCS_HEAD = {
   kicker: 'Documentation · v0.1.1',
   title: 'Documentation.',
   text: 'How Volpi works in the first beta: every feature, the words it uses, link syntax, file formats, shortcuts and known limits.',
   tour: { label: 'Prefer pictures? Take the features tour', href: '/features/' },
   tourShort: 'See it in the tour',
-  banner: "The open beta is out. This page describes version 0.1.1. Every version's changes are under Release notes.",
+  banner: "The open beta is out. These pages describe version 0.1.1. Every version's changes are under Release notes.",
 };
 
 export const DOC_SECTIONS: DocSection[] = [
@@ -28,11 +28,11 @@ export const DOC_SECTIONS: DocSection[] = [
     intro: 'Highlight, comment and quote without touching the original.',
     image: feature('pdf', 'A PDF page with coloured highlights next to its comment cards.'),
     features: [
-      { title: 'Highlights and comments', text: 'Saved in a small file beside the PDF.' },
+      { title: 'Highlights and comments', text: 'Saved as a small file in the branch\'s annotations folder. The PDF itself is never changed.' },
       { title: 'Links from a page', text: 'Link a PDF page to notes and other files in the branch. With a note or paper open beside the PDF, quote or cite a highlight straight into it.' },
       { title: 'Annotated copy', text: 'Export a copy of the PDF with your highlights in it.' },
       { title: 'Smooth scrolling', text: 'Pages render nearest first and stay cached, so long PDFs keep up.' },
-      { title: 'Reading modes', text: 'Paper, Aged and Night page colours.' },
+      { title: 'Reading modes', text: 'White, Sepia and Dark page colours.' },
     ],
   },
   {
@@ -41,8 +41,8 @@ export const DOC_SECTIONS: DocSection[] = [
     image: feature('graph', 'The research graph with labelled notes and files.'),
     features: [
       { title: 'Markdown', text: 'Notes are .md files. Edit, split view or reading view.' },
-      { title: 'Two link styles', text: 'Write <name> or [text](name). Add #page=3 to land on a page.' },
-      { title: 'Link-safe rename', text: 'Move or rename a file and every link to it is updated.' },
+      { title: 'Two link styles', text: 'Write the file name with its ending in angle brackets, as in <paper.pdf>, or use [text](paper.pdf). Write <paper.pdf#page=3> to land on a page.' },
+      { title: 'Link-safe rename', text: 'Move or rename a file in Volpi and the links to it in your notes and papers are updated.' },
       { title: 'Research graph', text: 'See how notes, papers and figures connect.' },
     ],
   },
@@ -51,24 +51,24 @@ export const DOC_SECTIONS: DocSection[] = [
     intro: 'Check a dataset for problems, then chart it.',
     image: feature('data', 'A data health check with a score, missing cells and outliers.'),
     features: [
-      { title: 'Data health', text: 'CSV, TSV and JSON are checked for gaps, typos in labels and outliers.' },
+      { title: 'Data health', text: 'CSV, TSV and JSON are checked for gaps, labels written in more than one way (capitals or spacing) and possible outliers.' },
       { title: 'Charts', text: 'Bar, line, scatter and more, with your own titles and labels.' },
       { title: 'Tables from PDFs', text: 'Volpi finds captioned tables in a PDF. Hover a table for its chip, or use the Navigate list, to chart it, save it as CSV or put it in a note. For a table without a caption, draw a box around it with the Chart tool.' },
       { title: 'SVG figures', text: 'Save charts as SVG, ready for a paper.' },
-      { title: 'Picture tools', text: 'Open a picture to crop it (any shape or a fixed one), turn or flip it, make it greyscale, or change its brightness and contrast. Save a copy writes a new picture and never changes the original. PNG, JPEG, GIF, WebP, AVIF, BMP, SVG and TIFF open.' },
+      { title: 'Picture tools', text: 'Open a picture to crop it (freely or to a fixed shape), turn or flip it, make it greyscale, or change its brightness and contrast. Save a copy writes a new picture and never changes the original. PNG, JPEG, GIF, WebP, AVIF, BMP, SVG and TIFF open.' },
     ],
   },
   {
     id: 'papers', title: 'Writing papers',
     intro: 'Papers are .vdoc files, which are plain HTML inside.',
-    image: feature('paper', 'The paper editor with comment threads from colleagues.'),
+    image: feature('paper', 'The paper editor with comment threads beside the text.'),
     features: [
       { title: 'Structure', text: 'Four heading levels, numbered automatically. A heading called Appendices letters the sections after it. Figures, tables, footnotes and cross-references.' },
       { title: 'Outline and contents', text: 'The Outline moves a section up or down with everything inside it, or changes its level, in one Undo step. Insert a table of contents, list of figures or list of tables that stays up to date.' },
       { title: 'Things to check', text: 'Lists broken cross-references, citations missing from the references, uncited references and figures without captions.' },
       { title: 'Equations', text: 'Write $$ E = mc^2 $$ on its own line and press Enter for a numbered equation. $$x$$ inside a sentence becomes inline math.' },
       { title: 'Page setup', text: 'Zoom with Ctrl+scroll. Margin presets (Normal, Narrow, Moderate, Wide, Wide sides, Thesis bound, Like LaTeX) or your own, in centimetres. Sixteen academic fonts, including Computer Modern.' },
-      { title: 'Review', text: 'Comment threads in the paper. The page shows no tracked changes; Versions keeps every one of them.' },
+      { title: 'Review', text: 'Comment threads in the paper. The page shows no tracked changes; Versions keeps the history.' },
       { title: 'Versions', text: 'Compare a file with an earlier version, with added words underlined and removed words struck through, and bring back earlier text. Save a version with a short note to keep how every file looks at that moment.' },
       { title: 'Export formats', text: 'OpenDocument (.odt), Word (.docx), PDF, Rich Text, web page (HTML), Markdown, LaTeX and plain text. On Linux, OpenDocument is listed first. Word import is unchanged.' },
     ],
@@ -109,7 +109,7 @@ export const DOC_SECTIONS: DocSection[] = [
       { title: 'Crash recovery', text: 'Unsaved edits are kept in a recovery journal and offered back if Volpi closes unexpectedly.' },
       { title: 'Changes from outside', text: 'A file changed outside Volpi is never overwritten. Keep yours, save yours as a copy, or use the disk version.' },
       { title: 'Drafts in manual mode', text: 'Switching files keeps unsaved edits, with their Undo. The title bar lists them, and Volpi only asks when you leave the branch or close the window.' },
-      { title: 'Undo and history', text: 'Undo per editor. Revert or restore any change to the branch, or open Versions to see them by day.' },
+      { title: 'Undo and history', text: 'Undo per editor. Revert or restore a change to the branch, or open Versions to see them by day. Edits made within a few minutes of each other are kept as one step.' },
       { title: 'Launchpad', text: 'Pin the files and websites you return to most.' },
       { title: 'Themes', text: 'Day and Night warm paper, or plain Light and Dark, with indigo, crimson or matcha ink.' },
       { title: 'Night light', text: 'A warm tint over the whole window for reading in the evening. Choose Soft, Warm or Warmer in Settings.' },
@@ -149,23 +149,25 @@ export const LIMITS: Fact[] = [
   { title: 'Books and older works', text: 'They often show Likely or Not found even when they are real.' },
   { title: 'Verification is not fact-checking', text: 'A verified reference exists. Volpi cannot tell if it supports your sentence.' },
   { title: 'Passwords lock, they do not encrypt', text: 'Branch folders stay ordinary files on disk.' },
-  { title: 'No sync', text: 'Profiles and branches are not synced between devices.' },
+  { title: 'No sync', text: 'Profiles and branches are not synced between devices in this version.' },
   { title: 'Tables without captions', text: 'Volpi finds a PDF table from its caption. For one without a caption, select it with the Chart tool.' },
   { title: 'Large PDFs on Linux', text: 'Very large or image-heavy PDFs can still stutter on Linux, and a page may stay blank for a moment when you scroll fast.' },
   { title: 'Empty folders', text: 'A new empty folder only appears on disk once a file is placed in it.' },
   { title: 'Newer history format', text: 'Branches opened with this build cannot be opened by earlier test builds.' },
-  { title: 'Import and search limits', text: 'No whole-folder import or password-protected PDFs yet. Search reads Word (.docx) and Excel (.xlsx) files, not older .doc or .xls. Files over 512 MB cannot be imported.' },
+  { title: 'Import and search limits', text: 'No whole-folder import yet. A password-protected PDF opens once you type its password, but a copy with your highlights cannot be exported from it. Search reads Word (.docx) and Excel (.xlsx) files, not older .doc or .xls. Files over 512 MB cannot be imported.' },
 ];
 
 export const NEXT_HEAD = {
   title: 'What comes next',
-  intro: 'Planned after the open beta. No dates, and the order may change.',
+  intro: 'Not in this version. No dates, and the order may change.',
   roadmap: { label: 'See the full roadmap', href: '/roadmap/' },
 };
 
 export const NEXT: Fact[] = [
-  { title: 'OCR for scanned PDFs', text: 'So older scans can be searched and quoted.' },
-  { title: 'Whole-folder import', text: 'Bring an existing library across in one step.' },
+  { title: 'Sync between computers', text: 'Being tested for the next version, through a folder in your own cloud drive.' },
+  { title: 'Import from Zotero and Mendeley', text: 'Being tested for the next version: references, PDFs, tags and collections.' },
+  { title: 'Whole-folder import', text: 'Being tested for the next version. Bring an existing library across in one step.' },
+  { title: 'Reading text in scans', text: 'Being built for Volpi Mobile first. Not planned for the desktop app yet.' },
 ];
 
 export const PRICING = {

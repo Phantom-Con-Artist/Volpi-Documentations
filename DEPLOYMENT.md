@@ -17,7 +17,7 @@ Connect the GitHub repository in the Cloudflare dashboard (Workers & Pages, Crea
 
 The Node.js version comes from `.nvmrc` (22).
 
-The build creates nine pages: `dist/index.html`, `dist/features/index.html`, `dist/about/index.html`, `dist/roadmap/index.html`, `dist/report/index.html`, `dist/docs/index.html`, `dist/docs/releases/index.html`, `dist/pricing/index.html` and `dist/privacy/index.html`. Cloudflare serves them at `/`, `/features/`, `/about/`, `/roadmap/`, `/report/`, `/docs/`, `/docs/releases/`, `/pricing/` and `/privacy/`.
+The build creates one HTML file for every page listed in `src/content/routes.ts` (about forty), each in its own folder: `dist/index.html`, `dist/features/index.html`, `dist/docs/reading/index.html` and so on. Cloudflare serves them at `/`, `/features/`, `/docs/reading/`.
 
 The last step of the build draws each page into its HTML file, so the text is readable without scripts (by search engines too). The page's script then takes over the HTML that is already there.
 
@@ -43,4 +43,4 @@ The site lives at `https://volpi.mavern.in`, a custom domain on the Cloudflare P
 ## Before the first deployment
 
 - Run `npm run build` locally and check the result with `npm run preview`.
-- After deploying, open `/`, `/features/`, `/about/`, `/roadmap/`, `/report/`, `/docs/`, `/docs/releases/`, `/pricing/` and `/privacy/` and check that images and videos load. Open a made-up address such as `/nope/` to see the 404 page.
+- After deploying, open `/`, `/features/`, `/docs/`, `/docs/reading/`, `/guides/`, `/vs/zotero/`, `/faq/` and `/privacy/` and check that images and videos load. Open a made-up address such as `/nope/` to see the 404 page.
